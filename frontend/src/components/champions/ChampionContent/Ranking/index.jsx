@@ -21,19 +21,60 @@ const TBody = styled.tbody`
   }
 `;
 
+const initSort = [{
+    value: 'rank',
+    sortType: false,
+    reverseSort: true,
+}];
+
+const initSortList = {
+    rank: {
+        value: 'rank',
+        sortType: false,
+        reverseSort: true,
+    },
+    tier: {
+        value: 'tier',
+        sortType: true,
+        reverseSort: true,
+    },
+    ai_score: {
+        value: 'ai_score',
+        sortType: true,
+    },
+    win_rate: {
+        value: 'win_rate',
+        sortType: true,
+    },
+    pick_rate: {
+        value: 'pick_rate',
+        sortType: true,
+    },
+    ban_rate: {
+        value: 'ban_rate',
+        sortType: true,
+    },
+}
+
 const Ranking = () => {
+
+    
+
+
     return (
             
         <Wrapper>
             <RanksTable>
                 <colgroup>
-                    <col width={'12%'}/>
-                    <col/>
-                    <col width={'15%'}/>
-                    <col width={'15%'}/>
-                    <col width={'15%'}/>
-                    <col width={'15%'}/>
-                    <col width={'15%'}/>
+                    <col width="48" />
+                    <col width="*" />
+                    <col width="56" />
+                    <col width="56" />
+                    <col width="94" />
+                    <col width="110" />
+                    <col width="94" />
+                    <col width="135" />
+                        
                 </colgroup>
             
                 <thead>
