@@ -25,7 +25,7 @@ function App() {
             </Routes>
           </Router>
         </RegionProvider>
-        
+        <p>TEST</p>
       </AppWrapper>
     </ThemeProvider>
   );
