@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 `
 
 const TagWrap = styled.div`
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     color: ${props => props.selected ? props.theme.default_font_color :  props.theme.region_border};
 `

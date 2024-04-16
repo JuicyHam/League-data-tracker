@@ -1,6 +1,6 @@
 import Navbar from "../common/Header/Navbar";
 import styled from "styled-components";
-import ContentWrapper from "./ContentWrapper";
+import ContentWrapper from "./ChampionContent";
 
 const Wrapper = styled.div`
     top: 0;
