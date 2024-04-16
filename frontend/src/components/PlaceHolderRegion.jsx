@@ -17,7 +17,6 @@ const Span = styled.span`
 
 const PlaceHolder = () => {
     const {selectedRegion} = useContext(RegionContext);
-    console.log(selectedRegion);
     const serverRegion = useMemo(() => {
         try {
             const result = regionList.find((data) => data.title === selectedRegion);
