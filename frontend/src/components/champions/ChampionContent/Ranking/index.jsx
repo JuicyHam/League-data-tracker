@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ChampionTableHeader from "./ChampionTableHeader";
+import { useEffect } from "react";
 
 
 
@@ -60,7 +61,16 @@ const initSortList = {
 const Ranking = () => {
 
     
-
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("https://localhost:5000/champions");
+            } catch (error) {
+                console.log("Error fetching champion data: ", error)
+            }
+        };
+        fetchData();
+    }, [])
 
     return (
             
