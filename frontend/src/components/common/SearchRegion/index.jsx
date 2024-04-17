@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Dropdown from "../../Dropdown"
 import regionList from "../../../Json/regionList";
 import RegionBox from "./Region";
-import {memo, useCallback, useContext} from "react"
-import { RegionContext } from "../../../contexts/RegionContext";
+import {useCallback, useContext} from "react"
+import { useAppData } from "../../../contexts/AppDataContext";
 
 const ButtonWrapper = styled.div`
     display: flex;
@@ -60,7 +60,7 @@ const Arrow = styled.div`
 
 const SearchRegion = ({ width, height, radius, fontSize}) => {
 
-    const {selectedRegion,setSelectedRegion} = useContext(RegionContext);
+    const {selectedRegion,setSelectedRegion} = useAppData();
 
     const onClickRegion = useCallback((title) => {
         setSelectedRegion(title);

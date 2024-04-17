@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import SearchTitle from "../../common/SummonerAramHeader";
 import ChampionHeader from "../ChampionHeader";
-import { createContext, useState } from "react";
 import { ChampionProvider } from "../../../contexts/ChampionContext";
 import Ranking from "./Ranking";
 import Champion from "./Champion";
@@ -16,7 +15,6 @@ const TablesWrapper = styled.div`
     flex-direction: row;
     width: 100%;
     margin-top: 10px;
-    height: 100vh;
     
 `
 const ContentWrapper = ({children}) => {

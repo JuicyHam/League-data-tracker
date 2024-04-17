@@ -1,7 +1,7 @@
 import { useContext, useMemo } from "react";
 import regionList from "../Json/regionList";
 import styled from "styled-components";
-import { RegionContext } from "../contexts/RegionContext";
+import { useAppData } from "../contexts/AppDataContext";
 
 const Wrapper = styled.div`
     border-radius: 5px;
@@ -16,7 +16,7 @@ const Span = styled.span`
 `
 
 const PlaceHolder = () => {
-    const {selectedRegion} = useContext(RegionContext);
+    const {selectedRegion} = useAppData();
     const serverRegion = useMemo(() => {
         try {
             const result = regionList.find((data) => data.title === selectedRegion);

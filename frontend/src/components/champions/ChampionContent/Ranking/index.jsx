@@ -81,42 +81,6 @@ const Ranking = () => {
                     <ChampionTableHeader/>
                 </thead>
                 <TBody>
-                    <tr>
-                        <td>January</td>
-                        <td>$10,000</td>
-                        <td>$7,000</td>
-                        <td>$3,000</td>
-                    </tr>
-                    <tr>
-                        <td>February</td>
-                        <td>$12,000</td>
-                        <td>$8,000</td>
-                        <td>$4,000</td>
-                    </tr>
-                    <tr>
-                        <td>January</td>
-                        <td>$10,000</td>
-                        <td>$7,000</td>
-                        <td>$3,000</td>
-                    </tr>
-                    <tr>
-                        <td>February</td>
-                        <td>$12,000</td>
-                        <td>$8,000</td>
-                        <td>$4,000</td>
-                    </tr>
-                    <tr>
-                        <td>January</td>
-                        <td>$10,000</td>
-                        <td>$7,000</td>
-                        <td>$3,000</td>
-                    </tr>
-                    <tr>
-                        <td>February</td>
-                        <td>$12,000</td>
-                        <td>$8,000</td>
-                        <td>$4,000</td>
-                    </tr>
                 </TBody>
             </RanksTable>
         </Wrapper>

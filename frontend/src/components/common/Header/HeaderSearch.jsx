@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import SearchRegion from "../SearchRegion";
-import React, { useState, useCallback} from "react";
 
 const Wrapper = styled.div`
     display: flex;

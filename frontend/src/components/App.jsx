@@ -4,7 +4,7 @@ import Champion from './champions';
 import {dark} from '../common/theme'
 import styled, {ThemeProvider} from 'styled-components'
 import GlobalStyles from '../styles/GlobalStyled';
-import { RegionProvider } from '../contexts/RegionContext';
+import { AppDataProvider } from '../contexts/AppDataContext';
 
 const AppWrapper = styled.div`
   min-width: 1100px;
@@ -17,14 +17,14 @@ function App() {
     <ThemeProvider theme={dark}>
       <GlobalStyles/>
       <AppWrapper>
-        <RegionProvider>
+        <AppDataProvider>
           <Router>
             <Routes>
               <Route path="/" element={<Home/>} />         
               <Route path="/champions" element={<Champion/>}/>
             </Routes>
           </Router>
-        </RegionProvider>
+        </AppDataProvider>
       </AppWrapper>
     </ThemeProvider>
   );

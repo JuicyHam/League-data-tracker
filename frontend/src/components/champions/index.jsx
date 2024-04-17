@@ -1,6 +1,7 @@
 import Navbar from "../common/Header/Navbar";
 import styled from "styled-components";
 import ContentWrapper from "./ChampionContent";
+import Footer from "../common/Footer";
 
 const Wrapper = styled.div`
     top: 0;
@@ -22,7 +23,8 @@ const Champion = () => {
             <Navbar ishome={false} region={"EUW"}/>
             <CenterWrapper>
                 <ContentWrapper/>
-            </CenterWrapper>        
+            </CenterWrapper>    
+            <Footer/>    
         </Wrapper>
     );
 }

@@ -2,7 +2,7 @@ import {useState, useEffect, useRef, useCallback, useContext} from "react";
 import styled from "styled-components";
 import SearchRegion from "./SearchRegion"
 import PlaceHolder from "../PlaceHolderRegion";
-import { RegionContext } from "../../contexts/RegionContext";
+
 
 const Wrapper = styled.div`
     width: 720px;

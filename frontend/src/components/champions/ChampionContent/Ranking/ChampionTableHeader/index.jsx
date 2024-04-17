@@ -14,6 +14,34 @@ const ChampionTableHeader = () => {
             title={"Rank"}
 
             />
+            <RankingTableHeader
+            title={"Champion"}
+
+            />
+            <RankingTableHeader
+            title={"Tier"}
+
+            />
+            <RankingTableHeader
+            title={"Position"}
+
+            />
+            <RankingTableHeader
+            title={"Win"}
+
+            />
+            <RankingTableHeader
+            title={"Pick"}
+
+            />
+            <RankingTableHeader
+            title={"Ban"}
+
+            />
+            <RankingTableHeader
+            title={"Counter"}
+
+            />
         </Wrapper>
     );
 };

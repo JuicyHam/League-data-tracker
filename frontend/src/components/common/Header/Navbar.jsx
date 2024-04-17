@@ -13,7 +13,7 @@ const Header = styled.header`
     justify-content: center;
     flex: 1;
     background: ${props => props.theme.header.background_color};
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+    //box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
     z-index: 10;
 `
 
