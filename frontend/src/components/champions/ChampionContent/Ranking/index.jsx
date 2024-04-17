@@ -7,6 +7,7 @@ const Wrapper = styled.main`
     width: 750px;
     background-color: #2e2e43;
     border-radius: 6px;
+    height: 100%;
 `
 const RanksTable = styled.table`
     width: 100%;    

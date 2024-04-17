@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import RankingTableHeader from "../RankingTableHeader";
+import RankingTableHeader from "./RankingTableHeader";
 
 const Wrapper = styled.tr`
     background-color: #1a1a29

@@ -3,8 +3,6 @@ import { useAppData } from '../../../contexts/AppDataContext';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    width: 100%;
-
     ul {
         padding: 10px 0;
         display: flex;
