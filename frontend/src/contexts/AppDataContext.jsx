@@ -9,13 +9,13 @@ export const AppDataProvider = ({ children }) => {
   
   useEffect(() => {
     async function fetchData() {
-      const versionResponse = await fetch('http://ddragon.leagueoflegends.com/api/versions.json');
+      const versionResponse = await fetch('https://ddragon.leagueoflegends.com/api/versions.json');
       const versionData = await versionResponse.json();
       const latestVersion = versionData[0]; 
-      const championResponse = await fetch(`http://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/champion.json`);
+      const championResponse = await fetch(`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/champion.json`);
       const championData = await championResponse.json();
       const championIconsByName = Object.values(championData.data).reduce((acc, champion) => {
-        acc[champion.name] = `http://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/champion/${champion.image.full}`;
+        acc[champion.name] = `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/champion/${champion.image.full}`;
         return acc;
       }, {});
       setChampionIcons(championIconsByName);
