@@ -1,2352 +1,2135 @@
 [
     {
-        "Rank": "1",
+        "Champion Name": "Skarner",
+        "Tier": "0",
+        "Role": "Jungle",
+        "Win Rate": "53.66%",
+        "Pick Rate": "4.85%",
+        "Ban Rate": "11.33%",
+        "Counters": "Amumu, Rumble, Zed"
+    },
+    {
         "Champion Name": "Skarner",
         "Tier": "0",
         "Role": "Top",
-        "Win Rate": "54.05%",
-        "Pick Rate": "9.66%",
-        "Ban Rate": "24.56%",
-        "Counters": "Twisted Fate, Rek'Sai, Cassiopeia"
+        "Win Rate": "52.96%",
+        "Pick Rate": "9.38%",
+        "Ban Rate": "21.84%",
+        "Counters": "Cassiopeia, Rengar, Gnar"
     },
     {
-        "Rank": "2",
         "Champion Name": "Jinx",
         "Tier": "0",
         "Role": "Bottom",
-        "Win Rate": "51.70%",
-        "Pick Rate": "26.21%",
-        "Ban Rate": "24.92%",
-        "Counters": "Twitch, Nilah, Ziggs"
+        "Win Rate": "51.98%",
+        "Pick Rate": "25.54%",
+        "Ban Rate": "23.76%",
+        "Counters": "Veigar, Twitch, Kog'Maw"
     },
     {
-        "Rank": "3",
-        "Champion Name": "Akshan",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "56.08%",
-        "Pick Rate": "0.59%",
-        "Ban Rate": "1.41%",
-        "Counters": ""
+        "Champion Name": "Ahri",
+        "Tier": "0",
+        "Role": "Middle",
+        "Win Rate": "51.60%",
+        "Pick Rate": "13.70%",
+        "Ban Rate": "18.01%",
+        "Counters": "Pantheon, Neeko, Swain"
     },
     {
-        "Rank": "4",
-        "Champion Name": "Cassiopeia",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "55.92%",
-        "Pick Rate": "0.88%",
-        "Ban Rate": "0.49%",
-        "Counters": "Skarner, Aatrox"
-    },
-    {
-        "Rank": "5",
-        "Champion Name": "Warwick",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "54.36%",
-        "Pick Rate": "1.42%",
-        "Ban Rate": "0.25%",
-        "Counters": "Yone, Skarner, Camille"
-    },
-    {
-        "Rank": "6",
         "Champion Name": "Kog'Maw",
         "Tier": "1",
         "Role": "Bottom",
-        "Win Rate": "53.82%",
-        "Pick Rate": "3.71%",
-        "Ban Rate": "2.07%",
-        "Counters": "Nilah, Varus, Caitlyn"
+        "Win Rate": "54.30%",
+        "Pick Rate": "3.90%",
+        "Ban Rate": "2.27%",
+        "Counters": "Yasuo, Nilah, Caitlyn"
     },
     {
-        "Rank": "7",
-        "Champion Name": "Rek'Sai",
-        "Tier": "1",
-        "Role": "Jungle",
-        "Win Rate": "53.63%",
-        "Pick Rate": "3.99%",
-        "Ban Rate": "8.20%",
-        "Counters": "Elise, Gragas, Volibear"
-    },
-    {
-        "Rank": "8",
-        "Champion Name": "Skarner",
-        "Tier": "1",
-        "Role": "Jungle",
-        "Win Rate": "53.48%",
-        "Pick Rate": "3.86%",
-        "Ban Rate": "9.85%",
-        "Counters": "Evelynn, Udyr, Bel'Veth"
-    },
-    {
-        "Rank": "9",
-        "Champion Name": "Tryndamere",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "53.21%",
-        "Pick Rate": "1.99%",
-        "Ban Rate": "1.09%",
-        "Counters": "Garen, Skarner, Fiora"
-    },
-    {
-        "Rank": "10",
-        "Champion Name": "Kassadin",
-        "Tier": "1",
-        "Role": "Middle",
-        "Win Rate": "52.82%",
-        "Pick Rate": "4.35%",
-        "Ban Rate": "9.62%",
-        "Counters": "Anivia, Qiyana, Malzahar"
-    },
-    {
-        "Rank": "11",
-        "Champion Name": "Urgot",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "52.81%",
-        "Pick Rate": "2.62%",
-        "Ban Rate": "0.89%",
-        "Counters": "Skarner, Olaf, Illaoi"
-    },
-    {
-        "Rank": "12",
-        "Champion Name": "Twitch",
-        "Tier": "1",
-        "Role": "Bottom",
-        "Win Rate": "52.65%",
-        "Pick Rate": "8.31%",
-        "Ban Rate": "11.80%",
-        "Counters": "Sivir, Kog'Maw, Aphelios"
-    },
-    {
-        "Rank": "13",
-        "Champion Name": "Malphite",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "52.64%",
-        "Pick Rate": "5.28%",
-        "Ban Rate": "6.41%",
-        "Counters": "Yorick, Gwen, Tahm Kench"
-    },
-    {
-        "Rank": "14",
-        "Champion Name": "Blitzcrank",
-        "Tier": "1",
-        "Role": "Support",
-        "Win Rate": "52.46%",
-        "Pick Rate": "9.04%",
-        "Ban Rate": "38.87%",
-        "Counters": "Rell, Braum, Zilean"
-    },
-    {
-        "Rank": "15",
-        "Champion Name": "Camille",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "52.34%",
-        "Pick Rate": "6.14%",
-        "Ban Rate": "4.78%",
-        "Counters": "Akali, Zac, Dr. Mundo"
-    },
-    {
-        "Rank": "16",
         "Champion Name": "Janna",
         "Tier": "1",
         "Role": "Support",
-        "Win Rate": "52.33%",
-        "Pick Rate": "8.42%",
-        "Ban Rate": "8.01%",
-        "Counters": "Vel'Koz, Xerath, Poppy"
+        "Win Rate": "52.93%",
+        "Pick Rate": "8.98%",
+        "Ban Rate": "8.85%",
+        "Counters": "Poppy, Neeko, Vel'Koz"
     },
     {
-        "Rank": "17",
+        "Champion Name": "Urgot",
+        "Tier": "1",
+        "Role": "Top",
+        "Win Rate": "52.64%",
+        "Pick Rate": "2.93%",
+        "Ban Rate": "1.06%",
+        "Counters": "Yasuo, Teemo, Yorick"
+    },
+    {
+        "Champion Name": "Rek'Sai",
+        "Tier": "1",
+        "Role": "Jungle",
+        "Win Rate": "52.59%",
+        "Pick Rate": "3.57%",
+        "Ban Rate": "6.13%",
+        "Counters": "Olaf, Rammus, Amumu"
+    },
+    {
+        "Champion Name": "Twitch",
+        "Tier": "1",
+        "Role": "Bottom",
+        "Win Rate": "52.44%",
+        "Pick Rate": "8.91%",
+        "Ban Rate": "12.00%",
+        "Counters": "Ziggs, Nilah, Sivir"
+    },
+    {
+        "Champion Name": "Blitzcrank",
+        "Tier": "1",
+        "Role": "Support",
+        "Win Rate": "52.42%",
+        "Pick Rate": "8.39%",
+        "Ban Rate": "33.72%",
+        "Counters": "Zac, Brand, Rell"
+    },
+    {
+        "Champion Name": "Bel'Veth",
+        "Tier": "1",
+        "Role": "Jungle",
+        "Win Rate": "52.41%",
+        "Pick Rate": "4.29%",
+        "Ban Rate": "11.31%",
+        "Counters": "Rek'Sai, Elise, Nocturne"
+    },
+    {
+        "Champion Name": "Kassadin",
+        "Tier": "1",
+        "Role": "Middle",
+        "Win Rate": "52.16%",
+        "Pick Rate": "4.56%",
+        "Ban Rate": "10.68%",
+        "Counters": "Kayle, Anivia, Akshan"
+    },
+    {
+        "Champion Name": "Camille",
+        "Tier": "1",
+        "Role": "Top",
+        "Win Rate": "51.98%",
+        "Pick Rate": "6.44%",
+        "Ban Rate": "5.36%",
+        "Counters": "Zac, Vayne, Gnar"
+    },
+    {
         "Champion Name": "Master Yi",
         "Tier": "1",
         "Role": "Jungle",
-        "Win Rate": "52.14%",
-        "Pick Rate": "6.18%",
-        "Ban Rate": "10.33%",
-        "Counters": "Udyr, Amumu, Nunu & Willump"
+        "Win Rate": "51.94%",
+        "Pick Rate": "6.57%",
+        "Ban Rate": "12.66%",
+        "Counters": "Nunu & Willump, Elise, Udyr"
     },
     {
-        "Rank": "18",
-        "Champion Name": "Kayle",
+        "Champion Name": "Volibear",
         "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "51.92%",
-        "Pick Rate": "3.11%",
-        "Ban Rate": "1.06%",
-        "Counters": "Zac, Malphite, Nasus"
+        "Role": "Jungle",
+        "Win Rate": "51.84%",
+        "Pick Rate": "4.24%",
+        "Ban Rate": "3.89%",
+        "Counters": "Talon, Ivern, Nidalee"
     },
     {
-        "Rank": "19",
-        "Champion Name": "Akali",
+        "Champion Name": "Taliyah",
         "Tier": "1",
         "Role": "Middle",
-        "Win Rate": "51.75%",
-        "Pick Rate": "7.35%",
-        "Ban Rate": "10.86%",
-        "Counters": "Kassadin, Lissandra, Galio"
+        "Win Rate": "51.71%",
+        "Pick Rate": "4.90%",
+        "Ban Rate": "3.66%",
+        "Counters": "Kassadin, Gragas, Ekko"
     },
     {
-        "Rank": "20",
+        "Champion Name": "Twisted Fate",
+        "Tier": "1",
+        "Role": "Middle",
+        "Win Rate": "51.71%",
+        "Pick Rate": "4.75%",
+        "Ban Rate": "1.78%",
+        "Counters": "Naafiri, Fizz, Kassadin"
+    },
+    {
+        "Champion Name": "Malphite",
+        "Tier": "1",
+        "Role": "Top",
+        "Win Rate": "51.64%",
+        "Pick Rate": "5.25%",
+        "Ban Rate": "6.47%",
+        "Counters": "Cho'Gath, Udyr, Akali"
+    },
+    {
+        "Champion Name": "Nami",
+        "Tier": "1",
+        "Role": "Support",
+        "Win Rate": "51.58%",
+        "Pick Rate": "9.58%",
+        "Ban Rate": "0.60%",
+        "Counters": "Galio, Fiddlesticks, Blitzcrank"
+    },
+    {
         "Champion Name": "Jhin",
         "Tier": "1",
         "Role": "Bottom",
-        "Win Rate": "51.64%",
-        "Pick Rate": "13.95%",
-        "Ban Rate": "1.02%",
-        "Counters": "Nilah, Kalista, Lucian"
+        "Win Rate": "51.56%",
+        "Pick Rate": "14.54%",
+        "Ban Rate": "1.29%",
+        "Counters": "Nilah, Kog'Maw, Yasuo"
     },
     {
-        "Rank": "21",
+        "Champion Name": "Akali",
+        "Tier": "1",
+        "Role": "Middle",
+        "Win Rate": "51.39%",
+        "Pick Rate": "7.68%",
+        "Ban Rate": "12.46%",
+        "Counters": "Renekton, Galio, Vel'Koz"
+    },
+    {
+        "Champion Name": "Shaco",
+        "Tier": "1",
+        "Role": "Jungle",
+        "Win Rate": "51.28%",
+        "Pick Rate": "5.13%",
+        "Ban Rate": "16.27%",
+        "Counters": "Ivern, Volibear, Skarner"
+    },
+    {
         "Champion Name": "Thresh",
         "Tier": "1",
         "Role": "Support",
-        "Win Rate": "51.45%",
-        "Pick Rate": "15.26%",
-        "Ban Rate": "5.03%",
-        "Counters": "Fiddlesticks, Zyra, Taric"
+        "Win Rate": "50.72%",
+        "Pick Rate": "14.69%",
+        "Ban Rate": "4.78%",
+        "Counters": "Taric, Zyra, Fiddlesticks"
     },
     {
-        "Rank": "22",
-        "Champion Name": "Gragas",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "51.38%",
-        "Pick Rate": "3.71%",
-        "Ban Rate": "1.49%",
-        "Counters": "Akali, Vayne, Nasus"
-    },
-    {
-        "Rank": "23",
-        "Champion Name": "Ahri",
+        "Champion Name": "Aurelion Sol",
         "Tier": "1",
         "Role": "Middle",
-        "Win Rate": "51.28%",
-        "Pick Rate": "13.79%",
-        "Ban Rate": "19.03%",
-        "Counters": "Kayle, Gragas, Akshan"
+        "Win Rate": "50.66%",
+        "Pick Rate": "7.64%",
+        "Ban Rate": "9.21%",
+        "Counters": "Pantheon, Brand, Kassadin"
     },
     {
-        "Rank": "24",
-        "Champion Name": "Jax",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "51.10%",
-        "Pick Rate": "5.04%",
-        "Ban Rate": "7.41%",
-        "Counters": "Urgot, Tahm Kench, Skarner"
-    },
-    {
-        "Rank": "25",
         "Champion Name": "Viego",
         "Tier": "1",
         "Role": "Jungle",
-        "Win Rate": "51.03%",
-        "Pick Rate": "13.08%",
-        "Ban Rate": "4.80%",
-        "Counters": "Rumble, Rek'Sai, Mordekaiser"
+        "Win Rate": "50.66%",
+        "Pick Rate": "12.95%",
+        "Ban Rate": "5.22%",
+        "Counters": "Rumble, Rek'Sai, Skarner"
     },
     {
-        "Rank": "26",
-        "Champion Name": "Sylas",
-        "Tier": "1",
-        "Role": "Middle",
-        "Win Rate": "50.92%",
-        "Pick Rate": "7.72%",
-        "Ban Rate": "6.33%",
-        "Counters": "Brand, Yasuo, Malzahar"
-    },
-    {
-        "Rank": "27",
-        "Champion Name": "Sett",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "50.77%",
-        "Pick Rate": "4.59%",
-        "Ban Rate": "0.80%",
-        "Counters": "Illaoi, Olaf, Renekton"
-    },
-    {
-        "Rank": "28",
-        "Champion Name": "Renekton",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "50.70%",
-        "Pick Rate": "6.58%",
-        "Ban Rate": "5.03%",
-        "Counters": "Wukong, Gragas, Sion"
-    },
-    {
-        "Rank": "29",
-        "Champion Name": "Garen",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "50.02%",
-        "Pick Rate": "5.24%",
-        "Ban Rate": "2.36%",
-        "Counters": "Jayce, Nasus, Gangplank"
-    },
-    {
-        "Rank": "30",
-        "Champion Name": "Mordekaiser",
-        "Tier": "1",
-        "Role": "Top",
-        "Win Rate": "49.61%",
-        "Pick Rate": "8.79%",
-        "Ban Rate": "9.80%",
-        "Counters": "Kayle, Olaf, Rek'Sai"
-    },
-    {
-        "Rank": "31",
         "Champion Name": "Darius",
         "Tier": "1",
         "Role": "Top",
-        "Win Rate": "49.58%",
-        "Pick Rate": "7.66%",
-        "Ban Rate": "18.91%",
-        "Counters": "Quinn, Poppy, Shen"
+        "Win Rate": "50.56%",
+        "Pick Rate": "7.88%",
+        "Ban Rate": "18.70%",
+        "Counters": "Ryze, Smolder, Quinn"
     },
     {
-        "Rank": "32",
+        "Champion Name": "Sylas",
+        "Tier": "1",
+        "Role": "Middle",
+        "Win Rate": "50.46%",
+        "Pick Rate": "7.28%",
+        "Ban Rate": "5.55%",
+        "Counters": "Yasuo, Gragas, Brand"
+    },
+    {
+        "Champion Name": "Lulu",
+        "Tier": "1",
+        "Role": "Support",
+        "Win Rate": "50.13%",
+        "Pick Rate": "12.74%",
+        "Ban Rate": "7.51%",
+        "Counters": "Poppy, Rumble, Neeko"
+    },
+    {
+        "Champion Name": "Mordekaiser",
+        "Tier": "1",
+        "Role": "Top",
+        "Win Rate": "50.08%",
+        "Pick Rate": "8.89%",
+        "Ban Rate": "11.45%",
+        "Counters": "Ryze, Cassiopeia, Akshan"
+    },
+    {
         "Champion Name": "Lee Sin",
         "Tier": "1",
         "Role": "Jungle",
-        "Win Rate": "49.27%",
-        "Pick Rate": "20.33%",
-        "Ban Rate": "20.77%",
+        "Win Rate": "49.10%",
+        "Pick Rate": "18.39%",
+        "Ban Rate": "16.58%",
         "Counters": "Fiddlesticks, Rek'Sai, Skarner"
     },
     {
-        "Rank": "33",
-        "Champion Name": "Aatrox",
-        "Tier": "1",
+        "Champion Name": "Akshan",
+        "Tier": "2",
         "Role": "Top",
-        "Win Rate": "48.81%",
-        "Pick Rate": "11.65%",
-        "Ban Rate": "13.95%",
-        "Counters": "Cassiopeia, Twisted Fate, Kled"
+        "Win Rate": "55.25%",
+        "Pick Rate": "0.63%",
+        "Ban Rate": "1.28%",
+        "Counters": "Malphite, Skarner, Vayne"
     },
     {
-        "Rank": "34",
         "Champion Name": "Poppy",
         "Tier": "2",
         "Role": "Support",
-        "Win Rate": "56.12%",
-        "Pick Rate": "1.13%",
-        "Ban Rate": "0.85%",
-        "Counters": "Blitzcrank, Thresh, Pyke"
+        "Win Rate": "55.16%",
+        "Pick Rate": "1.09%",
+        "Ban Rate": "0.78%",
+        "Counters": "Senna, Blitzcrank, Thresh"
     },
     {
-        "Rank": "35",
+        "Champion Name": "Cassiopeia",
+        "Tier": "2",
+        "Role": "Top",
+        "Win Rate": "54.18%",
+        "Pick Rate": "0.79%",
+        "Ban Rate": "0.47%",
+        "Counters": "Camille, Renekton, Yone"
+    },
+    {
+        "Champion Name": "Kayle",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "53.79%",
+        "Pick Rate": "0.81%",
+        "Ban Rate": "0.27%",
+        "Counters": "Akali, Twisted Fate, Sylas"
+    },
+    {
+        "Champion Name": "Brand",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "53.38%",
+        "Pick Rate": "1.44%",
+        "Ban Rate": "0.77%",
+        "Counters": "Ekko, Akali, Syndra"
+    },
+    {
+        "Champion Name": "Swain",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "53.35%",
+        "Pick Rate": "0.92%",
+        "Ban Rate": "0.18%",
+        "Counters": "Akali, Katarina, Aurelion Sol"
+    },
+    {
+        "Champion Name": "Warwick",
+        "Tier": "2",
+        "Role": "Top",
+        "Win Rate": "53.30%",
+        "Pick Rate": "1.40%",
+        "Ban Rate": "0.30%",
+        "Counters": "Teemo, Jax, Garen"
+    },
+    {
         "Champion Name": "Ivern",
         "Tier": "2",
         "Role": "Jungle",
-        "Win Rate": "53.89%",
-        "Pick Rate": "1.62%",
-        "Ban Rate": "0.67%",
-        "Counters": "Taliyah, Skarner, Kayn"
+        "Win Rate": "53.10%",
+        "Pick Rate": "1.68%",
+        "Ban Rate": "0.76%",
+        "Counters": "Rek'Sai, Lillia, Nunu & Willump"
     },
     {
-        "Rank": "36",
         "Champion Name": "Nilah",
         "Tier": "2",
         "Role": "Bottom",
-        "Win Rate": "53.39%",
-        "Pick Rate": "2.54%",
-        "Ban Rate": "5.38%",
-        "Counters": "Smolder, Caitlyn, Vayne"
+        "Win Rate": "52.95%",
+        "Pick Rate": "2.80%",
+        "Ban Rate": "5.83%",
+        "Counters": "Sivir, Caitlyn, Xayah"
     },
     {
-        "Rank": "37",
-        "Champion Name": "Anivia",
-        "Tier": "2",
-        "Role": "Middle",
-        "Win Rate": "53.28%",
-        "Pick Rate": "2.34%",
-        "Ban Rate": "1.60%",
-        "Counters": "Veigar, Syndra, Yone"
-    },
-    {
-        "Rank": "38",
-        "Champion Name": "Skarner",
-        "Tier": "2",
-        "Role": "Support",
-        "Win Rate": "53.18%",
-        "Pick Rate": "1.54%",
-        "Ban Rate": "3.88%",
-        "Counters": "Lux, Blitzcrank, Nami"
-    },
-    {
-        "Rank": "39",
-        "Champion Name": "Rammus",
-        "Tier": "2",
-        "Role": "Jungle",
-        "Win Rate": "52.81%",
-        "Pick Rate": "1.87%",
-        "Ban Rate": "3.52%",
-        "Counters": "Nocturne, Briar, Lee Sin"
-    },
-    {
-        "Rank": "40",
-        "Champion Name": "Twisted Fate",
-        "Tier": "2",
-        "Role": "Top",
-        "Win Rate": "52.56%",
-        "Pick Rate": "1.62%",
-        "Ban Rate": "0.65%",
-        "Counters": "Jax, Renekton, Camille"
-    },
-    {
-        "Rank": "41",
-        "Champion Name": "Bel'Veth",
-        "Tier": "2",
-        "Role": "Jungle",
-        "Win Rate": "52.33%",
-        "Pick Rate": "4.00%",
-        "Ban Rate": "10.07%",
-        "Counters": "Amumu, Rek'Sai, Poppy"
-    },
-    {
-        "Rank": "42",
-        "Champion Name": "Soraka",
-        "Tier": "2",
-        "Role": "Support",
-        "Win Rate": "52.30%",
-        "Pick Rate": "3.88%",
-        "Ban Rate": "1.01%",
-        "Counters": "Hwei, Rakan, Lulu"
-    },
-    {
-        "Rank": "43",
         "Champion Name": "Akshan",
         "Tier": "2",
         "Role": "Middle",
-        "Win Rate": "52.24%",
-        "Pick Rate": "2.63%",
-        "Ban Rate": "6.29%",
-        "Counters": "Katarina, Malphite, Twisted Fate"
+        "Win Rate": "52.63%",
+        "Pick Rate": "2.48%",
+        "Ban Rate": "5.07%",
+        "Counters": "Malphite, Jayce, Galio"
     },
     {
-        "Rank": "44",
-        "Champion Name": "Rell",
+        "Champion Name": "Sona",
         "Tier": "2",
         "Role": "Support",
-        "Win Rate": "52.15%",
-        "Pick Rate": "3.98%",
-        "Ban Rate": "1.50%",
-        "Counters": "Poppy, Renata Glasc, Brand"
+        "Win Rate": "52.59%",
+        "Pick Rate": "3.57%",
+        "Ban Rate": "0.19%",
+        "Counters": "Taric, Rell, Rakan"
     },
     {
-        "Rank": "45",
-        "Champion Name": "Diana",
+        "Champion Name": "Annie",
         "Tier": "2",
         "Role": "Middle",
-        "Win Rate": "51.95%",
-        "Pick Rate": "4.28%",
-        "Ban Rate": "1.69%",
-        "Counters": "Lux, Veigar, Taliyah"
+        "Win Rate": "52.27%",
+        "Pick Rate": "2.03%",
+        "Ban Rate": "0.43%",
+        "Counters": "Galio, Tristana, Neeko"
     },
     {
-        "Rank": "46",
-        "Champion Name": "Evelynn",
+        "Champion Name": "Cassiopeia",
         "Tier": "2",
-        "Role": "Jungle",
-        "Win Rate": "51.86%",
-        "Pick Rate": "3.61%",
-        "Ban Rate": "11.20%",
-        "Counters": "Warwick, Fiddlesticks, Elise"
+        "Role": "Middle",
+        "Win Rate": "52.22%",
+        "Pick Rate": "1.75%",
+        "Ban Rate": "1.05%",
+        "Counters": "Malphite, Akshan, Syndra"
     },
     {
-        "Rank": "47",
-        "Champion Name": "Kled",
+        "Champion Name": "Neeko",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "52.15%",
+        "Pick Rate": "1.34%",
+        "Ban Rate": "0.65%",
+        "Counters": "Galio, Azir, Lux"
+    },
+    {
+        "Champion Name": "Tryndamere",
         "Tier": "2",
         "Role": "Top",
-        "Win Rate": "51.73%",
-        "Pick Rate": "1.80%",
-        "Ban Rate": "0.60%",
-        "Counters": "Riven, Jax, Malphite"
+        "Win Rate": "52.11%",
+        "Pick Rate": "2.07%",
+        "Ban Rate": "1.24%",
+        "Counters": "Tahm Kench, Yorick, Warwick"
     },
     {
-        "Rank": "48",
+        "Champion Name": "Warwick",
+        "Tier": "2",
+        "Role": "Jungle",
+        "Win Rate": "52.07%",
+        "Pick Rate": "2.64%",
+        "Ban Rate": "0.57%",
+        "Counters": "Nunu & Willump, Amumu, Wukong"
+    },
+    {
+        "Champion Name": "Nunu & Willump",
+        "Tier": "2",
+        "Role": "Jungle",
+        "Win Rate": "52.04%",
+        "Pick Rate": "2.08%",
+        "Ban Rate": "0.29%",
+        "Counters": "Skarner, Bel'Veth, Olaf"
+    },
+    {
+        "Champion Name": "Braum",
+        "Tier": "2",
+        "Role": "Support",
+        "Win Rate": "51.97%",
+        "Pick Rate": "4.51%",
+        "Ban Rate": "1.61%",
+        "Counters": "Zac, Taric, Skarner"
+    },
+    {
+        "Champion Name": "Anivia",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "51.94%",
+        "Pick Rate": "2.26%",
+        "Ban Rate": "1.54%",
+        "Counters": "Galio, Brand, Talon"
+    },
+    {
+        "Champion Name": "Kindred",
+        "Tier": "2",
+        "Role": "Jungle",
+        "Win Rate": "51.89%",
+        "Pick Rate": "3.80%",
+        "Ban Rate": "3.31%",
+        "Counters": "Rammus, Taliyah, Elise"
+    },
+    {
+        "Champion Name": "Kayle",
+        "Tier": "2",
+        "Role": "Top",
+        "Win Rate": "51.86%",
+        "Pick Rate": "3.33%",
+        "Ban Rate": "1.12%",
+        "Counters": "Warwick, Zac, Nasus"
+    },
+    {
+        "Champion Name": "Fiddlesticks",
+        "Tier": "2",
+        "Role": "Jungle",
+        "Win Rate": "51.85%",
+        "Pick Rate": "2.33%",
+        "Ban Rate": "1.19%",
+        "Counters": "Amumu, Rek'Sai, Jarvan IV"
+    },
+    {
+        "Champion Name": "Gragas",
+        "Tier": "2",
+        "Role": "Top",
+        "Win Rate": "51.77%",
+        "Pick Rate": "3.81%",
+        "Ban Rate": "1.71%",
+        "Counters": "Kennen, Cassiopeia, Akali"
+    },
+    {
+        "Champion Name": "Trundle",
+        "Tier": "2",
+        "Role": "Top",
+        "Win Rate": "51.76%",
+        "Pick Rate": "2.63%",
+        "Ban Rate": "1.70%",
+        "Counters": "Tryndamere, Wukong, Rumble"
+    },
+    {
         "Champion Name": "Leona",
         "Tier": "2",
         "Role": "Support",
-        "Win Rate": "51.66%",
-        "Pick Rate": "5.62%",
-        "Ban Rate": "2.89%",
-        "Counters": "Morgana, Camille, Swain"
+        "Win Rate": "51.71%",
+        "Pick Rate": "5.53%",
+        "Ban Rate": "3.02%",
+        "Counters": "Taric, Poppy, Morgana"
     },
     {
-        "Rank": "49",
-        "Champion Name": "Tahm Kench",
-        "Tier": "2",
-        "Role": "Top",
-        "Win Rate": "51.65%",
-        "Pick Rate": "2.07%",
-        "Ban Rate": "0.45%",
-        "Counters": "Camille, Aatrox, Skarner"
-    },
-    {
-        "Rank": "50",
-        "Champion Name": "Wukong",
-        "Tier": "2",
-        "Role": "Top",
-        "Win Rate": "51.61%",
-        "Pick Rate": "1.59%",
-        "Ban Rate": "0.19%",
-        "Counters": "Skarner, Garen, Malphite"
-    },
-    {
-        "Rank": "51",
-        "Champion Name": "Veigar",
+        "Champion Name": "Ryze",
         "Tier": "2",
         "Role": "Middle",
-        "Win Rate": "51.58%",
-        "Pick Rate": "3.83%",
-        "Ban Rate": "0.82%",
-        "Counters": "Tristana, LeBlanc, Galio"
+        "Win Rate": "51.60%",
+        "Pick Rate": "2.04%",
+        "Ban Rate": "0.14%",
+        "Counters": "Akshan, Lux, Anivia"
     },
     {
-        "Rank": "52",
-        "Champion Name": "Nami",
-        "Tier": "2",
-        "Role": "Support",
-        "Win Rate": "51.46%",
-        "Pick Rate": "8.85%",
-        "Ban Rate": "0.54%",
-        "Counters": "Blitzcrank, Hwei, Senna"
-    },
-    {
-        "Rank": "53",
-        "Champion Name": "Shaco",
-        "Tier": "2",
-        "Role": "Jungle",
-        "Win Rate": "51.42%",
-        "Pick Rate": "4.89%",
-        "Ban Rate": "17.60%",
-        "Counters": "Nunu & Willump, Xin Zhao, Master Yi"
-    },
-    {
-        "Rank": "54",
-        "Champion Name": "Taliyah",
+        "Champion Name": "Diana",
         "Tier": "2",
         "Role": "Middle",
-        "Win Rate": "51.36%",
-        "Pick Rate": "5.12%",
-        "Ban Rate": "4.12%",
-        "Counters": "Katarina, Kassadin, Ekko"
+        "Win Rate": "51.39%",
+        "Pick Rate": "4.19%",
+        "Ban Rate": "1.81%",
+        "Counters": "Cassiopeia, Brand, Anivia"
     },
     {
-        "Rank": "55",
-        "Champion Name": "Volibear",
+        "Champion Name": "Galio",
         "Tier": "2",
-        "Role": "Jungle",
-        "Win Rate": "51.35%",
-        "Pick Rate": "3.89%",
-        "Ban Rate": "3.77%",
-        "Counters": "Olaf, Diana, Nidalee"
+        "Role": "Middle",
+        "Win Rate": "51.30%",
+        "Pick Rate": "2.84%",
+        "Ban Rate": "0.53%",
+        "Counters": "Lux, Karma, Tristana"
     },
     {
-        "Rank": "56",
+        "Champion Name": "Lux",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "51.24%",
+        "Pick Rate": "3.70%",
+        "Ban Rate": "1.20%",
+        "Counters": "Twisted Fate, Malphite, Aurelion Sol"
+    },
+    {
         "Champion Name": "Nidalee",
         "Tier": "2",
         "Role": "Jungle",
-        "Win Rate": "51.27%",
-        "Pick Rate": "5.37%",
-        "Ban Rate": "6.33%",
-        "Counters": "Nunu & Willump, Hecarim, Elise"
-    },
-    {
-        "Rank": "57",
-        "Champion Name": "Sion",
-        "Tier": "2",
-        "Role": "Top",
         "Win Rate": "51.20%",
-        "Pick Rate": "2.38%",
-        "Ban Rate": "0.33%",
-        "Counters": "Jayce, Gwen, Gangplank"
+        "Pick Rate": "4.50%",
+        "Ban Rate": "4.63%",
+        "Counters": "Amumu, Rumble, Elise"
     },
     {
-        "Rank": "58",
-        "Champion Name": "Gwen",
+        "Champion Name": "Ashe",
+        "Tier": "2",
+        "Role": "Bottom",
+        "Win Rate": "51.15%",
+        "Pick Rate": "8.28%",
+        "Ban Rate": "3.07%",
+        "Counters": "Kog'Maw, Senna, Yasuo"
+    },
+    {
+        "Champion Name": "Sett",
         "Tier": "2",
         "Role": "Top",
-        "Win Rate": "51.15%",
-        "Pick Rate": "2.49%",
-        "Ban Rate": "1.21%",
-        "Counters": "Sett, Skarner, Yone"
+        "Win Rate": "51.13%",
+        "Pick Rate": "5.11%",
+        "Ban Rate": "0.89%",
+        "Counters": "Malphite, Olaf, Pantheon"
     },
     {
-        "Rank": "59",
-        "Champion Name": "Twisted Fate",
+        "Champion Name": "Xin Zhao",
+        "Tier": "2",
+        "Role": "Jungle",
+        "Win Rate": "51.09%",
+        "Pick Rate": "5.33%",
+        "Ban Rate": "1.15%",
+        "Counters": "Maokai, Nunu & Willump, Lillia"
+    },
+    {
+        "Champion Name": "Tristana",
         "Tier": "2",
         "Role": "Middle",
-        "Win Rate": "51.13%",
-        "Pick Rate": "5.00%",
-        "Ban Rate": "2.01%",
-        "Counters": "Fizz, Tristana, Lissandra"
+        "Win Rate": "51.01%",
+        "Pick Rate": "3.31%",
+        "Ban Rate": "0.84%",
+        "Counters": "Ekko, Akshan, Gragas"
     },
     {
-        "Rank": "60",
+        "Champion Name": "Veigar",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "51.00%",
+        "Pick Rate": "4.36%",
+        "Ban Rate": "1.08%",
+        "Counters": "Akshan, LeBlanc, Twisted Fate"
+    },
+    {
+        "Champion Name": "Ekko",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "50.90%",
+        "Pick Rate": "2.30%",
+        "Ban Rate": "0.62%",
+        "Counters": "Zoe, Viktor, Ahri"
+    },
+    {
+        "Champion Name": "Vex",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "50.85%",
+        "Pick Rate": "2.51%",
+        "Ban Rate": "2.19%",
+        "Counters": "Galio, Malzahar, Ryze"
+    },
+    {
         "Champion Name": "Taliyah",
         "Tier": "2",
         "Role": "Jungle",
-        "Win Rate": "50.96%",
-        "Pick Rate": "4.87%",
-        "Ban Rate": "3.92%",
-        "Counters": "Nunu & Willump, Skarner, Nocturne"
+        "Win Rate": "50.83%",
+        "Pick Rate": "4.28%",
+        "Ban Rate": "3.19%",
+        "Counters": "Rammus, Master Yi, Fiddlesticks"
     },
     {
-        "Rank": "61",
-        "Champion Name": "Katarina",
+        "Champion Name": "Evelynn",
+        "Tier": "2",
+        "Role": "Jungle",
+        "Win Rate": "50.78%",
+        "Pick Rate": "3.90%",
+        "Ban Rate": "12.36%",
+        "Counters": "Mordekaiser, Fiddlesticks, Ivern"
+    },
+    {
+        "Champion Name": "Qiyana",
         "Tier": "2",
         "Role": "Middle",
-        "Win Rate": "50.83%",
-        "Pick Rate": "5.85%",
-        "Ban Rate": "7.73%",
-        "Counters": "Malzahar, Diana, Corki"
+        "Win Rate": "50.77%",
+        "Pick Rate": "2.54%",
+        "Ban Rate": "0.95%",
+        "Counters": "Vex, Irelia, Twisted Fate"
     },
     {
-        "Rank": "62",
-        "Champion Name": "Zac",
-        "Tier": "2",
-        "Role": "Top",
-        "Win Rate": "50.78%",
-        "Pick Rate": "2.90%",
-        "Ban Rate": "1.80%",
-        "Counters": "Mordekaiser, Gragas, Rumble"
-    },
-    {
-        "Rank": "63",
-        "Champion Name": "Dr. Mundo",
-        "Tier": "2",
-        "Role": "Top",
-        "Win Rate": "50.57%",
-        "Pick Rate": "3.44%",
-        "Ban Rate": "1.94%",
-        "Counters": "Sett, Zac, Aatrox"
-    },
-    {
-        "Rank": "64",
         "Champion Name": "Pyke",
         "Tier": "2",
         "Role": "Support",
-        "Win Rate": "50.49%",
-        "Pick Rate": "8.11%",
-        "Ban Rate": "20.64%",
-        "Counters": "Taric, Shaco, Zilean"
-    },
-    {
-        "Rank": "65",
-        "Champion Name": "Nasus",
-        "Tier": "2",
-        "Role": "Top",
-        "Win Rate": "50.39%",
-        "Pick Rate": "2.98%",
-        "Ban Rate": "1.91%",
-        "Counters": "Urgot, Gangplank, Sion"
-    },
-    {
-        "Rank": "66",
-        "Champion Name": "Rumble",
-        "Tier": "2",
-        "Role": "Top",
-        "Win Rate": "50.33%",
-        "Pick Rate": "3.14%",
-        "Ban Rate": "2.34%",
-        "Counters": "Fiora, Dr. Mundo, Riven"
-    },
-    {
-        "Rank": "67",
-        "Champion Name": "Irelia",
-        "Tier": "2",
-        "Role": "Top",
-        "Win Rate": "50.22%",
-        "Pick Rate": "3.36%",
-        "Ban Rate": "5.22%",
-        "Counters": "Garen, Volibear, Camille"
-    },
-    {
-        "Rank": "68",
-        "Champion Name": "Aurelion Sol",
-        "Tier": "2",
-        "Role": "Middle",
-        "Win Rate": "50.19%",
+        "Win Rate": "50.70%",
         "Pick Rate": "7.90%",
-        "Ban Rate": "8.48%",
-        "Counters": "Neeko, Zed, Brand"
+        "Ban Rate": "19.24%",
+        "Counters": "Fiddlesticks, Shaco, Galio"
     },
     {
-        "Rank": "69",
-        "Champion Name": "Ornn",
+        "Champion Name": "Rakan",
         "Tier": "2",
-        "Role": "Top",
-        "Win Rate": "50.08%",
-        "Pick Rate": "2.97%",
-        "Ban Rate": "0.28%",
-        "Counters": "Dr. Mundo, K'Sante, Zac"
+        "Role": "Support",
+        "Win Rate": "50.56%",
+        "Pick Rate": "6.74%",
+        "Ban Rate": "1.63%",
+        "Counters": "Skarner, Senna, Neeko"
     },
     {
-        "Rank": "70",
-        "Champion Name": "Kha'Zix",
+        "Champion Name": "Milio",
+        "Tier": "2",
+        "Role": "Support",
+        "Win Rate": "50.36%",
+        "Pick Rate": "7.09%",
+        "Ban Rate": "3.80%",
+        "Counters": "Poppy, Skarner, Taric"
+    },
+    {
+        "Champion Name": "Briar",
         "Tier": "2",
         "Role": "Jungle",
-        "Win Rate": "50.02%",
-        "Pick Rate": "8.64%",
-        "Ban Rate": "4.76%",
-        "Counters": "Poppy, Udyr, Karthus"
+        "Win Rate": "50.33%",
+        "Pick Rate": "4.29%",
+        "Ban Rate": "12.79%",
+        "Counters": "Ivern, Olaf, Talon"
     },
     {
-        "Rank": "71",
-        "Champion Name": "Vayne",
+        "Champion Name": "Kayn",
+        "Tier": "2",
+        "Role": "Jungle",
+        "Win Rate": "50.32%",
+        "Pick Rate": "5.57%",
+        "Ban Rate": "6.76%",
+        "Counters": "Rek'Sai, Vi, Gwen"
+    },
+    {
+        "Champion Name": "Jax",
         "Tier": "2",
         "Role": "Top",
-        "Win Rate": "50.00%",
-        "Pick Rate": "3.52%",
-        "Ban Rate": "3.90%",
-        "Counters": "Malphite, Yasuo, Jax"
+        "Win Rate": "50.28%",
+        "Pick Rate": "5.16%",
+        "Ban Rate": "7.87%",
+        "Counters": "Zed, Vladimir, Poppy"
     },
     {
-        "Rank": "72",
         "Champion Name": "Lucian",
         "Tier": "2",
         "Role": "Bottom",
-        "Win Rate": "49.99%",
-        "Pick Rate": "14.02%",
-        "Ban Rate": "6.99%",
-        "Counters": "Kog'Maw, Tristana, Samira"
+        "Win Rate": "50.19%",
+        "Pick Rate": "13.27%",
+        "Ban Rate": "5.77%",
+        "Counters": "Senna, Kog'Maw, Miss Fortune"
     },
     {
-        "Rank": "73",
-        "Champion Name": "Fiora",
-        "Tier": "2",
-        "Role": "Top",
-        "Win Rate": "49.59%",
-        "Pick Rate": "3.83%",
-        "Ban Rate": "8.58%",
-        "Counters": "Gragas, Volibear, Ornn"
-    },
-    {
-        "Rank": "74",
-        "Champion Name": "Lulu",
-        "Tier": "2",
-        "Role": "Support",
-        "Win Rate": "49.58%",
-        "Pick Rate": "13.05%",
-        "Ban Rate": "6.98%",
-        "Counters": "Poppy, Brand, Sona"
-    },
-    {
-        "Rank": "75",
-        "Champion Name": "Yone",
+        "Champion Name": "Fizz",
         "Tier": "2",
         "Role": "Middle",
-        "Win Rate": "49.31%",
-        "Pick Rate": "7.65%",
-        "Ban Rate": "7.96%",
-        "Counters": "Naafiri, Malzahar, Syndra"
+        "Win Rate": "50.18%",
+        "Pick Rate": "3.15%",
+        "Ban Rate": "6.05%",
+        "Counters": "Akshan, Annie, Vex"
     },
     {
-        "Rank": "76",
+        "Champion Name": "Garen",
+        "Tier": "2",
+        "Role": "Top",
+        "Win Rate": "50.15%",
+        "Pick Rate": "5.57%",
+        "Ban Rate": "2.59%",
+        "Counters": "Akshan, Camille, Dr. Mundo"
+    },
+    {
+        "Champion Name": "Diana",
+        "Tier": "2",
+        "Role": "Jungle",
+        "Win Rate": "50.14%",
+        "Pick Rate": "7.05%",
+        "Ban Rate": "3.05%",
+        "Counters": "Skarner, Fiddlesticks, Ivern"
+    },
+    {
+        "Champion Name": "Renekton",
+        "Tier": "2",
+        "Role": "Top",
+        "Win Rate": "50.02%",
+        "Pick Rate": "6.65%",
+        "Ban Rate": "4.99%",
+        "Counters": "Ryze, Vladimir, Quinn"
+    },
+    {
+        "Champion Name": "Kha'Zix",
+        "Tier": "2",
+        "Role": "Jungle",
+        "Win Rate": "49.89%",
+        "Pick Rate": "8.32%",
+        "Ban Rate": "4.84%",
+        "Counters": "Ivern, Gwen, Zed"
+    },
+    {
+        "Champion Name": "Katarina",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "49.89%",
+        "Pick Rate": "6.12%",
+        "Ban Rate": "8.13%",
+        "Counters": "Rumble, Ryze, Vel'Koz"
+    },
+    {
+        "Champion Name": "LeBlanc",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "49.69%",
+        "Pick Rate": "5.84%",
+        "Ban Rate": "9.95%",
+        "Counters": "Rumble, Galio, Taliyah"
+    },
+    {
+        "Champion Name": "Vi",
+        "Tier": "2",
+        "Role": "Jungle",
+        "Win Rate": "49.64%",
+        "Pick Rate": "6.31%",
+        "Ban Rate": "2.21%",
+        "Counters": "Ivern, Rammus, Gwen"
+    },
+    {
         "Champion Name": "Hwei",
         "Tier": "2",
         "Role": "Middle",
-        "Win Rate": "49.08%",
-        "Pick Rate": "8.75%",
-        "Ban Rate": "12.64%",
-        "Counters": "Fizz, Malphite, Neeko"
+        "Win Rate": "49.42%",
+        "Pick Rate": "8.68%",
+        "Ban Rate": "12.22%",
+        "Counters": "Ryze, Neeko, Fizz"
     },
     {
-        "Rank": "77",
-        "Champion Name": "Jayce",
+        "Champion Name": "Zed",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "49.35%",
+        "Pick Rate": "6.82%",
+        "Ban Rate": "16.84%",
+        "Counters": "Kayle, Cassiopeia, Rumble"
+    },
+    {
+        "Champion Name": "Aatrox",
         "Tier": "2",
         "Role": "Top",
-        "Win Rate": "48.66%",
-        "Pick Rate": "5.91%",
-        "Ban Rate": "3.92%",
-        "Counters": "Tryndamere, Kled, Yorick"
+        "Win Rate": "49.23%",
+        "Pick Rate": "10.91%",
+        "Ban Rate": "13.62%",
+        "Counters": "Cassiopeia, Akshan, Vayne"
     },
     {
-        "Rank": "78",
         "Champion Name": "Yone",
         "Tier": "2",
-        "Role": "Top",
+        "Role": "Middle",
+        "Win Rate": "49.00%",
+        "Pick Rate": "7.44%",
+        "Ban Rate": "7.86%",
+        "Counters": "Lux, Brand, Syndra"
+    },
+    {
+        "Champion Name": "Yasuo",
+        "Tier": "2",
+        "Role": "Middle",
+        "Win Rate": "48.79%",
+        "Pick Rate": "7.74%",
+        "Ban Rate": "13.66%",
+        "Counters": "Annie, Vladimir, Brand"
+    },
+    {
+        "Champion Name": "Kai'Sa",
+        "Tier": "2",
+        "Role": "Bottom",
         "Win Rate": "48.49%",
-        "Pick Rate": "7.16%",
-        "Ban Rate": "7.42%",
-        "Counters": "Vayne, Irelia, Riven"
+        "Pick Rate": "22.09%",
+        "Ban Rate": "3.09%",
+        "Counters": "Nilah, Senna, Kog'Maw"
     },
     {
-        "Rank": "79",
-        "Champion Name": "Kayle",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "54.41%",
-        "Pick Rate": "0.74%",
-        "Ban Rate": "0.25%",
-        "Counters": "Ahri"
-    },
-    {
-        "Rank": "80",
-        "Champion Name": "Renekton",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "53.66%",
-        "Pick Rate": "0.66%",
-        "Ban Rate": "0.51%",
-        "Counters": "Yasuo, Yone"
-    },
-    {
-        "Rank": "81",
-        "Champion Name": "Gragas",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "53.52%",
-        "Pick Rate": "0.89%",
-        "Ban Rate": "0.36%",
-        "Counters": "Hwei, Yasuo, Sylas"
-    },
-    {
-        "Rank": "82",
-        "Champion Name": "Brand",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "53.32%",
-        "Pick Rate": "1.41%",
-        "Ban Rate": "0.70%",
-        "Counters": "Akali, Ahri, Twisted Fate"
-    },
-    {
-        "Rank": "83",
-        "Champion Name": "Galio",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "52.93%",
-        "Pick Rate": "1.04%",
-        "Ban Rate": "0.18%",
-        "Counters": "Blitzcrank, Thresh, Rakan"
-    },
-    {
-        "Rank": "84",
         "Champion Name": "Taric",
         "Tier": "3",
         "Role": "Support",
-        "Win Rate": "52.60%",
-        "Pick Rate": "1.34%",
-        "Ban Rate": "0.18%",
-        "Counters": "Janna, Nami, Lulu"
+        "Win Rate": "53.23%",
+        "Pick Rate": "1.44%",
+        "Ban Rate": "0.22%",
+        "Counters": "Soraka, Karma, Nami"
     },
     {
-        "Rank": "85",
-        "Champion Name": "Cassiopeia",
+        "Champion Name": "Renekton",
         "Tier": "3",
         "Role": "Middle",
-        "Win Rate": "52.54%",
-        "Pick Rate": "1.83%",
-        "Ban Rate": "1.01%",
-        "Counters": "Taliyah, Aurelion Sol, Ahri"
+        "Win Rate": "53.20%",
+        "Pick Rate": "0.60%",
+        "Ban Rate": "0.45%",
+        "Counters": "Ahri, Irelia, Sylas"
     },
     {
-        "Rank": "86",
-        "Champion Name": "Sona",
+        "Champion Name": "Rumble",
         "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "52.30%",
-        "Pick Rate": "2.94%",
-        "Ban Rate": "0.15%",
-        "Counters": "Rakan, Rell, Xerath"
+        "Role": "Jungle",
+        "Win Rate": "52.97%",
+        "Pick Rate": "0.69%",
+        "Ban Rate": "0.46%",
+        "Counters": "Sylas, Xin Zhao, Lee Sin"
     },
     {
-        "Rank": "87",
+        "Champion Name": "Gragas",
+        "Tier": "3",
+        "Role": "Middle",
+        "Win Rate": "52.34%",
+        "Pick Rate": "0.97%",
+        "Ban Rate": "0.44%",
+        "Counters": "Fizz, Aurelion Sol, Katarina"
+    },
+    {
+        "Champion Name": "Yasuo",
+        "Tier": "3",
+        "Role": "Bottom",
+        "Win Rate": "52.32%",
+        "Pick Rate": "1.35%",
+        "Ban Rate": "2.39%",
+        "Counters": "Nilah, Miss Fortune, Lucian"
+    },
+    {
         "Champion Name": "Vel'Koz",
         "Tier": "3",
         "Role": "Support",
-        "Win Rate": "52.23%",
-        "Pick Rate": "1.89%",
-        "Ban Rate": "0.17%",
-        "Counters": "Soraka, Nami, Zyra"
+        "Win Rate": "52.21%",
+        "Pick Rate": "2.03%",
+        "Ban Rate": "0.18%",
+        "Counters": "Maokai, Shaco, Sona"
     },
     {
-        "Rank": "88",
-        "Champion Name": "Neeko",
+        "Champion Name": "Pantheon",
         "Tier": "3",
         "Role": "Middle",
-        "Win Rate": "52.23%",
-        "Pick Rate": "1.41%",
-        "Ban Rate": "0.76%",
-        "Counters": "Twisted Fate, Akali, Orianna"
+        "Win Rate": "52.15%",
+        "Pick Rate": "0.78%",
+        "Ban Rate": "0.26%",
+        "Counters": "Katarina, Yone, Sylas"
     },
     {
-        "Rank": "89",
-        "Champion Name": "Tahm Kench",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "52.22%",
-        "Pick Rate": "0.99%",
-        "Ban Rate": "0.21%",
-        "Counters": "Lulu, Pyke, Thresh"
-    },
-    {
-        "Rank": "90",
-        "Champion Name": "Quinn",
+        "Champion Name": "Kled",
         "Tier": "3",
         "Role": "Top",
-        "Win Rate": "52.18%",
-        "Pick Rate": "1.11%",
-        "Ban Rate": "0.61%",
-        "Counters": "Malphite, Jayce, Skarner"
-    },
-    {
-        "Rank": "91",
-        "Champion Name": "Nunu & Willump",
-        "Tier": "3",
-        "Role": "Jungle",
         "Win Rate": "52.07%",
-        "Pick Rate": "1.99%",
-        "Ban Rate": "0.28%",
-        "Counters": "Volibear, Skarner, Diana"
+        "Pick Rate": "1.77%",
+        "Ban Rate": "0.68%",
+        "Counters": "Yorick, Nasus, Trundle"
     },
     {
-        "Rank": "92",
-        "Champion Name": "Rengar",
-        "Tier": "3",
-        "Role": "Top",
-        "Win Rate": "52.05%",
-        "Pick Rate": "0.74%",
-        "Ban Rate": "1.49%",
-        "Counters": "Aatrox"
-    },
-    {
-        "Rank": "93",
-        "Champion Name": "Lillia",
-        "Tier": "3",
-        "Role": "Jungle",
-        "Win Rate": "51.94%",
-        "Pick Rate": "2.18%",
-        "Ban Rate": "1.60%",
-        "Counters": "Rek'Sai, Bel'Veth, Kha'Zix"
-    },
-    {
-        "Rank": "94",
         "Champion Name": "Brand",
         "Tier": "3",
         "Role": "Support",
-        "Win Rate": "51.92%",
-        "Pick Rate": "2.26%",
-        "Ban Rate": "1.11%",
-        "Counters": "Pyke, Janna, Milio"
+        "Win Rate": "51.81%",
+        "Pick Rate": "2.77%",
+        "Ban Rate": "1.45%",
+        "Counters": "Vel'Koz, Taric, Maokai"
     },
     {
-        "Rank": "95",
-        "Champion Name": "Annie",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "51.80%",
-        "Pick Rate": "1.82%",
-        "Ban Rate": "0.36%",
-        "Counters": "Akali, Syndra, Kassadin"
-    },
-    {
-        "Rank": "96",
-        "Champion Name": "Neeko",
+        "Champion Name": "Rell",
         "Tier": "3",
         "Role": "Support",
-        "Win Rate": "51.74%",
-        "Pick Rate": "2.11%",
-        "Ban Rate": "1.12%",
-        "Counters": "Xerath, Leona, Milio"
+        "Win Rate": "51.64%",
+        "Pick Rate": "3.71%",
+        "Ban Rate": "1.36%",
+        "Counters": "Poppy, Renata Glasc, Morgana"
     },
     {
-        "Rank": "97",
-        "Champion Name": "Tristana",
+        "Champion Name": "Elise",
         "Tier": "3",
-        "Role": "Bottom",
-        "Win Rate": "51.48%",
-        "Pick Rate": "2.86%",
-        "Ban Rate": "0.78%",
-        "Counters": "Kog'Maw, Ashe, Nilah"
+        "Role": "Jungle",
+        "Win Rate": "51.45%",
+        "Pick Rate": "2.10%",
+        "Ban Rate": "1.18%",
+        "Counters": "Zac, Rammus, Jax"
     },
     {
-        "Rank": "98",
-        "Champion Name": "Maokai",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "51.47%",
-        "Pick Rate": "2.61%",
-        "Ban Rate": "1.28%",
-        "Counters": "Rell, Soraka, Senna"
-    },
-    {
-        "Rank": "99",
-        "Champion Name": "Singed",
+        "Champion Name": "Tahm Kench",
         "Tier": "3",
         "Role": "Top",
-        "Win Rate": "51.44%",
-        "Pick Rate": "1.31%",
-        "Ban Rate": "0.18%",
-        "Counters": "Jayce, Skarner, Darius"
-    },
-    {
-        "Rank": "100",
-        "Champion Name": "Rek'Sai",
-        "Tier": "3",
-        "Role": "Top",
-        "Win Rate": "51.41%",
-        "Pick Rate": "0.73%",
-        "Ban Rate": "1.50%",
-        "Counters": "Skarner, Mordekaiser, Aatrox"
-    },
-    {
-        "Rank": "101",
-        "Champion Name": "Ryze",
-        "Tier": "3",
-        "Role": "Middle",
         "Win Rate": "51.40%",
-        "Pick Rate": "1.94%",
-        "Ban Rate": "0.11%",
-        "Counters": "Orianna, Twisted Fate, Ahri"
+        "Pick Rate": "2.22%",
+        "Ban Rate": "0.55%",
+        "Counters": "Shen, Rumble, Yorick"
     },
     {
-        "Rank": "102",
-        "Champion Name": "Sivir",
-        "Tier": "3",
-        "Role": "Bottom",
-        "Win Rate": "51.35%",
-        "Pick Rate": "3.79%",
-        "Ban Rate": "0.59%",
-        "Counters": "Kog'Maw, Tristana, Aphelios"
-    },
-    {
-        "Rank": "103",
-        "Champion Name": "Shaco",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "51.32%",
-        "Pick Rate": "2.26%",
-        "Ban Rate": "8.07%",
-        "Counters": "Soraka, Lux, Leona"
-    },
-    {
-        "Rank": "104",
-        "Champion Name": "Poppy",
-        "Tier": "3",
-        "Role": "Top",
-        "Win Rate": "51.28%",
-        "Pick Rate": "1.43%",
-        "Ban Rate": "1.08%",
-        "Counters": "Garen, Skarner, Yone"
-    },
-    {
-        "Rank": "105",
-        "Champion Name": "Zilean",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "51.16%",
-        "Pick Rate": "2.90%",
-        "Ban Rate": "0.57%",
-        "Counters": "Zyra, Xerath, Nami"
-    },
-    {
-        "Rank": "106",
         "Champion Name": "Zyra",
         "Tier": "3",
         "Role": "Support",
-        "Win Rate": "51.03%",
-        "Pick Rate": "3.99%",
-        "Ban Rate": "3.71%",
-        "Counters": "Shaco, Pyke, Seraphine"
+        "Win Rate": "51.39%",
+        "Pick Rate": "4.28%",
+        "Ban Rate": "4.12%",
+        "Counters": "Taric, Shaco, Alistar"
     },
     {
-        "Rank": "107",
-        "Champion Name": "Morgana",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "50.95%",
-        "Pick Rate": "3.60%",
-        "Ban Rate": "11.61%",
-        "Counters": "Nami, Soraka, Bard"
-    },
-    {
-        "Rank": "108",
-        "Champion Name": "Lux",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "50.89%",
-        "Pick Rate": "3.06%",
-        "Ban Rate": "0.90%",
-        "Counters": "Twisted Fate, Aurelion Sol, Taliyah"
-    },
-    {
-        "Rank": "109",
-        "Champion Name": "Nocturne",
-        "Tier": "3",
-        "Role": "Jungle",
-        "Win Rate": "50.83%",
-        "Pick Rate": "3.70%",
-        "Ban Rate": "4.63%",
-        "Counters": "Rengar, Sylas, Gragas"
-    },
-    {
-        "Rank": "110",
-        "Champion Name": "Braum",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "50.83%",
-        "Pick Rate": "4.63%",
-        "Ban Rate": "1.60%",
-        "Counters": "Taric, Renata Glasc, Vel'Koz"
-    },
-    {
-        "Rank": "111",
-        "Champion Name": "Camille",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "50.82%",
-        "Pick Rate": "2.68%",
-        "Ban Rate": "2.07%",
-        "Counters": "Rakan, Seraphine, Soraka"
-    },
-    {
-        "Rank": "112",
-        "Champion Name": "Talon",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "50.82%",
-        "Pick Rate": "2.29%",
-        "Ban Rate": "0.84%",
-        "Counters": "Galio, Aurelion Sol, Yasuo"
-    },
-    {
-        "Rank": "113",
-        "Champion Name": "Tristana",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "50.79%",
-        "Pick Rate": "3.46%",
-        "Ban Rate": "0.94%",
-        "Counters": "Lux, Diana, Viktor"
-    },
-    {
-        "Rank": "114",
-        "Champion Name": "Galio",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "50.76%",
-        "Pick Rate": "2.96%",
-        "Ban Rate": "0.50%",
-        "Counters": "Tristana, Yasuo, Twisted Fate"
-    },
-    {
-        "Rank": "115",
-        "Champion Name": "Samira",
-        "Tier": "3",
-        "Role": "Bottom",
-        "Win Rate": "50.73%",
-        "Pick Rate": "5.90%",
-        "Ban Rate": "11.08%",
-        "Counters": "Kog'Maw, Tristana, Nilah"
-    },
-    {
-        "Rank": "116",
-        "Champion Name": "Seraphine",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "50.65%",
-        "Pick Rate": "2.43%",
-        "Ban Rate": "0.23%",
-        "Counters": "Braum, Leona, Rakan"
-    },
-    {
-        "Rank": "117",
-        "Champion Name": "Hecarim",
-        "Tier": "3",
-        "Role": "Jungle",
-        "Win Rate": "50.65%",
-        "Pick Rate": "3.46%",
-        "Ban Rate": "1.84%",
-        "Counters": "Evelynn, Taliyah, Rek'Sai"
-    },
-    {
-        "Rank": "118",
-        "Champion Name": "Gragas",
-        "Tier": "3",
-        "Role": "Jungle",
-        "Win Rate": "50.55%",
-        "Pick Rate": "3.08%",
-        "Ban Rate": "1.24%",
-        "Counters": "Evelynn, Bel'Veth, Kha'Zix"
-    },
-    {
-        "Rank": "119",
-        "Champion Name": "Irelia",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "50.50%",
-        "Pick Rate": "3.36%",
-        "Ban Rate": "5.25%",
-        "Counters": "LeBlanc, Anivia, Galio"
-    },
-    {
-        "Rank": "120",
-        "Champion Name": "Trundle",
+        "Champion Name": "Gwen",
         "Tier": "3",
         "Role": "Top",
-        "Win Rate": "50.35%",
-        "Pick Rate": "2.41%",
-        "Ban Rate": "1.54%",
-        "Counters": "Malphite, Kayle, Yone"
+        "Win Rate": "51.35%",
+        "Pick Rate": "2.57%",
+        "Ban Rate": "1.30%",
+        "Counters": "Warwick, Tryndamere, Kayle"
     },
     {
-        "Rank": "121",
-        "Champion Name": "Kindred",
+        "Champion Name": "Rammus",
         "Tier": "3",
         "Role": "Jungle",
-        "Win Rate": "50.26%",
-        "Pick Rate": "3.67%",
-        "Ban Rate": "2.93%",
-        "Counters": "Karthus, Taliyah, Volibear"
+        "Win Rate": "51.27%",
+        "Pick Rate": "2.01%",
+        "Ban Rate": "4.61%",
+        "Counters": "Jax, Gragas, Lillia"
     },
     {
-        "Rank": "122",
-        "Champion Name": "Ashe",
-        "Tier": "3",
-        "Role": "Bottom",
-        "Win Rate": "50.26%",
-        "Pick Rate": "8.15%",
-        "Ban Rate": "3.14%",
-        "Counters": "Samira, Kog'Maw, Yasuo"
-    },
-    {
-        "Rank": "123",
-        "Champion Name": "Alistar",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "50.20%",
-        "Pick Rate": "4.61%",
-        "Ban Rate": "1.80%",
-        "Counters": "Pantheon, Zac, Janna"
-    },
-    {
-        "Rank": "124",
-        "Champion Name": "Karthus",
-        "Tier": "3",
-        "Role": "Jungle",
-        "Win Rate": "50.12%",
-        "Pick Rate": "3.59%",
-        "Ban Rate": "5.71%",
-        "Counters": "Elise, Skarner, Gragas"
-    },
-    {
-        "Rank": "125",
-        "Champion Name": "Briar",
-        "Tier": "3",
-        "Role": "Jungle",
-        "Win Rate": "50.07%",
-        "Pick Rate": "4.08%",
-        "Ban Rate": "10.73%",
-        "Counters": "Olaf, Bel'Veth, Volibear"
-    },
-    {
-        "Rank": "126",
-        "Champion Name": "Xin Zhao",
-        "Tier": "3",
-        "Role": "Jungle",
-        "Win Rate": "50.05%",
-        "Pick Rate": "5.94%",
-        "Ban Rate": "1.18%",
-        "Counters": "Lillia, Rammus, Warwick"
-    },
-    {
-        "Rank": "127",
-        "Champion Name": "Gangplank",
+        "Champion Name": "Twisted Fate",
         "Tier": "3",
         "Role": "Top",
-        "Win Rate": "49.98%",
-        "Pick Rate": "2.92%",
-        "Ban Rate": "1.41%",
-        "Counters": "Riven, Zac, Tryndamere"
-    },
-    {
-        "Rank": "128",
-        "Champion Name": "Syndra",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "49.97%",
-        "Pick Rate": "3.87%",
-        "Ban Rate": "1.62%",
-        "Counters": "Katarina, Galio, Fizz"
-    },
-    {
-        "Rank": "129",
-        "Champion Name": "Bard",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "49.96%",
-        "Pick Rate": "2.90%",
+        "Win Rate": "51.22%",
+        "Pick Rate": "1.51%",
         "Ban Rate": "0.56%",
-        "Counters": "Leona, Zyra, Lux"
+        "Counters": "Jax, Urgot, Yasuo"
     },
     {
-        "Rank": "130",
-        "Champion Name": "Illaoi",
+        "Champion Name": "Wukong",
         "Tier": "3",
         "Role": "Top",
-        "Win Rate": "49.95%",
-        "Pick Rate": "2.59%",
-        "Ban Rate": "5.63%",
-        "Counters": "Gragas, Camille, Jayce"
+        "Win Rate": "51.15%",
+        "Pick Rate": "1.65%",
+        "Ban Rate": "0.22%",
+        "Counters": "Urgot, Volibear, Sion"
     },
     {
-        "Rank": "131",
-        "Champion Name": "Rakan",
+        "Champion Name": "Olaf",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "51.07%",
+        "Pick Rate": "2.38%",
+        "Ban Rate": "3.03%",
+        "Counters": "Tryndamere, Yorick, Camille"
+    },
+    {
+        "Champion Name": "Dr. Mundo",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "51.02%",
+        "Pick Rate": "3.12%",
+        "Ban Rate": "1.72%",
+        "Counters": "Sett, Tahm Kench, Aatrox"
+    },
+    {
+        "Champion Name": "Soraka",
         "Tier": "3",
         "Role": "Support",
-        "Win Rate": "49.90%",
-        "Pick Rate": "7.04%",
-        "Ban Rate": "1.91%",
-        "Counters": "Taric, Zilean, Brand"
+        "Win Rate": "51.00%",
+        "Pick Rate": "4.55%",
+        "Ban Rate": "1.40%",
+        "Counters": "Hwei, Neeko, Renata Glasc"
     },
     {
-        "Rank": "132",
-        "Champion Name": "Vi",
+        "Champion Name": "Poppy",
         "Tier": "3",
-        "Role": "Jungle",
-        "Win Rate": "49.83%",
-        "Pick Rate": "6.69%",
-        "Ban Rate": "2.31%",
-        "Counters": "Ivern, Ekko, Kindred"
+        "Role": "Top",
+        "Win Rate": "50.95%",
+        "Pick Rate": "1.35%",
+        "Ban Rate": "0.98%",
+        "Counters": "Fiora, Ornn, Skarner"
     },
     {
-        "Rank": "133",
-        "Champion Name": "Caitlyn",
-        "Tier": "3",
-        "Role": "Bottom",
-        "Win Rate": "49.81%",
-        "Pick Rate": "9.99%",
-        "Ban Rate": "5.54%",
-        "Counters": "Draven, Twitch, Jinx"
-    },
-    {
-        "Rank": "134",
-        "Champion Name": "Milio",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "49.77%",
-        "Pick Rate": "6.63%",
-        "Ban Rate": "3.01%",
-        "Counters": "Skarner, Vel'Koz, Rell"
-    },
-    {
-        "Rank": "135",
         "Champion Name": "Teemo",
         "Tier": "3",
         "Role": "Top",
-        "Win Rate": "49.76%",
-        "Pick Rate": "2.00%",
-        "Ban Rate": "1.80%",
-        "Counters": "Sion, Mordekaiser, Malphite"
+        "Win Rate": "50.84%",
+        "Pick Rate": "2.07%",
+        "Ban Rate": "1.82%",
+        "Counters": "Yasuo, Olaf, Ornn"
     },
     {
-        "Rank": "136",
+        "Champion Name": "Nasus",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "50.81%",
+        "Pick Rate": "3.19%",
+        "Ban Rate": "2.12%",
+        "Counters": "Irelia, Yorick, Gangplank"
+    },
+    {
+        "Champion Name": "Zac",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "50.80%",
+        "Pick Rate": "2.75%",
+        "Ban Rate": "1.99%",
+        "Counters": "Gragas, Poppy, Mordekaiser"
+    },
+    {
+        "Champion Name": "Illaoi",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "50.78%",
+        "Pick Rate": "2.80%",
+        "Ban Rate": "7.18%",
+        "Counters": "Olaf, Warwick, Trundle"
+    },
+    {
         "Champion Name": "Shen",
         "Tier": "3",
         "Role": "Top",
-        "Win Rate": "49.72%",
-        "Pick Rate": "2.63%",
-        "Ban Rate": "0.20%",
-        "Counters": "Ornn, Sett, Fiora"
+        "Win Rate": "50.64%",
+        "Pick Rate": "2.80%",
+        "Ban Rate": "0.24%",
+        "Counters": "Warwick, Sett, Olaf"
     },
     {
-        "Rank": "137",
-        "Champion Name": "Jarvan IV",
+        "Champion Name": "Brand",
         "Tier": "3",
         "Role": "Jungle",
-        "Win Rate": "49.62%",
-        "Pick Rate": "5.79%",
-        "Ban Rate": "1.13%",
-        "Counters": "Lillia, Nunu & Willump, Wukong"
+        "Win Rate": "50.59%",
+        "Pick Rate": "2.41%",
+        "Ban Rate": "1.28%",
+        "Counters": "Olaf, Rek'Sai, Evelynn"
     },
     {
-        "Rank": "138",
-        "Champion Name": "Riven",
+        "Champion Name": "Singed",
         "Tier": "3",
         "Role": "Top",
-        "Win Rate": "49.55%",
-        "Pick Rate": "3.38%",
-        "Ban Rate": "1.16%",
-        "Counters": "Ornn, Skarner, Vayne"
+        "Win Rate": "50.57%",
+        "Pick Rate": "1.40%",
+        "Ban Rate": "0.19%",
+        "Counters": "Jayce, Sett, Vayne"
     },
     {
-        "Rank": "139",
+        "Champion Name": "Vayne",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "50.56%",
+        "Pick Rate": "3.22%",
+        "Ban Rate": "3.54%",
+        "Counters": "Pantheon, Trundle, Malphite"
+    },
+    {
+        "Champion Name": "Morgana",
+        "Tier": "3",
+        "Role": "Support",
+        "Win Rate": "50.55%",
+        "Pick Rate": "3.83%",
+        "Ban Rate": "13.36%",
+        "Counters": "Taric, Nami, Tahm Kench"
+    },
+    {
+        "Champion Name": "Hecarim",
+        "Tier": "3",
+        "Role": "Jungle",
+        "Win Rate": "50.50%",
+        "Pick Rate": "3.80%",
+        "Ban Rate": "2.16%",
+        "Counters": "Evelynn, Rek'Sai, Taliyah"
+    },
+    {
+        "Champion Name": "Nocturne",
+        "Tier": "3",
+        "Role": "Jungle",
+        "Win Rate": "50.42%",
+        "Pick Rate": "3.83%",
+        "Ban Rate": "5.11%",
+        "Counters": "Sylas, Nidalee, Skarner"
+    },
+    {
+        "Champion Name": "Alistar",
+        "Tier": "3",
+        "Role": "Support",
+        "Win Rate": "50.41%",
+        "Pick Rate": "4.43%",
+        "Ban Rate": "1.71%",
+        "Counters": "Tahm Kench, Poppy, Sona"
+    },
+    {
+        "Champion Name": "Lillia",
+        "Tier": "3",
+        "Role": "Jungle",
+        "Win Rate": "50.39%",
+        "Pick Rate": "2.52%",
+        "Ban Rate": "1.99%",
+        "Counters": "Bel'Veth, Evelynn, Kindred"
+    },
+    {
+        "Champion Name": "Poppy",
+        "Tier": "3",
+        "Role": "Jungle",
+        "Win Rate": "50.39%",
+        "Pick Rate": "2.08%",
+        "Ban Rate": "1.51%",
+        "Counters": "Warwick, Skarner, Elise"
+    },
+    {
+        "Champion Name": "Karthus",
+        "Tier": "3",
+        "Role": "Jungle",
+        "Win Rate": "50.38%",
+        "Pick Rate": "3.54%",
+        "Ban Rate": "4.53%",
+        "Counters": "Wukong, Brand, Elise"
+    },
+    {
         "Champion Name": "Senna",
         "Tier": "3",
         "Role": "Support",
-        "Win Rate": "49.53%",
-        "Pick Rate": "5.11%",
-        "Ban Rate": "4.08%",
-        "Counters": "Hwei, Neeko, Soraka"
+        "Win Rate": "50.33%",
+        "Pick Rate": "5.33%",
+        "Ban Rate": "4.62%",
+        "Counters": "Blitzcrank, Leona, Galio"
     },
     {
-        "Rank": "140",
+        "Champion Name": "Samira",
+        "Tier": "3",
+        "Role": "Bottom",
+        "Win Rate": "50.28%",
+        "Pick Rate": "5.91%",
+        "Ban Rate": "11.35%",
+        "Counters": "Kog'Maw, Ziggs, Veigar"
+    },
+    {
+        "Champion Name": "Gragas",
+        "Tier": "3",
+        "Role": "Jungle",
+        "Win Rate": "50.22%",
+        "Pick Rate": "3.02%",
+        "Ban Rate": "1.36%",
+        "Counters": "Elise, Sejuani, Rengar"
+    },
+    {
+        "Champion Name": "Yorick",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "50.06%",
+        "Pick Rate": "2.23%",
+        "Ban Rate": "2.19%",
+        "Counters": "Illaoi, Singed, Irelia"
+    },
+    {
+        "Champion Name": "Gangplank",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "50.04%",
+        "Pick Rate": "3.01%",
+        "Ban Rate": "1.35%",
+        "Counters": "Cho'Gath, Trundle, Tryndamere"
+    },
+    {
+        "Champion Name": "Rengar",
+        "Tier": "3",
+        "Role": "Jungle",
+        "Win Rate": "49.97%",
+        "Pick Rate": "2.97%",
+        "Ban Rate": "5.99%",
+        "Counters": "Kindred, Briar, Olaf"
+    },
+    {
+        "Champion Name": "Fiora",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "49.95%",
+        "Pick Rate": "3.79%",
+        "Ban Rate": "8.89%",
+        "Counters": "Twisted Fate, Warwick, Kennen"
+    },
+    {
         "Champion Name": "Akali",
         "Tier": "3",
         "Role": "Top",
-        "Win Rate": "49.53%",
-        "Pick Rate": "2.48%",
-        "Ban Rate": "3.64%",
-        "Counters": "Garen, Skarner, Renekton"
+        "Win Rate": "49.94%",
+        "Pick Rate": "2.43%",
+        "Ban Rate": "3.92%",
+        "Counters": "Zac, Urgot, Gangplank"
     },
     {
-        "Rank": "141",
-        "Champion Name": "LeBlanc",
+        "Champion Name": "Rumble",
         "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "49.50%",
-        "Pick Rate": "6.42%",
-        "Ban Rate": "12.02%",
-        "Counters": "Twisted Fate, Akshan, Brand"
+        "Role": "Top",
+        "Win Rate": "49.92%",
+        "Pick Rate": "2.88%",
+        "Ban Rate": "1.93%",
+        "Counters": "Kayle, Shen, Riven"
     },
     {
-        "Rank": "142",
+        "Champion Name": "Riven",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "49.91%",
+        "Pick Rate": "3.77%",
+        "Ban Rate": "1.39%",
+        "Counters": "Rek'Sai, Warwick, Vayne"
+    },
+    {
+        "Champion Name": "Pantheon",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "49.86%",
+        "Pick Rate": "1.90%",
+        "Ban Rate": "0.64%",
+        "Counters": "Tryndamere, Urgot, Kled"
+    },
+    {
+        "Champion Name": "Irelia",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "49.85%",
+        "Pick Rate": "3.28%",
+        "Ban Rate": "5.04%",
+        "Counters": "Warwick, Tryndamere, Garen"
+    },
+    {
+        "Champion Name": "Sion",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "49.84%",
+        "Pick Rate": "2.54%",
+        "Ban Rate": "0.37%",
+        "Counters": "Tahm Kench, Fiora, Singed"
+    },
+    {
+        "Champion Name": "Ekko",
+        "Tier": "3",
+        "Role": "Jungle",
+        "Win Rate": "49.83%",
+        "Pick Rate": "3.58%",
+        "Ban Rate": "0.96%",
+        "Counters": "Sejuani, Ivern, Bel'Veth"
+    },
+    {
+        "Champion Name": "Jax",
+        "Tier": "3",
+        "Role": "Jungle",
+        "Win Rate": "49.79%",
+        "Pick Rate": "3.32%",
+        "Ban Rate": "5.07%",
+        "Counters": "Rek'Sai, Evelynn, Skarner"
+    },
+    {
+        "Champion Name": "Ornn",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "49.76%",
+        "Pick Rate": "3.07%",
+        "Ban Rate": "0.32%",
+        "Counters": "Urgot, Irelia, Dr. Mundo"
+    },
+    {
         "Champion Name": "Draven",
         "Tier": "3",
         "Role": "Bottom",
-        "Win Rate": "49.47%",
-        "Pick Rate": "7.86%",
-        "Ban Rate": "23.86%",
-        "Counters": "Jhin, Yasuo, Kog'Maw"
+        "Win Rate": "49.73%",
+        "Pick Rate": "7.97%",
+        "Ban Rate": "25.11%",
+        "Counters": "Veigar, Yasuo, Jhin"
     },
     {
-        "Rank": "143",
-        "Champion Name": "Olaf",
-        "Tier": "3",
-        "Role": "Top",
-        "Win Rate": "49.46%",
-        "Pick Rate": "2.46%",
-        "Ban Rate": "3.17%",
-        "Counters": "Tryndamere, Camille, Gangplank"
-    },
-    {
-        "Rank": "144",
-        "Champion Name": "Zeri",
-        "Tier": "3",
-        "Role": "Bottom",
-        "Win Rate": "49.40%",
-        "Pick Rate": "12.29%",
-        "Ban Rate": "11.28%",
-        "Counters": "Yasuo, Twitch, Miss Fortune"
-    },
-    {
-        "Rank": "145",
-        "Champion Name": "Zed",
+        "Champion Name": "Talon",
         "Tier": "3",
         "Role": "Middle",
-        "Win Rate": "49.36%",
-        "Pick Rate": "6.68%",
-        "Ban Rate": "16.78%",
-        "Counters": "Ryze, Cassiopeia, Gragas"
+        "Win Rate": "49.73%",
+        "Pick Rate": "2.16%",
+        "Ban Rate": "0.73%",
+        "Counters": "Malphite, Akshan, Sylas"
     },
     {
-        "Rank": "146",
-        "Champion Name": "Diana",
+        "Champion Name": "Malphite",
+        "Tier": "3",
+        "Role": "Middle",
+        "Win Rate": "49.62%",
+        "Pick Rate": "2.28%",
+        "Ban Rate": "2.83%",
+        "Counters": "Kassadin, Sylas, Syndra"
+    },
+    {
+        "Champion Name": "Jarvan IV",
         "Tier": "3",
         "Role": "Jungle",
-        "Win Rate": "49.33%",
-        "Pick Rate": "6.56%",
-        "Ban Rate": "2.59%",
-        "Counters": "Wukong, Elise, Shyvana"
+        "Win Rate": "49.50%",
+        "Pick Rate": "5.74%",
+        "Ban Rate": "1.22%",
+        "Counters": "Rumble, Elise, Master Yi"
     },
     {
-        "Rank": "147",
-        "Champion Name": "Yasuo",
+        "Champion Name": "Zac",
         "Tier": "3",
-        "Role": "Top",
-        "Win Rate": "49.18%",
-        "Pick Rate": "2.00%",
-        "Ban Rate": "3.35%",
-        "Counters": "K'Sante, Camille, Skarner"
+        "Role": "Jungle",
+        "Win Rate": "49.50%",
+        "Pick Rate": "3.79%",
+        "Ban Rate": "2.76%",
+        "Counters": "Lillia, Xin Zhao, Poppy"
     },
     {
-        "Rank": "148",
+        "Champion Name": "Viktor",
+        "Tier": "3",
+        "Role": "Middle",
+        "Win Rate": "49.47%",
+        "Pick Rate": "2.68%",
+        "Ban Rate": "0.80%",
+        "Counters": "Brand, Anivia, Malphite"
+    },
+    {
+        "Champion Name": "Irelia",
+        "Tier": "3",
+        "Role": "Middle",
+        "Win Rate": "49.33%",
+        "Pick Rate": "3.19%",
+        "Ban Rate": "4.91%",
+        "Counters": "Brand, Sylas, Annie"
+    },
+    {
         "Champion Name": "Ezreal",
         "Tier": "3",
         "Role": "Bottom",
-        "Win Rate": "49.04%",
-        "Pick Rate": "13.58%",
-        "Ban Rate": "4.78%",
-        "Counters": "Yasuo, Nilah, Ziggs"
+        "Win Rate": "49.28%",
+        "Pick Rate": "12.96%",
+        "Ban Rate": "4.69%",
+        "Counters": "Yasuo, Vayne, Nilah"
     },
     {
-        "Rank": "149",
-        "Champion Name": "Lux",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "48.90%",
-        "Pick Rate": "5.85%",
-        "Ban Rate": "1.71%",
-        "Counters": "Sona, Rell, Alistar"
-    },
-    {
-        "Rank": "150",
-        "Champion Name": "Yasuo",
-        "Tier": "3",
-        "Role": "Middle",
-        "Win Rate": "48.69%",
-        "Pick Rate": "7.56%",
-        "Ban Rate": "12.73%",
-        "Counters": "Brand, Neeko, Zoe"
-    },
-    {
-        "Rank": "151",
-        "Champion Name": "Yuumi",
-        "Tier": "3",
-        "Role": "Support",
-        "Win Rate": "48.64%",
-        "Pick Rate": "6.07%",
-        "Ban Rate": "6.05%",
-        "Counters": "Brand, Rell, Zac"
-    },
-    {
-        "Rank": "152",
-        "Champion Name": "Kai'Sa",
+        "Champion Name": "Zeri",
         "Tier": "3",
         "Role": "Bottom",
-        "Win Rate": "48.26%",
-        "Pick Rate": "23.34%",
-        "Ban Rate": "2.87%",
-        "Counters": "Nilah, Ziggs, Sivir"
+        "Win Rate": "49.26%",
+        "Pick Rate": "10.85%",
+        "Ban Rate": "8.98%",
+        "Counters": "Yasuo, Senna, Ziggs"
     },
     {
-        "Rank": "153",
+        "Champion Name": "Caitlyn",
+        "Tier": "3",
+        "Role": "Bottom",
+        "Win Rate": "49.06%",
+        "Pick Rate": "10.49%",
+        "Ban Rate": "6.67%",
+        "Counters": "Veigar, Twitch, Xayah"
+    },
+    {
+        "Champion Name": "Jayce",
+        "Tier": "3",
+        "Role": "Middle",
+        "Win Rate": "49.00%",
+        "Pick Rate": "2.46%",
+        "Ban Rate": "1.47%",
+        "Counters": "Anivia, Kassadin, Katarina"
+    },
+    {
+        "Champion Name": "Lissandra",
+        "Tier": "3",
+        "Role": "Middle",
+        "Win Rate": "48.88%",
+        "Pick Rate": "2.63%",
+        "Ban Rate": "1.13%",
+        "Counters": "Vex, Cassiopeia, Aurelion Sol"
+    },
+    {
+        "Champion Name": "Jayce",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "48.85%",
+        "Pick Rate": "5.13%",
+        "Ban Rate": "3.06%",
+        "Counters": "Akshan, Poppy, Yorick"
+    },
+    {
+        "Champion Name": "Syndra",
+        "Tier": "3",
+        "Role": "Middle",
+        "Win Rate": "48.82%",
+        "Pick Rate": "3.84%",
+        "Ban Rate": "1.68%",
+        "Counters": "Qiyana, Diana, Swain"
+    },
+    {
+        "Champion Name": "Yone",
+        "Tier": "3",
+        "Role": "Top",
+        "Win Rate": "48.54%",
+        "Pick Rate": "6.81%",
+        "Ban Rate": "7.17%",
+        "Counters": "Ryze, Ornn, Vayne"
+    },
+    {
         "Champion Name": "Nautilus",
         "Tier": "3",
         "Role": "Support",
-        "Win Rate": "48.08%",
-        "Pick Rate": "12.14%",
-        "Ban Rate": "18.28%",
-        "Counters": "Tahm Kench, Poppy, Neeko"
+        "Win Rate": "48.49%",
+        "Pick Rate": "11.33%",
+        "Ban Rate": "16.97%",
+        "Counters": "Zac, Rell, Renata Glasc"
     },
     {
-        "Rank": "154",
-        "Champion Name": "K'Sante",
+        "Champion Name": "Orianna",
         "Tier": "3",
-        "Role": "Top",
-        "Win Rate": "46.91%",
-        "Pick Rate": "5.48%",
-        "Ban Rate": "2.08%",
-        "Counters": "Riven, Twisted Fate, Pantheon"
-    },
-    {
-        "Rank": "155",
-        "Champion Name": "Ziggs",
-        "Tier": "4",
-        "Role": "Bottom",
-        "Win Rate": "52.67%",
-        "Pick Rate": "0.79%",
-        "Ban Rate": "0.19%",
-        "Counters": "Lucian, Jhin, Jinx"
-    },
-    {
-        "Rank": "156",
-        "Champion Name": "Yasuo",
-        "Tier": "4",
-        "Role": "Bottom",
-        "Win Rate": "51.78%",
-        "Pick Rate": "1.25%",
-        "Ban Rate": "2.12%",
-        "Counters": "Varus, Jhin, Kai'Sa"
-    },
-    {
-        "Rank": "157",
-        "Champion Name": "Udyr",
-        "Tier": "4",
-        "Role": "Jungle",
-        "Win Rate": "51.74%",
-        "Pick Rate": "1.60%",
-        "Ban Rate": "0.66%",
-        "Counters": "Viego, Jarvan IV, Vi"
-    },
-    {
-        "Rank": "158",
-        "Champion Name": "Pantheon",
-        "Tier": "4",
         "Role": "Middle",
-        "Win Rate": "51.61%",
-        "Pick Rate": "0.75%",
-        "Ban Rate": "0.24%",
-        "Counters": "Yone, Yasuo"
+        "Win Rate": "48.18%",
+        "Pick Rate": "3.93%",
+        "Ban Rate": "0.85%",
+        "Counters": "Lux, Talon, Anivia"
     },
     {
-        "Rank": "159",
-        "Champion Name": "Fiddlesticks",
+        "Champion Name": "Graves",
+        "Tier": "3",
+        "Role": "Jungle",
+        "Win Rate": "46.84%",
+        "Pick Rate": "9.69%",
+        "Ban Rate": "4.85%",
+        "Counters": "Maokai, Talon, Kindred"
+    },
+    {
+        "Champion Name": "Galio",
         "Tier": "4",
         "Role": "Support",
-        "Win Rate": "51.55%",
-        "Pick Rate": "0.67%",
-        "Ban Rate": "0.29%",
-        "Counters": "Lulu, Nautilus, Thresh"
+        "Win Rate": "51.68%",
+        "Pick Rate": "0.83%",
+        "Ban Rate": "0.15%",
+        "Counters": "Blitzcrank, Alistar, Yuumi"
     },
     {
-        "Rank": "160",
-        "Champion Name": "Swain",
+        "Champion Name": "Neeko",
         "Tier": "4",
-        "Role": "Middle",
-        "Win Rate": "51.41%",
-        "Pick Rate": "0.90%",
-        "Ban Rate": "0.14%",
-        "Counters": "Hwei, Ahri"
-    },
-    {
-        "Rank": "161",
-        "Champion Name": "Vel'Koz",
-        "Tier": "4",
-        "Role": "Middle",
-        "Win Rate": "51.38%",
-        "Pick Rate": "0.79%",
-        "Ban Rate": "0.07%",
-        "Counters": "Ahri"
-    },
-    {
-        "Rank": "162",
-        "Champion Name": "Ryze",
-        "Tier": "4",
-        "Role": "Top",
-        "Win Rate": "51.04%",
-        "Pick Rate": "0.76%",
-        "Ban Rate": "0.04%",
-        "Counters": ""
-    },
-    {
-        "Rank": "163",
-        "Champion Name": "Poppy",
-        "Tier": "4",
-        "Role": "Jungle",
-        "Win Rate": "50.95%",
-        "Pick Rate": "2.22%",
-        "Ban Rate": "1.68%",
-        "Counters": "Master Yi, Xin Zhao, Jarvan IV"
-    },
-    {
-        "Rank": "164",
-        "Champion Name": "Elise",
-        "Tier": "4",
-        "Role": "Jungle",
-        "Win Rate": "50.83%",
-        "Pick Rate": "2.34%",
-        "Ban Rate": "1.52%",
-        "Counters": "Zac, Kayn, Vi"
-    },
-    {
-        "Rank": "165",
-        "Champion Name": "Warwick",
-        "Tier": "4",
-        "Role": "Jungle",
-        "Win Rate": "50.75%",
-        "Pick Rate": "2.49%",
-        "Ban Rate": "0.45%",
-        "Counters": "Briar, Jax, Kayn"
-    },
-    {
-        "Rank": "166",
-        "Champion Name": "Fiddlesticks",
-        "Tier": "4",
-        "Role": "Jungle",
-        "Win Rate": "50.53%",
-        "Pick Rate": "2.18%",
+        "Role": "Support",
+        "Win Rate": "51.47%",
+        "Pick Rate": "1.96%",
         "Ban Rate": "0.94%",
-        "Counters": "Rek'Sai, Kha'Zix, Hecarim"
+        "Counters": "Brand, Xerath, Vel'Koz"
     },
     {
-        "Rank": "167",
-        "Champion Name": "Brand",
+        "Champion Name": "Tahm Kench",
         "Tier": "4",
-        "Role": "Jungle",
-        "Win Rate": "50.40%",
-        "Pick Rate": "2.29%",
-        "Ban Rate": "1.14%",
-        "Counters": "Volibear, Rek'Sai, Evelynn"
+        "Role": "Support",
+        "Win Rate": "51.32%",
+        "Pick Rate": "1.04%",
+        "Ban Rate": "0.26%",
+        "Counters": "Soraka, Zyra, Janna"
     },
     {
-        "Rank": "168",
-        "Champion Name": "Olaf",
-        "Tier": "4",
-        "Role": "Jungle",
-        "Win Rate": "50.23%",
-        "Pick Rate": "1.82%",
-        "Ban Rate": "2.35%",
-        "Counters": "Bel'Veth, Diana, Taliyah"
-    },
-    {
-        "Rank": "169",
-        "Champion Name": "Vex",
+        "Champion Name": "Rumble",
         "Tier": "4",
         "Role": "Middle",
-        "Win Rate": "50.17%",
-        "Pick Rate": "2.52%",
-        "Ban Rate": "2.11%",
-        "Counters": "Diana, Aurelion Sol, Syndra"
+        "Win Rate": "51.32%",
+        "Pick Rate": "0.71%",
+        "Ban Rate": "0.47%",
+        "Counters": "Hwei, Sylas, Yasuo"
     },
     {
-        "Rank": "170",
-        "Champion Name": "Ekko",
-        "Tier": "4",
-        "Role": "Middle",
-        "Win Rate": "50.06%",
-        "Pick Rate": "2.13%",
-        "Ban Rate": "0.50%",
-        "Counters": "Kassadin, Akali, Katarina"
-    },
-    {
-        "Rank": "171",
-        "Champion Name": "Jax",
-        "Tier": "4",
-        "Role": "Jungle",
-        "Win Rate": "49.77%",
-        "Pick Rate": "3.22%",
-        "Ban Rate": "4.76%",
-        "Counters": "Rek'Sai, Kindred, Ekko"
-    },
-    {
-        "Rank": "172",
-        "Champion Name": "Zac",
-        "Tier": "4",
-        "Role": "Jungle",
-        "Win Rate": "49.76%",
-        "Pick Rate": "3.83%",
-        "Ban Rate": "2.38%",
-        "Counters": "Poppy, Lillia, Rek'Sai"
-    },
-    {
-        "Rank": "173",
-        "Champion Name": "Ekko",
-        "Tier": "4",
-        "Role": "Jungle",
-        "Win Rate": "49.74%",
-        "Pick Rate": "3.44%",
-        "Ban Rate": "0.81%",
-        "Counters": "Warwick, Zac, Kayn"
-    },
-    {
-        "Rank": "174",
-        "Champion Name": "Qiyana",
-        "Tier": "4",
-        "Role": "Middle",
-        "Win Rate": "49.71%",
-        "Pick Rate": "2.55%",
-        "Ban Rate": "0.97%",
-        "Counters": "Vex, Twisted Fate, Katarina"
-    },
-    {
-        "Rank": "175",
-        "Champion Name": "Fizz",
-        "Tier": "4",
-        "Role": "Middle",
-        "Win Rate": "49.70%",
-        "Pick Rate": "2.87%",
-        "Ban Rate": "5.09%",
-        "Counters": "Akali, Lissandra, Kassadin"
-    },
-    {
-        "Rank": "176",
         "Champion Name": "Zac",
         "Tier": "4",
         "Role": "Support",
-        "Win Rate": "49.64%",
-        "Pick Rate": "1.35%",
-        "Ban Rate": "0.83%",
-        "Counters": "Janna, Thresh, Nami"
+        "Win Rate": "51.16%",
+        "Pick Rate": "1.18%",
+        "Ban Rate": "0.85%",
+        "Counters": "Vel'Koz, Janna, Senna"
     },
     {
-        "Rank": "177",
-        "Champion Name": "Xayah",
+        "Champion Name": "Maokai",
         "Tier": "4",
-        "Role": "Bottom",
-        "Win Rate": "49.57%",
-        "Pick Rate": "3.94%",
-        "Ban Rate": "0.64%",
-        "Counters": "Kog'Maw, Jhin, Draven"
+        "Role": "Support",
+        "Win Rate": "50.88%",
+        "Pick Rate": "2.50%",
+        "Ban Rate": "1.39%",
+        "Counters": "Pantheon, Sona, Neeko"
     },
     {
-        "Rank": "178",
-        "Champion Name": "Malzahar",
+        "Champion Name": "Zilean",
         "Tier": "4",
-        "Role": "Middle",
-        "Win Rate": "49.54%",
-        "Pick Rate": "1.84%",
-        "Ban Rate": "1.80%",
-        "Counters": "Diana, Akali, Aurelion Sol"
+        "Role": "Support",
+        "Win Rate": "50.86%",
+        "Pick Rate": "2.87%",
+        "Ban Rate": "0.59%",
+        "Counters": "Vel'Koz, Maokai, Sona"
     },
     {
-        "Rank": "179",
-        "Champion Name": "Miss Fortune",
+        "Champion Name": "Rengar",
         "Tier": "4",
-        "Role": "Bottom",
-        "Win Rate": "49.44%",
-        "Pick Rate": "3.10%",
-        "Ban Rate": "0.47%",
-        "Counters": "Nilah, Tristana, Smolder"
+        "Role": "Top",
+        "Win Rate": "50.74%",
+        "Pick Rate": "0.65%",
+        "Ban Rate": "1.31%",
+        "Counters": "Renekton, Garen, Jayce"
     },
     {
-        "Rank": "180",
         "Champion Name": "Renata Glasc",
         "Tier": "4",
         "Role": "Support",
-        "Win Rate": "49.36%",
-        "Pick Rate": "2.09%",
-        "Ban Rate": "0.44%",
-        "Counters": "Milio, Leona, Nami"
+        "Win Rate": "50.53%",
+        "Pick Rate": "2.24%",
+        "Ban Rate": "0.45%",
+        "Counters": "Seraphine, Taric, Zilean"
     },
     {
-        "Rank": "181",
-        "Champion Name": "Kalista",
-        "Tier": "4",
-        "Role": "Bottom",
-        "Win Rate": "49.17%",
-        "Pick Rate": "3.84%",
-        "Ban Rate": "2.28%",
-        "Counters": "Sivir, Aphelios, Nilah"
-    },
-    {
-        "Rank": "182",
-        "Champion Name": "Pantheon",
+        "Champion Name": "Skarner",
         "Tier": "4",
         "Role": "Support",
-        "Win Rate": "49.12%",
-        "Pick Rate": "2.01%",
-        "Ban Rate": "0.63%",
-        "Counters": "Janna, Leona, Rell"
+        "Win Rate": "50.50%",
+        "Pick Rate": "1.51%",
+        "Ban Rate": "3.48%",
+        "Counters": "Maokai, Morgana, Camille"
     },
     {
-        "Rank": "183",
-        "Champion Name": "Kayn",
+        "Champion Name": "Ryze",
+        "Tier": "4",
+        "Role": "Top",
+        "Win Rate": "50.49%",
+        "Pick Rate": "0.70%",
+        "Ban Rate": "0.05%",
+        "Counters": "Camille, Malphite, Garen"
+    },
+    {
+        "Champion Name": "Quinn",
+        "Tier": "4",
+        "Role": "Top",
+        "Win Rate": "50.48%",
+        "Pick Rate": "1.07%",
+        "Ban Rate": "0.61%",
+        "Counters": "Kayle, Camille, Ornn"
+    },
+    {
+        "Champion Name": "Gwen",
         "Tier": "4",
         "Role": "Jungle",
-        "Win Rate": "49.06%",
-        "Pick Rate": "4.72%",
-        "Ban Rate": "4.89%",
-        "Counters": "Udyr, Rek'Sai, Jax"
+        "Win Rate": "50.39%",
+        "Pick Rate": "0.69%",
+        "Ban Rate": "0.35%",
+        "Counters": "Zac, Viego, Diana"
     },
     {
-        "Rank": "184",
-        "Champion Name": "Viktor",
+        "Champion Name": "Vel'Koz",
         "Tier": "4",
         "Role": "Middle",
-        "Win Rate": "48.93%",
-        "Pick Rate": "2.55%",
-        "Ban Rate": "0.80%",
-        "Counters": "Twisted Fate, Taliyah, Kassadin"
+        "Win Rate": "50.37%",
+        "Pick Rate": "0.86%",
+        "Ban Rate": "0.08%",
+        "Counters": "Diana, Zed, Yone"
     },
     {
-        "Rank": "185",
-        "Champion Name": "Malphite",
-        "Tier": "4",
-        "Role": "Middle",
-        "Win Rate": "48.85%",
-        "Pick Rate": "2.43%",
-        "Ban Rate": "2.97%",
-        "Counters": "Kassadin, Diana, Sylas"
-    },
-    {
-        "Rank": "186",
-        "Champion Name": "Lissandra",
-        "Tier": "4",
-        "Role": "Middle",
-        "Win Rate": "48.80%",
-        "Pick Rate": "2.57%",
-        "Ban Rate": "1.08%",
-        "Counters": "Aurelion Sol, Diana, Irelia"
-    },
-    {
-        "Rank": "187",
-        "Champion Name": "Varus",
+        "Champion Name": "Sivir",
         "Tier": "4",
         "Role": "Bottom",
-        "Win Rate": "48.76%",
-        "Pick Rate": "6.79%",
-        "Ban Rate": "1.13%",
-        "Counters": "Samira, Ezreal, Jinx"
+        "Win Rate": "50.36%",
+        "Pick Rate": "3.72%",
+        "Ban Rate": "0.51%",
+        "Counters": "Kog'Maw, Jhin, Draven"
     },
     {
-        "Rank": "188",
-        "Champion Name": "Heimerdinger",
-        "Tier": "4",
-        "Role": "Top",
-        "Win Rate": "48.73%",
-        "Pick Rate": "0.62%",
-        "Ban Rate": "0.22%",
-        "Counters": "Skarner"
-    },
-    {
-        "Rank": "189",
-        "Champion Name": "Aphelios",
-        "Tier": "4",
-        "Role": "Bottom",
-        "Win Rate": "48.67%",
-        "Pick Rate": "5.77%",
-        "Ban Rate": "0.52%",
-        "Counters": "Tristana, Samira, Ashe"
-    },
-    {
-        "Rank": "190",
-        "Champion Name": "Pantheon",
-        "Tier": "4",
-        "Role": "Top",
-        "Win Rate": "48.67%",
-        "Pick Rate": "1.69%",
-        "Ban Rate": "0.54%",
-        "Counters": "Skarner, Camille, Darius"
-    },
-    {
-        "Rank": "191",
-        "Champion Name": "Jayce",
-        "Tier": "4",
-        "Role": "Middle",
-        "Win Rate": "48.53%",
-        "Pick Rate": "2.68%",
-        "Ban Rate": "1.78%",
-        "Counters": "Irelia, Katarina, Taliyah"
-    },
-    {
-        "Rank": "192",
-        "Champion Name": "Xerath",
+        "Champion Name": "Bard",
         "Tier": "4",
         "Role": "Support",
-        "Win Rate": "48.49%",
-        "Pick Rate": "3.45%",
-        "Ban Rate": "2.87%",
-        "Counters": "Soraka, Camille, Bard"
+        "Win Rate": "50.36%",
+        "Pick Rate": "2.79%",
+        "Ban Rate": "0.55%",
+        "Counters": "Maokai, Skarner, Leona"
     },
     {
-        "Rank": "193",
-        "Champion Name": "Vladimir",
+        "Champion Name": "Naafiri",
         "Tier": "4",
-        "Role": "Top",
-        "Win Rate": "48.48%",
-        "Pick Rate": "0.92%",
-        "Ban Rate": "0.87%",
-        "Counters": "Skarner, Aatrox"
+        "Role": "Middle",
+        "Win Rate": "50.33%",
+        "Pick Rate": "1.20%",
+        "Ban Rate": "0.69%",
+        "Counters": "Sylas, Taliyah, Yasuo"
     },
     {
-        "Rank": "194",
-        "Champion Name": "Smolder",
+        "Champion Name": "Shaco",
+        "Tier": "4",
+        "Role": "Support",
+        "Win Rate": "50.33%",
+        "Pick Rate": "2.11%",
+        "Ban Rate": "6.62%",
+        "Counters": "Soraka, Brand, Sona"
+    },
+    {
+        "Champion Name": "Seraphine",
+        "Tier": "4",
+        "Role": "Support",
+        "Win Rate": "50.29%",
+        "Pick Rate": "2.66%",
+        "Ban Rate": "0.30%",
+        "Counters": "Vel'Koz, Zilean, Rakan"
+    },
+    {
+        "Champion Name": "Tristana",
         "Tier": "4",
         "Role": "Bottom",
-        "Win Rate": "48.40%",
-        "Pick Rate": "6.20%",
-        "Ban Rate": "5.33%",
-        "Counters": "Aphelios, Tristana, Samira"
+        "Win Rate": "50.08%",
+        "Pick Rate": "3.24%",
+        "Ban Rate": "0.82%",
+        "Counters": "Nilah, Ashe, Jhin"
     },
     {
-        "Rank": "195",
+        "Champion Name": "Amumu",
+        "Tier": "4",
+        "Role": "Jungle",
+        "Win Rate": "49.78%",
+        "Pick Rate": "1.86%",
+        "Ban Rate": "0.44%",
+        "Counters": "Hecarim, Evelynn, Nocturne"
+    },
+    {
         "Champion Name": "Vayne",
         "Tier": "4",
         "Role": "Bottom",
-        "Win Rate": "48.02%",
-        "Pick Rate": "5.14%",
-        "Ban Rate": "5.74%",
-        "Counters": "Tristana, Sivir, Varus"
+        "Win Rate": "49.64%",
+        "Pick Rate": "5.77%",
+        "Ban Rate": "6.40%",
+        "Counters": "Kog'Maw, Twitch, Veigar"
     },
     {
-        "Rank": "196",
-        "Champion Name": "Xerath",
+        "Champion Name": "Vladimir",
         "Tier": "4",
-        "Role": "Middle",
-        "Win Rate": "47.89%",
-        "Pick Rate": "2.69%",
-        "Ban Rate": "2.26%",
-        "Counters": "Kassadin, Twisted Fate, Katarina"
-    },
-    {
-        "Rank": "197",
-        "Champion Name": "Orianna",
-        "Tier": "4",
-        "Role": "Middle",
-        "Win Rate": "47.73%",
-        "Pick Rate": "4.11%",
+        "Role": "Top",
+        "Win Rate": "49.62%",
+        "Pick Rate": "0.92%",
         "Ban Rate": "0.95%",
-        "Counters": "Diana, Galio, LeBlanc"
+        "Counters": "Trundle, Darius, Skarner"
     },
     {
-        "Rank": "198",
+        "Champion Name": "Camille",
+        "Tier": "4",
+        "Role": "Support",
+        "Win Rate": "49.59%",
+        "Pick Rate": "2.50%",
+        "Ban Rate": "2.07%",
+        "Counters": "Vel'Koz, Milio, Rakan"
+    },
+    {
+        "Champion Name": "Udyr",
+        "Tier": "4",
+        "Role": "Jungle",
+        "Win Rate": "49.38%",
+        "Pick Rate": "1.81%",
+        "Ban Rate": "0.81%",
+        "Counters": "Jarvan IV, Shaco, Zac"
+    },
+    {
+        "Champion Name": "Zed",
+        "Tier": "4",
+        "Role": "Top",
+        "Win Rate": "49.34%",
+        "Pick Rate": "0.61%",
+        "Ban Rate": "1.50%",
+        "Counters": "Skarner, Camille, Malphite"
+    },
+    {
+        "Champion Name": "Wukong",
+        "Tier": "4",
+        "Role": "Jungle",
+        "Win Rate": "49.32%",
+        "Pick Rate": "1.81%",
+        "Ban Rate": "0.24%",
+        "Counters": "Fiddlesticks, Gragas, Evelynn"
+    },
+    {
+        "Champion Name": "Rek'Sai",
+        "Tier": "4",
+        "Role": "Top",
+        "Win Rate": "49.25%",
+        "Pick Rate": "0.78%",
+        "Ban Rate": "1.34%",
+        "Counters": "Garen, Sett, Darius"
+    },
+    {
+        "Champion Name": "Olaf",
+        "Tier": "4",
+        "Role": "Jungle",
+        "Win Rate": "49.18%",
+        "Pick Rate": "1.66%",
+        "Ban Rate": "2.12%",
+        "Counters": "Kindred, Nidalee, Bel'Veth"
+    },
+    {
+        "Champion Name": "Lux",
+        "Tier": "4",
+        "Role": "Support",
+        "Win Rate": "49.13%",
+        "Pick Rate": "6.18%",
+        "Ban Rate": "1.98%",
+        "Counters": "Poppy, Sona, Braum"
+    },
+    {
+        "Champion Name": "Smolder",
+        "Tier": "4",
+        "Role": "Bottom",
+        "Win Rate": "48.89%",
+        "Pick Rate": "6.44%",
+        "Ban Rate": "5.91%",
+        "Counters": "Kog'Maw, Aphelios, Senna"
+    },
+    {
+        "Champion Name": "Yasuo",
+        "Tier": "4",
+        "Role": "Top",
+        "Win Rate": "48.84%",
+        "Pick Rate": "1.98%",
+        "Ban Rate": "3.49%",
+        "Counters": "Volibear, Zac, Jax"
+    },
+    {
         "Champion Name": "Gnar",
         "Tier": "4",
         "Role": "Top",
-        "Win Rate": "47.71%",
-        "Pick Rate": "2.44%",
-        "Ban Rate": "0.42%",
-        "Counters": "Malphite, Mordekaiser, K'Sante"
+        "Win Rate": "48.72%",
+        "Pick Rate": "2.53%",
+        "Ban Rate": "0.47%",
+        "Counters": "Kayle, K'Sante, Mordekaiser"
     },
     {
-        "Rank": "199",
-        "Champion Name": "Yorick",
-        "Tier": "4",
-        "Role": "Top",
-        "Win Rate": "47.70%",
-        "Pick Rate": "2.01%",
-        "Ban Rate": "1.83%",
-        "Counters": "Fiora, Camille, Darius"
-    },
-    {
-        "Rank": "200",
-        "Champion Name": "Karma",
+        "Champion Name": "Xerath",
         "Tier": "4",
         "Role": "Support",
-        "Win Rate": "47.58%",
-        "Pick Rate": "5.88%",
-        "Ban Rate": "4.72%",
-        "Counters": "Skarner, Vel'Koz, Sona"
+        "Win Rate": "48.57%",
+        "Pick Rate": "3.22%",
+        "Ban Rate": "2.60%",
+        "Counters": "Leona, Soraka, Pyke"
     },
     {
-        "Rank": "201",
+        "Champion Name": "Malzahar",
+        "Tier": "4",
+        "Role": "Middle",
+        "Win Rate": "48.56%",
+        "Pick Rate": "2.13%",
+        "Ban Rate": "2.45%",
+        "Counters": "Veigar, Twisted Fate, Akshan"
+    },
+    {
+        "Champion Name": "Vladimir",
+        "Tier": "4",
+        "Role": "Middle",
+        "Win Rate": "48.56%",
+        "Pick Rate": "2.38%",
+        "Ban Rate": "2.45%",
+        "Counters": "Brand, Ryze, Twisted Fate"
+    },
+    {
+        "Champion Name": "Xerath",
+        "Tier": "4",
+        "Role": "Middle",
+        "Win Rate": "48.44%",
+        "Pick Rate": "2.46%",
+        "Ban Rate": "2.01%",
+        "Counters": "Ryze, Irelia, Kassadin"
+    },
+    {
         "Champion Name": "Cho'Gath",
         "Tier": "4",
         "Role": "Top",
-        "Win Rate": "47.44%",
-        "Pick Rate": "1.23%",
-        "Ban Rate": "0.13%",
-        "Counters": "Renekton, Camille, Aatrox"
+        "Win Rate": "48.40%",
+        "Pick Rate": "1.44%",
+        "Ban Rate": "0.17%",
+        "Counters": "Garen, Jax, Shen"
     },
     {
-        "Rank": "202",
+        "Champion Name": "Yuumi",
+        "Tier": "4",
+        "Role": "Support",
+        "Win Rate": "48.38%",
+        "Pick Rate": "5.79%",
+        "Ban Rate": "5.53%",
+        "Counters": "Tahm Kench, Nautilus, Leona"
+    },
+    {
+        "Champion Name": "Zoe",
+        "Tier": "4",
+        "Role": "Middle",
+        "Win Rate": "48.37%",
+        "Pick Rate": "1.72%",
+        "Ban Rate": "0.84%",
+        "Counters": "Malzahar, Diana, Galio"
+    },
+    {
+        "Champion Name": "Karma",
+        "Tier": "4",
+        "Role": "Support",
+        "Win Rate": "47.79%",
+        "Pick Rate": "5.95%",
+        "Ban Rate": "4.90%",
+        "Counters": "Tahm Kench, Zac, Poppy"
+    },
+    {
         "Champion Name": "Volibear",
         "Tier": "4",
         "Role": "Top",
-        "Win Rate": "47.35%",
-        "Pick Rate": "2.64%",
-        "Ban Rate": "2.55%",
-        "Counters": "Urgot, Illaoi, Riven"
+        "Win Rate": "47.68%",
+        "Pick Rate": "2.93%",
+        "Ban Rate": "2.68%",
+        "Counters": "Jax, Urgot, Illaoi"
     },
     {
-        "Rank": "203",
-        "Champion Name": "Hwei",
-        "Tier": "4",
-        "Role": "Support",
-        "Win Rate": "47.15%",
-        "Pick Rate": "2.56%",
-        "Ban Rate": "3.66%",
-        "Counters": "Blitzcrank, Janna, Rell"
-    },
-    {
-        "Rank": "204",
-        "Champion Name": "Graves",
+        "Champion Name": "Sylas",
         "Tier": "4",
         "Role": "Jungle",
-        "Win Rate": "46.84%",
-        "Pick Rate": "10.82%",
-        "Ban Rate": "5.43%",
-        "Counters": "Rammus, Brand, Hecarim"
+        "Win Rate": "47.28%",
+        "Pick Rate": "4.29%",
+        "Ban Rate": "3.27%",
+        "Counters": "Poppy, Skarner, Evelynn"
     },
     {
-        "Rank": "205",
-        "Champion Name": "Rumble",
-        "Tier": "5",
-        "Role": "Jungle",
-        "Win Rate": "50.32%",
-        "Pick Rate": "0.76%",
-        "Ban Rate": "0.57%",
-        "Counters": "Lee Sin, Graves, Viego"
+        "Champion Name": "K'Sante",
+        "Tier": "4",
+        "Role": "Top",
+        "Win Rate": "46.46%",
+        "Pick Rate": "4.66%",
+        "Ban Rate": "2.13%",
+        "Counters": "Shen, Rengar, Singed"
     },
     {
-        "Rank": "206",
-        "Champion Name": "Rumble",
-        "Tier": "5",
+        "Champion Name": "Azir",
+        "Tier": "4",
         "Role": "Middle",
-        "Win Rate": "50.30%",
-        "Pick Rate": "0.80%",
-        "Ban Rate": "0.60%",
-        "Counters": "Ahri"
+        "Win Rate": "45.95%",
+        "Pick Rate": "4.36%",
+        "Ban Rate": "1.27%",
+        "Counters": "Annie, Malphite, Zoe"
     },
     {
-        "Rank": "207",
-        "Champion Name": "Maokai",
+        "Champion Name": "Veigar",
         "Tier": "5",
-        "Role": "Jungle",
-        "Win Rate": "50.24%",
-        "Pick Rate": "0.50%",
-        "Ban Rate": "0.25%",
-        "Counters": "Lee Sin"
-    },
-    {
-        "Rank": "208",
-        "Champion Name": "Zed",
-        "Tier": "5",
-        "Role": "Jungle",
-        "Win Rate": "50.00%",
-        "Pick Rate": "0.66%",
-        "Ban Rate": "1.67%",
-        "Counters": "Viego, Lee Sin"
-    },
-    {
-        "Rank": "209",
-        "Champion Name": "Gangplank",
-        "Tier": "5",
-        "Role": "Middle",
-        "Win Rate": "49.88%",
-        "Pick Rate": "0.50%",
-        "Ban Rate": "0.24%",
-        "Counters": ""
-    },
-    {
-        "Rank": "210",
-        "Champion Name": "Amumu",
-        "Tier": "5",
-        "Role": "Jungle",
-        "Win Rate": "49.74%",
-        "Pick Rate": "1.63%",
-        "Ban Rate": "0.34%",
-        "Counters": "Kha'Zix, Shaco, Jarvan IV"
-    },
-    {
-        "Rank": "211",
-        "Champion Name": "LeBlanc",
-        "Tier": "5",
-        "Role": "Support",
-        "Win Rate": "49.50%",
+        "Role": "Bottom",
+        "Win Rate": "52.75%",
         "Pick Rate": "0.61%",
-        "Ban Rate": "1.13%",
-        "Counters": "Thresh"
+        "Ban Rate": "0.15%",
+        "Counters": "Smolder, Twitch, Ezreal"
     },
     {
-        "Rank": "212",
-        "Champion Name": "Naafiri",
+        "Champion Name": "Fiddlesticks",
         "Tier": "5",
-        "Role": "Middle",
-        "Win Rate": "49.28%",
-        "Pick Rate": "1.10%",
-        "Ban Rate": "0.62%",
-        "Counters": "Akali, Ahri, Hwei"
+        "Role": "Support",
+        "Win Rate": "50.83%",
+        "Pick Rate": "0.58%",
+        "Ban Rate": "0.29%",
+        "Counters": "Blitzcrank, Janna, Nautilus"
     },
     {
-        "Rank": "213",
         "Champion Name": "Senna",
         "Tier": "5",
         "Role": "Bottom",
-        "Win Rate": "49.05%",
-        "Pick Rate": "0.76%",
-        "Ban Rate": "0.62%",
-        "Counters": "Caitlyn, Jhin, Jinx"
+        "Win Rate": "50.81%",
+        "Pick Rate": "0.85%",
+        "Ban Rate": "0.75%",
+        "Counters": "Twitch, Caitlyn, Varus"
     },
     {
-        "Rank": "214",
-        "Champion Name": "Wukong",
+        "Champion Name": "Ziggs",
         "Tier": "5",
-        "Role": "Jungle",
-        "Win Rate": "48.48%",
-        "Pick Rate": "1.64%",
-        "Ban Rate": "0.20%",
-        "Counters": "Kayn, Master Yi, Kha'Zix"
+        "Role": "Bottom",
+        "Win Rate": "50.64%",
+        "Pick Rate": "0.83%",
+        "Ban Rate": "0.13%",
+        "Counters": "Jhin, Ashe, Miss Fortune"
     },
     {
-        "Rank": "215",
-        "Champion Name": "Rengar",
+        "Champion Name": "LeBlanc",
         "Tier": "5",
-        "Role": "Jungle",
-        "Win Rate": "48.21%",
-        "Pick Rate": "2.60%",
-        "Ban Rate": "5.26%",
-        "Counters": "Briar, Karthus, Bel'Veth"
+        "Role": "Support",
+        "Win Rate": "50.10%",
+        "Pick Rate": "0.53%",
+        "Ban Rate": "0.89%",
+        "Counters": "Milio, Lulu, Nami"
     },
     {
-        "Rank": "216",
-        "Champion Name": "Karma",
+        "Champion Name": "Ziggs",
         "Tier": "5",
         "Role": "Middle",
-        "Win Rate": "48.14%",
-        "Pick Rate": "1.40%",
-        "Ban Rate": "1.13%",
-        "Counters": "Ahri, Sylas, Aurelion Sol"
+        "Win Rate": "49.56%",
+        "Pick Rate": "0.54%",
+        "Ban Rate": "0.09%",
+        "Counters": "Aurelion Sol, Yasuo, Ahri"
     },
     {
-        "Rank": "217",
+        "Champion Name": "Miss Fortune",
+        "Tier": "5",
+        "Role": "Bottom",
+        "Win Rate": "49.54%",
+        "Pick Rate": "3.48%",
+        "Ban Rate": "0.60%",
+        "Counters": "Samira, Tristana, Nilah"
+    },
+    {
+        "Champion Name": "Maokai",
+        "Tier": "5",
+        "Role": "Jungle",
+        "Win Rate": "49.49%",
+        "Pick Rate": "0.52%",
+        "Ban Rate": "0.29%",
+        "Counters": "Master Yi, Kha'Zix, Lee Sin"
+    },
+    {
+        "Champion Name": "Xayah",
+        "Tier": "5",
+        "Role": "Bottom",
+        "Win Rate": "49.22%",
+        "Pick Rate": "4.24%",
+        "Ban Rate": "0.70%",
+        "Counters": "Kog'Maw, Jhin, Miss Fortune"
+    },
+    {
         "Champion Name": "Talon",
         "Tier": "5",
         "Role": "Jungle",
-        "Win Rate": "48.06%",
+        "Win Rate": "49.14%",
         "Pick Rate": "1.09%",
-        "Ban Rate": "0.40%",
-        "Counters": "Lee Sin, Viego, Graves"
+        "Ban Rate": "0.37%",
+        "Counters": "Skarner, Jarvan IV, Master Yi"
     },
     {
-        "Rank": "218",
-        "Champion Name": "Zed",
+        "Champion Name": "Heimerdinger",
         "Tier": "5",
         "Role": "Top",
-        "Win Rate": "47.90%",
+        "Win Rate": "48.85%",
         "Pick Rate": "0.61%",
-        "Ban Rate": "1.52%",
-        "Counters": ""
+        "Ban Rate": "0.20%",
+        "Counters": "Jax, Skarner, Mordekaiser"
     },
     {
-        "Rank": "219",
-        "Champion Name": "Zoe",
+        "Champion Name": "Kalista",
+        "Tier": "5",
+        "Role": "Bottom",
+        "Win Rate": "48.71%",
+        "Pick Rate": "3.55%",
+        "Ban Rate": "1.94%",
+        "Counters": "Ashe, Miss Fortune, Aphelios"
+    },
+    {
+        "Champion Name": "Aphelios",
+        "Tier": "5",
+        "Role": "Bottom",
+        "Win Rate": "48.58%",
+        "Pick Rate": "5.45%",
+        "Ban Rate": "0.53%",
+        "Counters": "Samira, Miss Fortune, Yasuo"
+    },
+    {
+        "Champion Name": "Gangplank",
         "Tier": "5",
         "Role": "Middle",
-        "Win Rate": "47.87%",
-        "Pick Rate": "1.74%",
-        "Ban Rate": "0.93%",
-        "Counters": "Aurelion Sol, Sylas, Ahri"
+        "Win Rate": "48.51%",
+        "Pick Rate": "0.54%",
+        "Ban Rate": "0.24%",
+        "Counters": "Sylas, Zed, LeBlanc"
     },
     {
-        "Rank": "220",
-        "Champion Name": "Sejuani",
+        "Champion Name": "Zed",
         "Tier": "5",
         "Role": "Jungle",
-        "Win Rate": "47.81%",
-        "Pick Rate": "1.85%",
-        "Ban Rate": "0.11%",
-        "Counters": "Zac, Kha'Zix, Skarner"
+        "Win Rate": "48.29%",
+        "Pick Rate": "0.79%",
+        "Ban Rate": "1.96%",
+        "Counters": "Shaco, Hecarim, Volibear"
     },
     {
-        "Rank": "221",
-        "Champion Name": "Gwen",
-        "Tier": "5",
-        "Role": "Jungle",
-        "Win Rate": "47.63%",
-        "Pick Rate": "0.61%",
-        "Ban Rate": "0.30%",
-        "Counters": "Viego, Lee Sin"
-    },
-    {
-        "Rank": "222",
-        "Champion Name": "Vladimir",
-        "Tier": "5",
-        "Role": "Middle",
-        "Win Rate": "47.50%",
-        "Pick Rate": "2.11%",
-        "Ban Rate": "1.99%",
-        "Counters": "Twisted Fate, Fizz, Taliyah"
-    },
-    {
-        "Rank": "223",
-        "Champion Name": "Sylas",
-        "Tier": "5",
-        "Role": "Jungle",
-        "Win Rate": "47.25%",
-        "Pick Rate": "4.80%",
-        "Ban Rate": "3.94%",
-        "Counters": "Talon, Olaf, Evelynn"
-    },
-    {
-        "Rank": "224",
-        "Champion Name": "Shyvana",
-        "Tier": "5",
-        "Role": "Jungle",
-        "Win Rate": "47.14%",
-        "Pick Rate": "1.54%",
-        "Ban Rate": "0.16%",
-        "Counters": "Zac, Kha'Zix, Viego"
-    },
-    {
-        "Rank": "225",
-        "Champion Name": "Mordekaiser",
-        "Tier": "5",
-        "Role": "Jungle",
-        "Win Rate": "46.45%",
-        "Pick Rate": "0.85%",
-        "Ban Rate": "0.95%",
-        "Counters": "Graves, Lee Sin, Viego"
-    },
-    {
-        "Rank": "226",
-        "Champion Name": "Rumble",
-        "Tier": "5",
-        "Role": "Support",
-        "Win Rate": "46.04%",
-        "Pick Rate": "0.60%",
-        "Ban Rate": "0.45%",
-        "Counters": "Thresh"
-    },
-    {
-        "Rank": "227",
-        "Champion Name": "Ashe",
-        "Tier": "5",
-        "Role": "Support",
-        "Win Rate": "46.04%",
-        "Pick Rate": "2.42%",
-        "Ban Rate": "0.92%",
-        "Counters": "Zyra, Rell, Yuumi"
-    },
-    {
-        "Rank": "228",
         "Champion Name": "Kennen",
         "Tier": "5",
         "Role": "Top",
-        "Win Rate": "45.82%",
-        "Pick Rate": "1.00%",
+        "Win Rate": "48.14%",
+        "Pick Rate": "0.96%",
         "Ban Rate": "0.35%",
-        "Counters": "Jayce, Darius, Aatrox"
+        "Counters": "Camille, Mordekaiser, Jayce"
     },
     {
-        "Rank": "229",
-        "Champion Name": "Azir",
+        "Champion Name": "Varus",
+        "Tier": "5",
+        "Role": "Bottom",
+        "Win Rate": "48.05%",
+        "Pick Rate": "6.64%",
+        "Ban Rate": "1.11%",
+        "Counters": "Ziggs, Twitch, Yasuo"
+    },
+    {
+        "Champion Name": "Sejuani",
+        "Tier": "5",
+        "Role": "Jungle",
+        "Win Rate": "47.61%",
+        "Pick Rate": "1.84%",
+        "Ban Rate": "0.14%",
+        "Counters": "Evelynn, Fiddlesticks, Nunu & Willump"
+    },
+    {
+        "Champion Name": "Mordekaiser",
+        "Tier": "5",
+        "Role": "Jungle",
+        "Win Rate": "47.61%",
+        "Pick Rate": "0.87%",
+        "Ban Rate": "1.12%",
+        "Counters": "Jarvan IV, Skarner, Briar"
+    },
+    {
+        "Champion Name": "Pantheon",
+        "Tier": "5",
+        "Role": "Support",
+        "Win Rate": "47.50%",
+        "Pick Rate": "2.05%",
+        "Ban Rate": "0.68%",
+        "Counters": "Bard, Janna, Ashe"
+    },
+    {
+        "Champion Name": "Shyvana",
+        "Tier": "5",
+        "Role": "Jungle",
+        "Win Rate": "47.11%",
+        "Pick Rate": "1.64%",
+        "Ban Rate": "0.17%",
+        "Counters": "Hecarim, Fiddlesticks, Lillia"
+    },
+    {
+        "Champion Name": "Karma",
         "Tier": "5",
         "Role": "Middle",
-        "Win Rate": "45.71%",
-        "Pick Rate": "4.72%",
-        "Ban Rate": "1.39%",
-        "Counters": "Qiyana, Cassiopeia, Twisted Fate"
+        "Win Rate": "47.11%",
+        "Pick Rate": "1.56%",
+        "Ban Rate": "1.30%",
+        "Counters": "Qiyana, Twisted Fate, Veigar"
     },
     {
-        "Rank": "230",
         "Champion Name": "Udyr",
         "Tier": "5",
         "Role": "Top",
-        "Win Rate": "45.28%",
-        "Pick Rate": "1.43%",
-        "Ban Rate": "0.59%",
-        "Counters": "Mordekaiser, Zac, K'Sante"
+        "Win Rate": "46.65%",
+        "Pick Rate": "1.39%",
+        "Ban Rate": "0.62%",
+        "Counters": "Zac, Renekton, Garen"
     },
     {
-        "Rank": "231",
-        "Champion Name": "Smolder",
+        "Champion Name": "Hwei",
         "Tier": "5",
-        "Role": "Middle",
-        "Win Rate": "45.11%",
-        "Pick Rate": "0.57%",
-        "Ban Rate": "0.49%",
-        "Counters": ""
+        "Role": "Support",
+        "Win Rate": "46.21%",
+        "Pick Rate": "2.58%",
+        "Ban Rate": "3.60%",
+        "Counters": "Ashe, Rell, Shaco"
     },
     {
-        "Rank": "232",
+        "Champion Name": "Ashe",
+        "Tier": "5",
+        "Role": "Support",
+        "Win Rate": "46.18%",
+        "Pick Rate": "2.48%",
+        "Ban Rate": "0.90%",
+        "Counters": "Seraphine, Braum, Yuumi"
+    },
+    {
         "Champion Name": "Swain",
         "Tier": "5",
         "Role": "Support",
-        "Win Rate": "44.66%",
-        "Pick Rate": "1.60%",
-        "Ban Rate": "0.25%",
-        "Counters": "Pyke, Yuumi, Nami"
+        "Win Rate": "45.76%",
+        "Pick Rate": "1.66%",
+        "Ban Rate": "0.32%",
+        "Counters": "Morgana, Renata Glasc, Milio"
     },
     {
-        "Rank": "233",
-        "Champion Name": "Corki",
+        "Champion Name": "Rumble",
         "Tier": "5",
-        "Role": "Middle",
-        "Win Rate": "44.59%",
-        "Pick Rate": "2.53%",
-        "Ban Rate": "0.16%",
-        "Counters": "Yasuo, Zed, Twisted Fate"
+        "Role": "Support",
+        "Win Rate": "45.65%",
+        "Pick Rate": "0.52%",
+        "Ban Rate": "0.35%",
+        "Counters": "Janna, Milio, Nami"
     },
     {
-        "Rank": "234",
-        "Champion Name": "Smolder",
-        "Tier": "5",
-        "Role": "Top",
-        "Win Rate": "44.20%",
-        "Pick Rate": "0.62%",
-        "Ban Rate": "0.53%",
-        "Counters": ""
-    },
-    {
-        "Rank": "235",
         "Champion Name": "Azir",
         "Tier": "5",
         "Role": "Top",
-        "Win Rate": "43.44%",
-        "Pick Rate": "0.66%",
-        "Ban Rate": "0.19%",
-        "Counters": ""
+        "Win Rate": "45.50%",
+        "Pick Rate": "0.58%",
+        "Ban Rate": "0.17%",
+        "Counters": "Skarner, Mordekaiser, Aatrox"
+    },
+    {
+        "Champion Name": "Smolder",
+        "Tier": "5",
+        "Role": "Top",
+        "Win Rate": "45.41%",
+        "Pick Rate": "0.59%",
+        "Ban Rate": "0.54%",
+        "Counters": "Jax, Skarner, Aatrox"
+    },
+    {
+        "Champion Name": "Corki",
+        "Tier": "5",
+        "Role": "Middle",
+        "Win Rate": "44.39%",
+        "Pick Rate": "2.29%",
+        "Ban Rate": "0.15%",
+        "Counters": "Xerath, Ekko, Anivia"
+    },
+    {
+        "Champion Name": "Smolder",
+        "Tier": "5",
+        "Role": "Middle",
+        "Win Rate": "43.04%",
+        "Pick Rate": "0.61%",
+        "Ban Rate": "0.56%",
+        "Counters": "Zed, Akali, Ahri"
     }
 ]

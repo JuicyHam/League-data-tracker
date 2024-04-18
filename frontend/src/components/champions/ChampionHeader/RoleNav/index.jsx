@@ -1,7 +1,6 @@
-import { useContext, useMemo } from "react";
+import { useMemo } from "react";
 import styled from "styled-components";
-import { ChampionContext } from "../../../../contexts/ChampionContext";
-import { useCallback } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Wrapper = styled.ul`
     display: flex;
@@ -9,8 +8,6 @@ const Wrapper = styled.ul`
 `
 
 const Role = styled.li`
-    
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,12 +25,10 @@ const Role = styled.li`
         color: rgba(234, 240, 236, 1);
     `};
     &:hover {
-        
         ${props => !props.selected && `
             color: rgba(234, 240, 236, 1);
             background-color: #202033;
         `}
-        
     }
 
     &:first-of-type {
@@ -48,32 +43,33 @@ const Role = styled.li`
     }
 `
 
-
 const RoleNav = () => {
-    const list = useMemo(() => ['All', 'Top','Jungle','Mid','Bottom','Support'], []);
-    const {lane, setLane} = useContext(ChampionContext);
-
-    const onClickLane = useCallback((title) => {
-        setLane(title);
-    }, []);
-
+    const list = useMemo(() => ['All', 'Top', 'Jungle', 'Middle', 'Bottom', 'Support'], []);
+    const { search } = useLocation();
+    const queryParams = new URLSearchParams(search);
+    const role = queryParams.get('role') || 'all';
+    const navigate = useNavigate();
+    
+    const onClickLane = (title) => {
+        // Change the 'role' query parameter in the URL
+        queryParams.set('role', title.toLowerCase());
+        // Navigate to the new URL with the updated query parameter
+        navigate(`/champions?${queryParams.toString()}`);
+    };
+    console.log(role);
     return (
-    <Wrapper>
-        {list.map((data, index) => {
-            return (
+        <Wrapper>
+            {list.map((data, index) => (
+                
                 <Role
-                $lane={data}
-                selected={lane === data}
-                key={index}
-                onClick={() => onClickLane(data)}
+                    selected={role === data.toLowerCase()}
+                    key={index}
+                    onClick={() => onClickLane(data)}
                 >
                     {data}
                 </Role>
-            )
-        })
-            
-        }
-    </Wrapper>
+            ))}
+        </Wrapper>
     );
 }
 

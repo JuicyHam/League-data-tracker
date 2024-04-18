@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import ChampionTableHeader from "./ChampionTableHeader";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import axios from "axios";
 import { useChampionSearchData } from "../../../../contexts/ChampionContext";
+import ChampionTableContent from "./ChampionTableHeader/RankingTableContent";
 
 
 
@@ -26,29 +27,38 @@ const TBody = styled.tbody`
 `;
 
 const Ranking = () => {
-    console.log("being rendered");
     const [championData, setChampionData] = useState([]);
-    const {rankRegion} = useChampionSearchData();
-
+    const {rankRegion, lane, rank} = useChampionSearchData();
+    const prevRankRegion = useRef(rankRegion);
     useEffect(() => {
         console.log(rankRegion);
-        if (rankRegion) { // Check if rankRegion has a value
-            const fetchData = async () => {
-                try {
-                    const response = await axios.get(`/api/champions`);
-                    if (response.status != 200) {
-                        throw new Error('Failed to fetch champion data');
+        if (rankRegion !== prevRankRegion.current || championData.length === 0) { // Check if rankRegion has changed
+            prevRankRegion.current = rankRegion; // Update previous rankRegion
+            if (rankRegion) { // Check if rankRegion has a value
+                const fetchData = async () => {
+                    try {
+                        const response = await axios.get(`/api/champions?region=${rankRegion}`);
+                        if (response.status !== 200) {
+                            throw new Error('Failed to fetch champion data');
+                        }
+                        console.log(response.data);
+                        setChampionData(response.data);
+                    } catch (error) {
+                        console.log("Error fetching champion data: ", error)
                     }
-                    console.log(response.data);
-                    setChampionData(response.data);
-                } catch (error) {
-                    console.log("Error fetching champion data: ", error)
-                }
-            };
-            fetchData();
+                };
+                fetchData();
+            }
         }
     }, [rankRegion]);
 
+    const tableData = useMemo(() => {
+        if (lane === "All") {
+            return championData;
+        } else {
+            return championData.filter(champion => champion.Role === lane);
+        }
+    }, [championData, lane]);
 
     return (
             
@@ -70,6 +80,19 @@ const Ranking = () => {
                     <ChampionTableHeader/>
                 </thead>
                 <TBody>
+                    {tableData.map((champion, index) => (
+                        <ChampionTableContent
+                            key={index}
+                            lane={champion.Role}
+                            championName={champion["Champion Name"]}
+                            winRate={champion["Win Rate"]}
+                            pickRate={champion["Pick Rate"]}
+                            banRate={champion["Ban Rate"]}
+                            counter={champion.Counters}
+                            tier={champion.Tier}
+                            rank={index+1}
+                        />
+                    ))}
                 </TBody>
             </RanksTable>
         </Wrapper>

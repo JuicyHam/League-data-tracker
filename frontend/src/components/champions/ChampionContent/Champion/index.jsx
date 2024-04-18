@@ -6,7 +6,7 @@ const Wrapper = styled.div`
     background-color: #2e2e43;
     border-radius: 6px;
     margin-right: 10px;
-    heigth: 100%;
+    height: 100%;
 `
 
 const Champion = () => {

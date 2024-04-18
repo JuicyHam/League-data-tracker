@@ -22,12 +22,12 @@ const DropdownWrapper = styled.div`
 
 
 const ChampionOptions = () => {
-    const list = useMemo(() => ['All', 'Top','Jungle','Mid','Bottom','Support'], []);
     const {rank, setRank, patch, setPatch, rankRegion, setRankRegion} = useContext(ChampionContext);
-    
+    const fullRegionList = [{
+        title: "Global",
+    }, ...regionList];
 
     const onClickRank = useCallback((title) => {
-        console.log("Hello");
         setRank(title);
     }, []);
 
@@ -36,14 +36,14 @@ const ChampionOptions = () => {
     }, []);
 
     const onClickRegion = useCallback((title) => {
-        console.log("setRankRegion");
+
         setRankRegion(title);
     }, []);
 
     const dropdownList = useMemo(() => [
         {
             current: rankRegion,
-            list: regionList,
+            list: fullRegionList,
             setState: onClickRegion,
             width: '100px'
         },
