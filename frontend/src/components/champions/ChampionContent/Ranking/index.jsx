@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import ChampionTableHeader from "./ChampionTableHeader";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useChampionSearchData } from "../../../../contexts/ChampionContext";
 
 
 
@@ -23,54 +25,30 @@ const TBody = styled.tbody`
   }
 `;
 
-const initSort = [{
-    value: 'rank',
-    sortType: false,
-    reverseSort: true,
-}];
-
-const initSortList = {
-    rank: {
-        value: 'rank',
-        sortType: false,
-        reverseSort: true,
-    },
-    tier: {
-        value: 'tier',
-        sortType: true,
-        reverseSort: true,
-    },
-    ai_score: {
-        value: 'ai_score',
-        sortType: true,
-    },
-    win_rate: {
-        value: 'win_rate',
-        sortType: true,
-    },
-    pick_rate: {
-        value: 'pick_rate',
-        sortType: true,
-    },
-    ban_rate: {
-        value: 'ban_rate',
-        sortType: true,
-    },
-}
-
 const Ranking = () => {
+    console.log("being rendered");
+    const [championData, setChampionData] = useState([]);
+    const {rankRegion} = useChampionSearchData();
 
-    
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get("https://localhost:5000/champions");
-            } catch (error) {
-                console.log("Error fetching champion data: ", error)
-            }
-        };
-        fetchData();
-    }, [])
+        console.log(rankRegion);
+        if (rankRegion) { // Check if rankRegion has a value
+            const fetchData = async () => {
+                try {
+                    const response = await axios.get(`/api/champions`);
+                    if (response.status != 200) {
+                        throw new Error('Failed to fetch champion data');
+                    }
+                    console.log(response.data);
+                    setChampionData(response.data);
+                } catch (error) {
+                    console.log("Error fetching champion data: ", error)
+                }
+            };
+            fetchData();
+        }
+    }, [rankRegion]);
+
 
     return (
             

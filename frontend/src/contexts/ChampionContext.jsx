@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useContext } from "react";
 
 export const ChampionContext = createContext();
 
@@ -16,4 +16,9 @@ export const ChampionProvider = ({children}) => {
         </ChampionContext.Provider>
     );
 };
+
+export const useChampionSearchData = () => {
+    const championSearchData = useContext(ChampionContext);
+    return championSearchData;
+  };
 

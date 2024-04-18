@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Dropdown from "../../Dropdown"
 import regionList from "../../../Json/regionList";
 import RegionBox from "./Region";
-import {useCallback, useContext} from "react"
+import {useCallback} from "react"
 import { useAppData } from "../../../contexts/AppDataContext";
 
 const ButtonWrapper = styled.div`

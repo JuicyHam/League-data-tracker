@@ -1,0 +1,11 @@
+// routes/champions.js
+
+const express = require('express');
+const router = express.Router();
+const championsController = require('../controllers/championsController');
+
+// Define routes
+router.get('/', championsController.getChampions);
+// Add more routes as needed
+
+module.exports = router;
