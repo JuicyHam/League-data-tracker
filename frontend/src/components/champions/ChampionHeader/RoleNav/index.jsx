@@ -56,7 +56,7 @@ const RoleNav = () => {
         // Navigate to the new URL with the updated query parameter
         navigate(`/champions?${queryParams.toString()}`);
     };
-    console.log(role);
+    
     return (
         <Wrapper>
             {list.map((data, index) => (

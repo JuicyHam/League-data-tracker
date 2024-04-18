@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Champion from "../../../Champion";
+import SingleChampion from "../../../ChampionIcon";
 
 const Wrapper = styled.tr`
     height: 40px;
@@ -12,6 +13,16 @@ const Wrapper = styled.tr`
 const Content = styled.td`
     vertical-align: middle;
     text-align: center;
+`
+
+const ChampionWrapper = styled.div`
+    display: flex;
+    text-align: left;
+    align-items: center;
+
+    span {
+        margin-left: 10px;
+    }
 `
 
 const ChampionTableContent = ({
@@ -30,7 +41,11 @@ const ChampionTableContent = ({
                 <span>{rank}</span>
             </Content>
             <Content>
-                <span>{championName}</span>
+                <ChampionWrapper>
+                    <SingleChampion championName={championName}/>
+                    <span>{championName}</span>
+                </ChampionWrapper>
+                
             </Content>
             <Content>
                 <span>{tier}</span>
