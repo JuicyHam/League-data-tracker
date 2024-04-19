@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
     * {
         box-sizing: border-box;
         outline: 0;
+        caret-color: transparent;
     }
 
     html, body {

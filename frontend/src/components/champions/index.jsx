@@ -17,7 +17,7 @@ const CenterWrapper = styled.div`
 `
 
 
-const Champion = () => {
+const Champions = () => {
     return (
         <Wrapper>
             <Navbar ishome={false} region={"EUW"}/>
@@ -29,4 +29,4 @@ const Champion = () => {
     );
 }
 
-export default Champion
+export default Champions
