@@ -1,22 +1,18 @@
 import styled from "styled-components";
 import RankingTableHeader from "./RankingTableHeader";
 
-const Wrapper = styled.tr`
-    background-color: #1a1a29
-`
-
 
 
 const ChampionTableHeader = () => {
     return (
-        <Wrapper>
+        <tr>
             <RankingTableHeader
             title={"Rank"}
-
+            pos={"first"}
             />
             <RankingTableHeader
             title={"Champion"}
-
+            left={true}
             />
             <RankingTableHeader
             title={"Tier"}
@@ -40,9 +36,9 @@ const ChampionTableHeader = () => {
             />
             <RankingTableHeader
             title={"Counter"}
-
+            pos={"last"}
             />
-        </Wrapper>
+        </tr>
     );
 };
 

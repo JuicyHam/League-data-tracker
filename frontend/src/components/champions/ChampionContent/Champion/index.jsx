@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import ChampionIcons from "../ChampionList";
+import RoleIconsOptions from "./RoleIconsOptions";
+import ChampionSearchbar from "./ChampionSearchBar";
 
 const Wrapper = styled.div`
     width: 340px;
@@ -12,6 +14,8 @@ const Wrapper = styled.div`
 const Champion = () => {
     return (
         <Wrapper>
+            <ChampionSearchbar/>
+            <RoleIconsOptions/>
             <ChampionIcons/>
         </Wrapper>
     )

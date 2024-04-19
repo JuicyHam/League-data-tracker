@@ -44,7 +44,7 @@ const GroupContent = styled.div`
         width: 100%;
         border-bottom: 1px solid #43435c;
         transition: color 0.3s ease, background-color 0.3s ease;
-        
+        color: rgba(234, 240, 236, 0.6);
         &:hover {
             color: rgba(234, 240, 236, 1);
             background-color: #202033;

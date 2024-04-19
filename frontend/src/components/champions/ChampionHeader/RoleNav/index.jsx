@@ -16,7 +16,7 @@ const Role = styled.li`
     border: 1px solid #43435c;
     border-right-width: 0px;
     height: 40px;
-    color: rgba(234, 240, 236, '0.6'});
+    color: rgba(234, 240, 236, 0.6);
     cursor: pointer;
     
     transition: color 0.3s ease, background-color 0.3s ease;

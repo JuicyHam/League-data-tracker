@@ -66,7 +66,8 @@ const Ranking = () => {
         if (lane === "all") {
             return championData;
         } else {
-            return championData.filter(champion => champion.Role.toLowerCase() === lane );
+            console.log(championData);
+            return championData.filter(champion => champion.role.toLowerCase() === lane );
         }
     }, [championData, lane]);
 
@@ -99,7 +100,7 @@ const Ranking = () => {
                             pickRate={champion["pickRate"]}
                             banRate={champion["banRate"]}
                             counter={champion.counters}
-                            tier={champion.Tier}
+                            tier={champion.tier}
                             rank={index+1}
                         />
                     ))}

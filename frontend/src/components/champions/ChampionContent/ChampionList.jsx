@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `
 
 const ChampionWrapper = styled.li`
-    width: 46px;   
+    width: 46px;
     
     span {
         display: block;
@@ -26,7 +26,18 @@ const ChampionWrapper = styled.li`
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        color: rgba(234, 240, 236, 0.6);
     }
+`
+
+const ImageWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 46px;
+    overflow: hidden;
+    border-radius: 6px;
 `
 
 
@@ -38,7 +49,10 @@ const ChampionIcons = () => {
         <ul>
             {Object.keys(championIcons).map(championName => (
                 <ChampionWrapper key={championName}>
-                    <img src={championIcons[championName]} alt={championName} width="46px" />
+                    <ImageWrapper>
+                        <img src={championIcons[championName]} alt={championName} width="52px" />
+                    </ImageWrapper>
+                    
                     <span>{championName}</span>
                 </ChampionWrapper>
             ))}

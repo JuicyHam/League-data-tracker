@@ -1,14 +1,24 @@
 import styled from "styled-components";
 
 const Wrapper = styled.th`
-    vertical-align: middle;
-`
+  vertical-align: middle;
+  background-color: #565685;
+  border-radius: ${props => {
+    if (props.pos === "first") {
+      return `6px 0 0 0`;
+    } else if (props.pos === "last") {
+      return `0 6px 0 0`;
+    }
+  }};
+`;
 
 const TextWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: ${props => props.left ? "none" : "center"};
+    padding: 4px;
     align-items: center;
+    
 `
 
 const HeaderText = styled.span`
@@ -19,11 +29,11 @@ const HeaderText = styled.span`
     min-height: 32px;
 `
 
-const RankingTableHeader = ({title}) => {
+const RankingTableHeader = ({title, left, pos}) => {
     return (
-        <Wrapper>
-            <TextWrapper>
-                <HeaderText>
+        <Wrapper pos={pos}>
+            <TextWrapper left={left} >
+                <HeaderText >
                     {title}
                 </HeaderText>
             </TextWrapper>

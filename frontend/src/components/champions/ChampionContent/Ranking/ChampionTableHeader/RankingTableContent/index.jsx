@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import Champion from "../../../Champion";
 import SingleChampion from "../../../ChampionIcon";
+import RoleIcon from "../../../RoleIcon";
 
 const Wrapper = styled.tr`
     height: 40px;
     z-index: 99;
-
+    
     td:not(:last-of-type) {
         cursor: pointer;
     }
@@ -13,15 +14,20 @@ const Wrapper = styled.tr`
 const Content = styled.td`
     vertical-align: middle;
     text-align: center;
+    padding: 4px;
+    font-size: 12px;
+    color: rgba(234, 240, 236, 0.6);
 `
 
 const ChampionWrapper = styled.div`
     display: flex;
     text-align: left;
     align-items: center;
-
+    
     span {
         margin-left: 10px;
+        font-weight: 600;
+        color: rgba(234, 240, 236, 1);
     }
 `
 
@@ -51,7 +57,7 @@ const ChampionTableContent = ({
                 <span>{tier}</span>
             </Content>
             <Content>
-                <span>{lane}</span>
+                <RoleIcon role={lane.toLowerCase()}/>
             </Content>
             <Content>
                 <span>{winRate}</span>

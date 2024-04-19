@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 const TagWrap = styled.div`
     font-size: 14px;
     font-weight: 500;
-    color: ${props => props.selected ? props.theme.default_font_color :  props.theme.region_border};
+    color: ${props => props.selected ?  `rgba(234, 240, 236, 1)` : `none`};
 `
 
 const ChampionBox = ({title, selected, onClick, width}) => {
