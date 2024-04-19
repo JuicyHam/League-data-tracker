@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './home'
-import Champion from './champions';
+import Champions from './champions';
+import Champion from './champion';
 import {dark} from '../common/theme'
 import styled, {ThemeProvider} from 'styled-components'
 import GlobalStyles from '../styles/GlobalStyled';
@@ -21,7 +22,8 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<Home/>} />         
-              <Route path="/champions" element={<Champion/>}/>
+              <Route path="/champions" element={<Champions/>}/>
+              <Route path="/champion/:championName" element={<Champion />} />
             </Routes>
           </Router>
         </AppDataProvider>

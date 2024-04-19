@@ -2,9 +2,10 @@ import styled from "styled-components";
 import ChampionTableHeader from "./ChampionTableHeader";
 import { useEffect, useState, useMemo, useRef } from "react";
 import axios from "axios";
-import { useChampionSearchData } from "../../../../contexts/ChampionContext";
+
 import ChampionTableContent from "./ChampionTableHeader/RankingTableContent";
 import { useLocation } from "react-router-dom";
+import { useChampionSearchData } from "../../../../contexts/ChampionContext";
 
 
 
@@ -28,7 +29,7 @@ const TBody = styled.tbody`
 `;
 
 const Ranking = () => {
-    const [championData, setChampionData] = useState([]);
+    const {championData, setChampionData} = useChampionSearchData();
     const { search } = useLocation();
     const queryParams = new URLSearchParams(search);
 

@@ -3,9 +3,9 @@ import { useState, createContext, useContext } from "react";
 export const ChampionContext = createContext();
 
 export const ChampionProvider = ({children}) => {
-    const [lane, setLane] = useState("All");
+    const [championData, setChampionData] = useState([]);
 
-    const sendValues = {lane, setLane};
+    const sendValues = {championData, setChampionData};
 
     return (
         <ChampionContext.Provider value={sendValues}>

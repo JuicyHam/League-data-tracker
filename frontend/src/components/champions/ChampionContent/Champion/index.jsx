@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ChampionIcons from "../ChampionList";
 import RoleIconsOptions from "./RoleIconsOptions";
 import ChampionSearchbar from "./ChampionSearchBar";
+import { useState } from "react";
 
 const Wrapper = styled.div`
     width: 340px;
@@ -12,13 +13,16 @@ const Wrapper = styled.div`
 `
 
 const Champion = () => {
+    const [selectedRole, setSelectedRole] = useState('All');
+    const [searchQuery, setSearchQuery] = useState('');
+  
     return (
-        <Wrapper>
-            <ChampionSearchbar/>
-            <RoleIconsOptions/>
-            <ChampionIcons/>
-        </Wrapper>
-    )
-}
-
+      <Wrapper>
+        <ChampionSearchbar setSearchQuery={setSearchQuery} />
+        <RoleIconsOptions selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
+        <ChampionIcons selectedRole={selectedRole} searchQuery={searchQuery} />
+      </Wrapper>
+    );
+  };
+  
 export default Champion;
