@@ -4,8 +4,10 @@ const app = express();
 
 //Routes
 const championsRouter = require(`./routes/championsRouter`);
+const summonerRouter = require(`./routes/summonerRouter`);
 
 app.use(`/api/champions`, championsRouter);
+app.use(`/api/summoner`, summonerRouter);
 
 
 // Start the server

@@ -48,7 +48,12 @@ const Ranking = () => {
             if (region) { 
                 const fetchData = async () => {
                     try {
-                        const response = await axios.get(`/api/champions?region=${region}&rank=${rank}`);
+                        const response = await axios.get(`/api/champions`, {
+                            params : {
+                                region: region,
+                                rank: rank
+                            }
+                        });
                         if (response.status !== 200) {
                             throw new Error('Failed to fetch champion data');
                         }

@@ -6,6 +6,7 @@ import {dark} from '../common/theme'
 import styled, {ThemeProvider} from 'styled-components'
 import GlobalStyles from '../styles/GlobalStyled';
 import { AppDataProvider } from '../contexts/AppDataContext';
+import Summoner from './summoner';
 
 const AppWrapper = styled.div`
   min-width: 1100px;
@@ -24,6 +25,7 @@ function App() {
               <Route path="/" element={<Home/>} />         
               <Route path="/champions" element={<Champions/>}/>
               <Route path="/champion/:championName" element={<Champion />} />
+              <Route path="/summoner/:region/:summonerName" element={<Summoner />} />
             </Routes>
           </Router>
         </AppDataProvider>
