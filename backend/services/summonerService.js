@@ -79,12 +79,13 @@ const getSummonerInfo = async (region, regionTag, summonerName) => {
 const checkSummonerExistence = async (puuid) => {
     try {
         const client = await pool.connect();
+        console.log("Test");
         const query = 'SELECT * FROM summoner_info WHERE puuid = $1';
         const { rows } = await client.query(query, [puuid]);
         client.release();
         return rows.length > 0 ? rows[0] : null;
     } catch (error) {
-        throw new Error(`Failed to check summoner existence in the database: ${error.message}`);
+        throw new Error(`Failed to check summontester existence in the database: ${error.message}`);
     }
 };
 
