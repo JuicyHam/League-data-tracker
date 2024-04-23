@@ -20,6 +20,12 @@ const ContentWrapper = styled.div`
     width: 100%;
 `
 
+const PageTab = styled.div`
+    width: 100%;
+    height: 60px;
+    background-color: #2e2e43;
+`
+
 const SummonerContent = () => {
     const { region, summonerName } = useParams();
     const [ summonerData, setSummonerData] = useState(null);
@@ -63,8 +69,8 @@ const SummonerContent = () => {
 
     return (
         <Wrapper>
-            <h2>Summoner Name: {summonerData[1].info.endOfGameResult}</h2>
-            <SummonerHeader/>
+            
+            <SummonerHeader accountInfo={summonerData.accountInfo} summonerInfo={summonerData.summonerInfo} lastUpdated={summonerData.updated}/>
             <ContentWrapper>
                 <Matches/>
                 <SummonerStats/>

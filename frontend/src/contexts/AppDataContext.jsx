@@ -6,6 +6,7 @@ export const AppDataContext = createContext();
 export const AppDataProvider = ({ children }) => {
   const [selectedRegion, setSelectedRegion] = useState("EUW");
   const [championIcons, setChampionIcons] = useState([]);
+  const [playerIcons, setPlayerIcons] = useState([]);
 
   
   useEffect(() => {
@@ -20,6 +21,16 @@ export const AppDataProvider = ({ children }) => {
           return acc;
         }, {});
         setChampionIcons(championIconsByName);
+
+        console.log("Doing");
+        // Fetch player icons
+        const playerIconsResponse = await axios.get(`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/profileicon.json`);
+        const playerIconsData = playerIconsResponse.data.data;
+        const playerIconsById = Object.values(playerIconsData).reduce((acc, icon) => {
+          acc[icon.id] = `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/profileicon/${icon.id}.png`;
+          return acc;
+        }, {});
+        setPlayerIcons(playerIconsById);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -31,7 +42,8 @@ export const AppDataProvider = ({ children }) => {
   const sendValues = {
     selectedRegion,
     setSelectedRegion,
-    championIcons
+    championIcons,
+    playerIcons
   };
 
   return (

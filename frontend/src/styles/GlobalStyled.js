@@ -1,15 +1,50 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset"
-import NotoSans from "../fonts/NotoSans-VariableFont_wdth,wght.ttf"
 export const GlobalStyles = createGlobalStyle`
     ${reset}
     
     @font-face {
-        font-family: 'Noto Sans';
-        src: url(${NotoSans}) format('truetype');
-        font-weight: normal;
+        font-family: 'Roboto';
+        src: url('../fonts/Roboto-Thin.tff') format('truetype');
+        font-weight: 100;
         font-style: normal;
     }
+
+    @font-face {
+        font-family: 'Roboto';
+        src: url('../fonts/Roboto-Light.tff') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        src: url('../fonts/Roboto-Regular.tff') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        src: url('../fonts/Roboto-Medium.tff') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        src: url('../fonts/Roboto-Bold.tff') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        src: url('../fonts/Roboto-Black.tff') format('truetype');
+        font-weight: 900;
+        font-style: normal;
+    }
+
 
     * {
         box-sizing: border-box;
@@ -18,7 +53,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     html, body {
-        font-family:  'Noto Sans', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 400;
         font-size: 14px;
     }
