@@ -25,7 +25,7 @@ function App() {
               <Route path="/" element={<Home/>} />         
               <Route path="/champions" element={<Champions/>}/>
               <Route path="/champion/:championName" element={<Champion />} />
-              <Route path="/summoner/:region/:summonerName" element={<Summoner />} />
+              <Route path="/summoner/:region/:summonerName/*" element={<Summoner />} />
             </Routes>
           </Router>
         </AppDataProvider>

@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Route, Link, useLocation, useParams, Routes, Router} from "react-router-dom";
 import styled from "styled-components";
 import regionList from "../../../Json/regionList";
 import SummonerHeader from "./SummonerHeader";
 import Matches from "./Matches";
 import SummonerStats from "./SummonerStats";
+import SummonerChampion from "./SummonerChampion";
+import LiveGame from "./LiveGame";
 
 const Wrapper = styled.div`
     display: flex;
@@ -26,13 +28,47 @@ const PageTab = styled.div`
     background-color: #2e2e43;
 `
 
+const NavigationWrapper = styled.div`
+    width: 100%;
+    height: 46px;
+    background-color: #2e2e43;
+    margin-top: 10px;
+    border-radius: 6px;
+`
+
+const Navigation = styled.nav`
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 8px 10px;
+`
+
+const SummonerLink = styled(Link)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    background: rgb(26, 26, 41);
+    border-radius: 6px;
+    padding-block: 12px;
+    font-size: 18px;
+    color: rgb(234, 240, 236);
+    margin-right: 10px;
+
+    &.active{
+        background-color: white;
+    }
+`
+
 const SummonerContent = () => {
     const { region, summonerName } = useParams();
     const [ summonerData, setSummonerData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
-    
+    const path = location.pathname;
+    const currentPath = location.pathname.split('/')?.[4];
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -67,16 +103,31 @@ const SummonerContent = () => {
         return <Wrapper>Loading...</Wrapper>;
     }
 
+   
     return (
         <Wrapper>
             
             <SummonerHeader accountInfo={summonerData.accountInfo} summonerInfo={summonerData.summonerInfo} lastUpdated={summonerData.updated}/>
+            <NavigationWrapper>
+                <Navigation>
+                    <SummonerLink to={`/summoner/${region}/${summonerName}/`} selected={!currentPath}>Summary</SummonerLink>
+                    <SummonerLink to={`/summoner/${region}/${summonerName}/champions`} selected={currentPath === `champions`}>Champion</SummonerLink>
+                    <SummonerLink to={`/summoner/${region}/${summonerName}/livegame`} selected={currentPath===`livegame`}>Live Game</SummonerLink>
+                </Navigation>
+                
+            </NavigationWrapper>
             <ContentWrapper>
-                <Matches/>
-                <SummonerStats/>
+                
+                <Routes>
+                    <Route path={`/champions`} element={<SummonerChampion/>}></Route>
+                    <Route path={`/liveGame`} element={<LiveGame/>}></Route>
+                </Routes>
+                
+                
             </ContentWrapper>
         </Wrapper>
     );
 };
 
 export default SummonerContent;
+    

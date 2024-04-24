@@ -1,6 +1,6 @@
 const axios = require('axios');
 const { RateLimit } = require(`async-sema`);
-const pool = require('../db')
+const supabase = require('../db');
 
 const apiKey = 'RGAPI-081d119e-b5b3-4366-aafd-6230350f30bf';
 const SEARCH_LIMIT_PER_SECOND = 20;
@@ -77,20 +77,20 @@ const getSummonerInfo = async (region, regionTag, summonerName) => {
 };
 
 const checkSummonerExistence = async (puuid) => {
-    try {
-        const client = await pool.connect();
-        console.log("Test");
-        const query = 'SELECT * FROM summoner_info WHERE puuid = $1';
-        const { rows } = await client.query(query, [puuid]);
-        client.release();
-        return rows.length > 0 ? rows[0] : null;
-    } catch (error) {
-        throw new Error(`Failed to check summontester existence in the database: ${error.message}`);
+    const { data, error } = await supabase
+        .from('summoner_info')
+        .select('*')
+        .eq('puuid', puuid)
+        .single();
+    if (error && error.code === "PGRST116") {
+        return null;
+    } else if (error) {
+        throw new Error(`Failed to check summoner existence in the databased: ${error.code}`);
     }
+    return data;
 };
 
 const convertDBData = async (summonerData) => {
-    const client = await pool.connect();
 
     try {
         const accountInfo = {
@@ -104,7 +104,7 @@ const convertDBData = async (summonerData) => {
 
         const matches = await Promise.all(summonerData.match_ids.map(async (matchId) => {
             try {
-                return await getMatchInfo(client, matchId);
+                return await getMatchInfo(matchId);
             } catch (error) {
                 // Handle error fetching match info for a specific match ID
                 console.error(`Failed to fetch match info for match ID ${matchId}: ${error.message}`);
@@ -118,10 +118,10 @@ const convertDBData = async (summonerData) => {
             accountInfo: accountInfo,
             summonerInfo: summonerInfo,
             matches: filteredMatches,
-            updated: summonerData.last_updated
+            updated: summonerData.updated
         };
-    } finally {
-        client.release();
+    } catch {
+        throw new Error(`Failed to convert database data: ${error.message}`);
     }
 };
 
@@ -144,86 +144,78 @@ const getMatches = async (puuid) => {
 
 const insertSummonerData = async (accountInfo, summonerInfo, matches) => {
     try {
-        const client = await pool.connect();
-        try {
-            await client.query('BEGIN');
-            console.log("adding summoner info");
-            await insertSummonerInfo(client, accountInfo, summonerInfo, matches);
-            console.log("done with summoner doing matches");
-            await insertMatches(client, matches);
-            console.log("Done now commiting");
-            await client.query('COMMIT');
-        } catch (error) {
-            // Rollback the transaction if any error occurs
-            await client.query('ROLLBACK');
-            throw error;
-        } finally {
-            client.release();
+        
+        console.log("adding summoner info");
+        await insertSummonerInfo(accountInfo, summonerInfo, matches);
+        console.log("done with summoner doing matches");
+        await insertMatches(matches);
+        console.log("Done now commiting");
+    } catch (error) {
+        throw new Error(`Failed to insert summoner data into database: ${error.message}`);
+    }
+};
+
+const insertSummonerInfo = async (accountInfo, summonerInfo, matches) => {
+    const { puuid, gameName, tagLine } = accountInfo;
+    const { profileIconId, summonerLevel } = summonerInfo;
+
+    try {
+        const existingSummoner= await checkSummonerExistence(puuid);
+
+        if (existingSummoner) {
+            const updatedValues = {
+                summoner_name: gameName || existingSummoner.summoner_name,
+                tag_line: tagLine || existingSummoner.tag_line,
+                profile_icon: profileIconId || existingSummoner.profile_icon,
+                summoner_level: summonerLevel || existingSummoner.summoner_level,
+            };
+
+            const existingMatchIds = existingSummoner.match_ids || [];
+
+            const newMatchIds = matches.map(match => {
+                const { platformId, gameId } = match.info;
+                return `${platformId}_${gameId}`;
+            });
+
+            const combinedMatchIds = [...new Set([...existingMatchIds, ...newMatchIds])];
+            const { error: updateError } = await supabase
+                .from('summoner_info')
+                .update(updatedValues)
+                .eq('puuid', puuid);
+
+            if (updateError) {
+                throw new Error(`Failed to update existing summoner info: ${updateError.message}`);
+            }
+        } else {
+            console.log("already exists!");
+            const matchIds = matches.map(match => {
+                const { platformId, gameId } = match.info;
+                return `${platformId}_${gameId}`;
+            });
+
+            const { error: insertError } = await supabase
+                .from('summoner_info')
+                .insert([
+                    {
+                        puuid,
+                        summoner_name: gameName,
+                        tag_line: tagLine,
+                        profile_icon: profileIconId,
+                        summoner_level: summonerLevel,
+                        match_ids: matchIds
+                    }
+                ]);
+
+            if (insertError) {
+                throw new Error(`Failed to insert new summoner info: ${insertError.message}`);
+            }
         }
     } catch (error) {
         throw new Error(`Failed to insert summoner data into database: ${error.message}`);
     }
 };
 
-const insertSummonerInfo = async (client, accountInfo, summonerInfo, matches) => {
-    const { puuid, gameName, tagLine,} = accountInfo;
-    const { profileIconId, summonerLevel } = summonerInfo;
-    // Check if the summoner already exists in the summoner_info table
-    const getSummonerQuery = 'SELECT * FROM summoner_info WHERE puuid = $1';
-    const { rows: existingSummonerRows } = await client.query(getSummonerQuery, [puuid]);
-
-    if (existingSummonerRows.length > 0) {
-        // Get the existing summoner data from the table
-        const existingSummoner = existingSummonerRows[0];
-        
-        // Compare existing values with new values
-        const updatedValues = {
-            summoner_name: gameName || existingSummoner.summoner_name,
-            tag_line: tagLine || existingSummoner.tag_line,
-            profile_icon: profileIconId || existingSummoner.profile_icon,
-            summoner_level: summonerLevel || existingSummoner.summoner_level,
-        };
-
-        const existingMatchIds = existingSummonerRows[0].match_ids || [];
-
-        const newMatchIds = matches.map(match => match.match_id);
-
-        const combinedMatchIds = [...new Set([...existingMatchIds, ...newMatchIds])];
-
-        // Update the summoner_info table with the changed values
-        const updateQuery = `
-            UPDATE summoner_info
-            SET summoner_name = $1, tag_line = $2, profile_icon = $3, summoner_level = $4, match_ids = $5
-            WHERE puuid = $6
-        `;
-        await client.query(updateQuery, [
-            updatedValues.summoner_name,
-            updatedValues.tag_line,
-            updatedValues.profile_icon,
-            updatedValues.summoner_level,
-            combinedMatchIds,
-            puuid
-        ]);
-    } else {
-        console.log("already exists!");
-        // Insert new summoner data into the summoner_info table
-        const matchIdsPromises = matches.map(async (match) => {
-            const { platformId, gameId } = match.info;
-            const matchId = `${platformId}_${gameId}`;
-            return matchId;
-        });
-      
-        const matchIds = await Promise.all(matchIdsPromises);
-
-        const insertQuery = `
-            INSERT INTO summoner_info (puuid, summoner_name, tag_line, profile_icon, summoner_level, match_ids)
-            VALUES ($1, $2, $3, $4, $5, $6)
-        `;
-        await client.query(insertQuery, [puuid, gameName, tagLine, profileIconId, summonerLevel, matchIds]);
-    }
-};
-
-const insertMatches = async (client, matches) => {
+const insertMatches = async (matches) => {
     const insertPromises = matches.map(async (match) => {
         const { platformId, gameId } = match.info;
         const { info } = match;
@@ -232,39 +224,45 @@ const insertMatches = async (client, matches) => {
         console.log(matchId);
 
         // Check if the match already exists in the match_info table
-        const matchExistsQuery = 'SELECT COUNT(*) FROM match_info WHERE match_id = $1';
-        const { rows } = await client.query(matchExistsQuery, [matchId]);
-        const matchExists = rows[0].count > 0;
+        const { data: existingMatches, error } = await supabase
+            .from('match_info')
+            .select('match_id')
+            .eq('match_id', matchId)
+            .single();
+
+            
+            if (error && error.code !== "PGRST116") {
+                throw new Error(`Failed to check match existence in the database: ${error.code}`);
+            }
 
         // Insert the match if it doesn't already exist
-        if (!matchExists) {
+        if (!existingMatches) {
             console.log("adding match!");
-            const insertQuery = 'INSERT INTO match_info (match_id, match_data) VALUES ($1, $2)';
-            await client.query(insertQuery, [matchId, JSON.stringify(info)]);
+            await supabase
+                .from('match_info')
+                .upsert([{ match_id: matchId, match_data: JSON.stringify(info) }], { returning: 'minimal' });
         }
     });
-
+    console.log("doing this");
     // Wait for all insert operations to complete
     await Promise.all(insertPromises);
 };
 
-const getMatchInfo = async (client, matchId) => {
-    try {
-        // Query the match_info table for the match data
-        const matchInfoQuery = 'SELECT match_data FROM match_info WHERE match_id = $1';
-        const { rows } = await client.query(matchInfoQuery, [matchId]);
+const getMatchInfo = async (matchId) => {
+    const { data: matchData, error } = await supabase
+        .from('match_info')
+        .select('match_data')
+        .eq('match_id', matchId)
+        .single();
 
-        // Check if the match exists
-        if (rows.length > 0) {
-            // Return the match data
-            return rows[0].match_data;
-        } else {
-            // Match not found
-            throw new Error(`Match with ID ${matchId} not found.`);
-        }
-    } catch (error) {
+    if (error) {
         throw new Error(`Failed to fetch match information: ${error.message}`);
+    } else if (matchData) {
+        return matchData.match_data;
+    } else {
+        throw new Error(`Match with ID ${matchId} not found.`);
     }
+    
 };
 
 module.exports = {

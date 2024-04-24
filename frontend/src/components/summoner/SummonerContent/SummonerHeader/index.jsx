@@ -88,10 +88,11 @@ const UpdateText = styled.span`
 
 const formatTimeDifference = (time) => {
     const currentTime = new Date();
-    currentTime.setHours(currentTime.getHours() - 1);
     const oldTime = new Date(time);
     const differenceInMillis = currentTime - oldTime;
-
+    console.log(time);
+    console.log(currentTime);
+    console.log(oldTime);
     const seconds = Math.floor(differenceInMillis / 1000);
     if (seconds < 120) {
         const timeLeft = 120 - seconds;
