@@ -4,10 +4,11 @@ import { Route, Link, useLocation, useParams, Routes, Router} from "react-router
 import styled from "styled-components";
 import regionList from "../../../Json/regionList";
 import SummonerHeader from "./SummonerHeader";
-import Matches from "./Matches";
-import SummonerStats from "./SummonerStats";
+
 import SummonerChampion from "./SummonerChampion";
 import LiveGame from "./LiveGame";
+import Summary from "./Summary";
+import { useSummonerData } from "../../../contexts/summonerData";
 
 const Wrapper = styled.div`
     display: flex;
@@ -50,21 +51,18 @@ const SummonerLink = styled(Link)`
     align-items: center;
     justify-content: center;
     width: 150px;
-    background: rgb(26, 26, 41);
+    background: ${props => props.selected ? `rgb(26, 26, 41)`: `transparent`};
     border-radius: 6px;
     padding-block: 12px;
     font-size: 18px;
     color: rgb(234, 240, 236);
     margin-right: 10px;
 
-    &.active{
-        background-color: white;
-    }
 `
 
 const SummonerContent = () => {
     const { region, summonerName } = useParams();
-    const [ summonerData, setSummonerData] = useState(null);
+    const { summonerData, setSummonerData} = useSummonerData();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const path = location.pathname;
@@ -107,7 +105,7 @@ const SummonerContent = () => {
     return (
         <Wrapper>
             
-            <SummonerHeader accountInfo={summonerData.accountInfo} summonerInfo={summonerData.summonerInfo} lastUpdated={summonerData.updated}/>
+            <SummonerHeader/>
             <NavigationWrapper>
                 <Navigation>
                     <SummonerLink to={`/summoner/${region}/${summonerName}/`} selected={!currentPath}>Summary</SummonerLink>
@@ -119,8 +117,9 @@ const SummonerContent = () => {
             <ContentWrapper>
                 
                 <Routes>
-                    <Route path={`/champions`} element={<SummonerChampion/>}></Route>
-                    <Route path={`/liveGame`} element={<LiveGame/>}></Route>
+                    <Route path={`/`} element={<Summary/>} />
+                    <Route exact path={`/champions`} element={<SummonerChampion/>}/>
+                    <Route exact path={`/liveGame`} element={<LiveGame/>}/>
                 </Routes>
                 
                 

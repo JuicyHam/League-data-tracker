@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useAppData } from "../../../../contexts/AppDataContext";
 import { useEffect, useState } from "react";
+import { useSummonerData } from "../../../../contexts/summonerData";
 
 const Wrapper = styled.div`
     display: flex;
@@ -90,9 +91,6 @@ const formatTimeDifference = (time) => {
     const currentTime = new Date();
     const oldTime = new Date(time);
     const differenceInMillis = currentTime - oldTime;
-    console.log(time);
-    console.log(currentTime);
-    console.log(oldTime);
     const seconds = Math.floor(differenceInMillis / 1000);
     if (seconds < 120) {
         const timeLeft = 120 - seconds;
@@ -101,39 +99,41 @@ const formatTimeDifference = (time) => {
 
     const minutes = Math.floor(seconds / 60);
     if (minutes < 60) {
-        return `${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
+        return `Last Updated: ${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
     }
 
     const hours = Math.floor(minutes / 60);
     if (hours < 24) {
-        return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
+        return `Last Updated: ${hours} hour${hours !== 1 ? 's' : ''} ago`;
     }
 
     const days = Math.floor(hours / 24);
     if (days < 7) {
-        return `${days} day${days !== 1 ? 's' : ''} ago`;
+        return `Last Updated: ${days} day${days !== 1 ? 's' : ''} ago`;
     }
 
     const weeks = Math.floor(days / 7);
     if (weeks < 4) {
-        return `${weeks} week${weeks !== 1 ? 's' : ''} ago`;
+        return `Last Updated: ${weeks} week${weeks !== 1 ? 's' : ''} ago`;
     }
 
     const months = Math.floor(days / 30);
-    return `${months} month${months !== 1 ? 's' : ''} ago`;
+    return `Last Updated: ${months} month${months !== 1 ? 's' : ''} ago`;
 }
 
-const SummonerHeader = ({accountInfo, summonerInfo, lastUpdated}) => {
+const SummonerHeader = () => {
+    const { summonerData} = useSummonerData();
+    const {accountInfo, summonerInfo, updated} = summonerData;
     const {playerIcons} = useAppData();
-    const [updatedTime, setUpdatedTime] = useState(formatTimeDifference(lastUpdated || (new Date()).setHours((new Date()).getHours() - 1)));
+    const [updatedTime, setUpdatedTime] = useState(formatTimeDifference(updated || (new Date()).setHours((new Date()).getHours() - 1)));
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setUpdatedTime(formatTimeDifference(lastUpdated));
+            setUpdatedTime(formatTimeDifference(updated));
         }, 1000);
 
         return () => clearInterval(interval);
-    }, [lastUpdated]);
+    }, [updated]);
     
     return (
         <Wrapper>

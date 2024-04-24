@@ -67,6 +67,17 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration: none;
         color: inherit;
     }
+
+    button {
+        background: none;
+        border: none;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        overflow: visible;
+        font-weight: 400;
+        color: rgb(234, 240, 236);
+    }
 `
 
 export default GlobalStyles

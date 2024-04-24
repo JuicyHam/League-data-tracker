@@ -2,7 +2,7 @@ const axios = require('axios');
 const { RateLimit } = require(`async-sema`);
 const supabase = require('../db');
 
-const apiKey = 'RGAPI-081d119e-b5b3-4366-aafd-6230350f30bf';
+const apiKey = 'RGAPI-817a9e45-1a1a-494b-a8a2-4a225b16fc07';
 const SEARCH_LIMIT_PER_SECOND = 20;
 const SERACH_LIMIT_PER_2_MINUTES = 100;
 const RETY_DELAY_BASE = 1000;
@@ -258,7 +258,7 @@ const getMatchInfo = async (matchId) => {
     if (error) {
         throw new Error(`Failed to fetch match information: ${error.message}`);
     } else if (matchData) {
-        return matchData.match_data;
+        return JSON.parse(matchData.match_data);
     } else {
         throw new Error(`Match with ID ${matchId} not found.`);
     }

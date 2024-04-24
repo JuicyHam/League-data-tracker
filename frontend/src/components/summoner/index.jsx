@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Footer from "../common/Footer";
 import SummonerContent from "./SummonerContent";
+import { SummonerDataProvider } from "../../contexts/summonerData";
 
 
 const Wrapper = styled.div`
@@ -25,7 +26,9 @@ const Summoner = () => {
         <Wrapper>
             <Navbar ishome={false} region={"EUW"}/>
             <CenterWrapper>
-                <SummonerContent/>
+                <SummonerDataProvider>
+                    <SummonerContent/>
+                </SummonerDataProvider>
             </CenterWrapper>    
             <Footer/>    
         </Wrapper>
