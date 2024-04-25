@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Champion from "../../../Champion";
-import SingleChampion from "../../../ChampionIcon";
+import SingleChampion from "../../../../../ChampionImages/ChampionIcon";
 import RoleIcon from "../../../RoleIcon";
 
 const Wrapper = styled.tr`

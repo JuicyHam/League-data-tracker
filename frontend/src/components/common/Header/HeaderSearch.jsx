@@ -38,7 +38,7 @@ const HeaderSearch = () => {
 
     return (
     <Wrapper>
-        <Image src="Logo.png"/>
+        <Image src="/Logo.png"/>
         <SearchWrapper>
             <RegionWrapper>
                 <SearchRegion width={"34px"} height={"20px"} radius={"3px"} fontSize={"10px"} />

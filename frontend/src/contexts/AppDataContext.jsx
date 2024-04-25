@@ -5,8 +5,11 @@ export const AppDataContext = createContext();
 
 export const AppDataProvider = ({ children }) => {
   const [selectedRegion, setSelectedRegion] = useState("EUW");
-  const [championIcons, setChampionIcons] = useState([]);
+  const [championInfo, setChampionInfo] = useState([]);
   const [playerIcons, setPlayerIcons] = useState([]);
+  const [itemIcons, setItemIcons] = useState([]);
+  const [summonerSpellsIcon, setSummonerSpellsIcon] = useState([]);
+  const [runesIcon, setRunesIcon] = useState([]);
 
   
   useEffect(() => {
@@ -16,13 +19,14 @@ export const AppDataProvider = ({ children }) => {
         const latestVersion = versionResponse.data[0];
         const championResponse = await axios.get(`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/champion.json`);
         const championData = championResponse.data.data;
-        const championIconsByName = Object.values(championData).reduce((acc, champion) => {
-          acc[champion.name] = `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/champion/${champion.image.full}`;
+        const championInfoById = Object.values(championData).reduce((acc, champion) => {
+          acc[champion.key] = {
+            name: champion.name,
+            image: `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/champion/${champion.image.full}`
+          };
           return acc;
         }, {});
-        setChampionIcons(championIconsByName);
-
-        console.log("Doing");
+        setChampionInfo(championInfoById);
         // Fetch player icons
         const playerIconsResponse = await axios.get(`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/profileicon.json`);
         const playerIconsData = playerIconsResponse.data.data;
@@ -31,6 +35,46 @@ export const AppDataProvider = ({ children }) => {
           return acc;
         }, {});
         setPlayerIcons(playerIconsById);
+
+        // Fetch item icons
+        const itemResponse = await axios.get(`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/item.json`);
+        const itemData = itemResponse.data.data;
+        const itemIconsById = Object.keys(itemData).reduce((acc, itemId) => {
+          
+          const item = itemData[itemId];
+          const { image } = item;
+          if (image && image.full) {
+            acc[itemId] = `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/item/${image.full}`;
+          }
+          return acc;
+        }, {});
+        setItemIcons(itemIconsById);
+
+        const summonerSpellResponse = await axios.get(`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/summoner.json`);
+        const summonerSpellData = summonerSpellResponse.data.data;
+        const summonerSpellIconsById = {};
+
+        Object.entries(summonerSpellData).forEach(([spellId, spell]) => {
+          const { image } = spell;
+          if (image && image.full) {
+            summonerSpellIconsById[spell.key] = `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/spell/${image.full}`;
+          }
+        });
+        setSummonerSpellsIcon(summonerSpellIconsById);
+
+        const runeResponse = await axios.get(`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/runesReforged.json`);
+        const runeData = runeResponse.data;
+        const runesIconById = {};
+        runeData.forEach(tree => {
+          tree.slots.forEach(slot => {
+            slot.runes.forEach(rune => {
+              runesIconById[rune.id] = `https://ddragon.leagueoflegends.com/cdn/img/${rune.icon}`;
+            });
+          });
+          runesIconById[tree.id] = `https://ddragon.leagueoflegends.com/cdn/img/${tree.icon}`;
+        });
+        setRunesIcon(runesIconById);
+
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -42,8 +86,11 @@ export const AppDataProvider = ({ children }) => {
   const sendValues = {
     selectedRegion,
     setSelectedRegion,
-    championIcons,
-    playerIcons
+    championInfo,
+    playerIcons,
+    itemIcons,
+    summonerSpellsIcon,
+    runesIcon
   };
 
   return (

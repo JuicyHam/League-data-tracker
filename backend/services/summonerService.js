@@ -15,16 +15,17 @@ const performRequest = async (url) => {
     try {
 
         await rateLimitPerSecond();
-        console.log(`Passed Seconds`);
+        //console.log(`Passed Seconds`);
         await rateLimitPer2Minuets();
-        console.log(`Passed 2 minutes`);
+        //console.log(`Passed 2 minutes`);
         
         const response = await axios.get(url);
-        console.log(`got response`);
+        //console.log(`got response`);
+        //console.log(url);
         return response.data;
     } catch (error) {
         if (error.response && error.response.status == 429) {
-            console.log(`Rate Limit exceeded. Retying in ${RETY_DELAY_BASE / 1000} seconds...`)
+            //console.log(`Rate Limit exceeded. Retying in ${RETY_DELAY_BASE / 1000} seconds...`)
             await new Promise(resolve => setTimeout(resolve, RETY_DELAY_BASE));
             return performRequest(url);
         } else {
@@ -60,15 +61,19 @@ const getSummonerInfo = async (region, regionTag, summonerName) => {
         const url = `https://${regionTag.toLowerCase()}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${apiKey}`;
         const summonerInfo = await performRequest(url);
         const matches = await getMatches(puuid);
+        const championStats = await getChampionStats(puuid, matches);
+        const ranked = await getRanked(regionTag, summonerInfo.id);
         const playerData = {
             accountInfo: accountInfo,
             summonerInfo: summonerInfo,
             matches: matches,
-            updated: new Date()
+            updated: new Date(),
+            ranked,
+            championStats
         };
-        console.log(playerData.updated);
-        console.log("all data chieved now sqling");
-        await insertSummonerData(accountInfo, summonerInfo, matches);
+        //console.log(playerData.updated);
+        //console.log("all data chieved now sqling");
+        await insertSummonerData(accountInfo, summonerInfo, matches,ranked);
         
         return playerData;
     } catch (error) {
@@ -95,12 +100,16 @@ const convertDBData = async (summonerData) => {
     try {
         const accountInfo = {
             gameName: summonerData.summoner_name,
+            puuid: summonerData.puuid,
             tagLine: summonerData.tag_line
         };
         const summonerInfo = {
             profileIconId: summonerData.profile_icon,
-            summonerLevel: summonerData.summoner_level
+            summonerLevel: summonerData.summoner_level,
+            id: summonerData.summoner_id
         };
+
+        const ranked = JSON.parse(summonerData.ranked);
 
         const matches = await Promise.all(summonerData.match_ids.map(async (matchId) => {
             try {
@@ -113,12 +122,14 @@ const convertDBData = async (summonerData) => {
         }));
 
         const filteredMatches = matches.filter(match => match !== null);
-
+        const championStats = await getChampionStats(summonerData.puuid,matches);
         return {
             accountInfo: accountInfo,
             summonerInfo: summonerInfo,
             matches: filteredMatches,
-            updated: summonerData.updated
+            updated: summonerData.updated,
+            ranked: ranked,
+            championStats
         };
     } catch {
         throw new Error(`Failed to convert database data: ${error.message}`);
@@ -129,11 +140,11 @@ const getMatches = async (puuid) => {
     try {
         const url = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=10&api_key=${apiKey}`;
         const matchIds = await performRequest(url);
-        console.log(matchIds);
+        //console.log(matchIds);
         const matchDetailsPromises = matchIds.map(async (matchId) => {
             const matchDetailUrl = `https://europe.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${apiKey}`;
-            console.log(matchDetailUrl);
-            return await performRequest(matchDetailUrl);
+            const matchDetails = await performRequest(matchDetailUrl);
+            return matchDetails.info;
         });
         return await Promise.all(matchDetailsPromises);
     } catch (error) {
@@ -141,23 +152,33 @@ const getMatches = async (puuid) => {
     }
 };
 
+const getRanked = async (regionTag, summonerId) => {
+    try {
+        const url = `https://${regionTag.toLowerCase()}.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${apiKey}`;
+        //console.log(url);
+        const rankedDetails = await performRequest(url);
+        return rankedDetails;
+    } catch (error) {
+        throw new Error(`Failed to fetch ranked details: ${error.message}`);
+    }
+};
 
-const insertSummonerData = async (accountInfo, summonerInfo, matches) => {
+const insertSummonerData = async (accountInfo, summonerInfo, matches, ranked) => {
     try {
         
-        console.log("adding summoner info");
-        await insertSummonerInfo(accountInfo, summonerInfo, matches);
-        console.log("done with summoner doing matches");
+        //console.log("adding summoner info");
+        await insertSummonerInfo(accountInfo, summonerInfo, matches, ranked);
+        //console.log("done with summoner doing matches");
         await insertMatches(matches);
-        console.log("Done now commiting");
+        //console.log("Done now commiting");
     } catch (error) {
         throw new Error(`Failed to insert summoner data into database: ${error.message}`);
     }
 };
 
-const insertSummonerInfo = async (accountInfo, summonerInfo, matches) => {
+const insertSummonerInfo = async (accountInfo, summonerInfo, matches, ranked) => {
     const { puuid, gameName, tagLine } = accountInfo;
-    const { profileIconId, summonerLevel } = summonerInfo;
+    const { profileIconId, summonerLevel, id } = summonerInfo;
 
     try {
         const existingSummoner= await checkSummonerExistence(puuid);
@@ -168,12 +189,14 @@ const insertSummonerInfo = async (accountInfo, summonerInfo, matches) => {
                 tag_line: tagLine || existingSummoner.tag_line,
                 profile_icon: profileIconId || existingSummoner.profile_icon,
                 summoner_level: summonerLevel || existingSummoner.summoner_level,
+                summoner_id: id || existingSummoner.summoner_id,
+                ranked: JSON.stringify(ranked) || existingSummoner.ranked
             };
 
             const existingMatchIds = existingSummoner.match_ids || [];
 
             const newMatchIds = matches.map(match => {
-                const { platformId, gameId } = match.info;
+                const { platformId, gameId } = match;
                 return `${platformId}_${gameId}`;
             });
 
@@ -187,9 +210,9 @@ const insertSummonerInfo = async (accountInfo, summonerInfo, matches) => {
                 throw new Error(`Failed to update existing summoner info: ${updateError.message}`);
             }
         } else {
-            console.log("already exists!");
+            //console.log("already exists!");
             const matchIds = matches.map(match => {
-                const { platformId, gameId } = match.info;
+                const { platformId, gameId } = match;
                 return `${platformId}_${gameId}`;
             });
 
@@ -202,7 +225,9 @@ const insertSummonerInfo = async (accountInfo, summonerInfo, matches) => {
                         tag_line: tagLine,
                         profile_icon: profileIconId,
                         summoner_level: summonerLevel,
-                        match_ids: matchIds
+                        summoner_id: id,
+                        match_ids: matchIds,
+                        ranked: JSON.stringify(ranked)
                     }
                 ]);
 
@@ -217,11 +242,10 @@ const insertSummonerInfo = async (accountInfo, summonerInfo, matches) => {
 
 const insertMatches = async (matches) => {
     const insertPromises = matches.map(async (match) => {
-        const { platformId, gameId } = match.info;
-        const { info } = match;
+        const { platformId, gameId } = match;
 
         const matchId = `${platformId}_${gameId}`;
-        console.log(matchId);
+        //console.log(matchId);
 
         // Check if the match already exists in the match_info table
         const { data: existingMatches, error } = await supabase
@@ -237,13 +261,13 @@ const insertMatches = async (matches) => {
 
         // Insert the match if it doesn't already exist
         if (!existingMatches) {
-            console.log("adding match!");
+            //console.log("adding match!");
             await supabase
                 .from('match_info')
-                .upsert([{ match_id: matchId, match_data: JSON.stringify(info) }], { returning: 'minimal' });
+                .upsert([{ match_id: matchId, match_data: JSON.stringify(match) }], { returning: 'minimal' });
         }
     });
-    console.log("doing this");
+    //console.log("doing this");
     // Wait for all insert operations to complete
     await Promise.all(insertPromises);
 };
@@ -263,6 +287,58 @@ const getMatchInfo = async (matchId) => {
         throw new Error(`Match with ID ${matchId} not found.`);
     }
     
+};
+
+const getChampionStats = async (puuid, matches) => {
+    try {
+        const championStats = {420: {}, 440: {}};
+        console.log("inside");
+        const queueIds = [420, 440];
+
+        // Filter matches based on whether their queueId is included in queueIds array
+        const filteredMatches = matches.filter(match => queueIds.includes(match.queueId));
+        filteredMatches.forEach(match => {
+            const participant = match.participants.find(participant => participant.puuid === puuid);
+            const championId = participant.championId;
+            const win = participant.win; 
+            const kills = participant.kills; 
+            const deaths = participant.deaths; 
+            const assists = participant.assists; 
+            const cs = participant.totalMinionsKilled + participant.neutralMinionsKilled; 
+            const time = match.gameDuration;
+
+            if (!championStats[match.queueId][championId]) {
+                championStats[match.queueId][championId] = {
+                    wins: 0,
+                    losses: 0,
+                    kills: 0,
+                    deaths: 0,
+                    assists: 0,
+                    cs: 0,
+                    time: 0,
+                    name: participant.championName
+                };
+            }
+
+            if (win) {
+                championStats[match.queueId][championId].wins++;
+            } else {
+                championStats[match.queueId][championId].losses++;
+            }
+
+            championStats[match.queueId][championId].kills += kills;
+            championStats[match.queueId][championId].deaths += deaths;
+            championStats[match.queueId][championId].assists += assists;
+            championStats[match.queueId][championId].cs += cs;
+            championStats[match.queueId][championId].time += time
+        });
+
+        // Calculate win-loss ratio and KDA ratio for each champion
+
+        return championStats;
+    } catch (error) {
+        throw new Error(`Failed to fetch match data: ${error.message}`);
+    }
 };
 
 module.exports = {

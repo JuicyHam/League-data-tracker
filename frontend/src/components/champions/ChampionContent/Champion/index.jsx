@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ChampionIcons from "../ChampionList";
+import ChampionIcons from "../../../ChampionImages/ChampionList";
 import RoleIconsOptions from "./RoleIconsOptions";
 import ChampionSearchbar from "./ChampionSearchBar";
 import { useState } from "react";

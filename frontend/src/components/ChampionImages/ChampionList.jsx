@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
-import { useAppData } from '../../../contexts/AppDataContext';
+import { useAppData } from '../../contexts/AppDataContext';
 import styled from 'styled-components';
-import { useChampionSearchData } from '../../../contexts/ChampionContext';
+import { useChampionSearchData } from '../../contexts/ChampionContext';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
@@ -21,8 +21,8 @@ const ChampionWrapper = styled.li`
     width: 100%;
     font-size: 11px;
     width: 100%;
-    font-weight: 100;
-    margin-top: 2px;
+    font-weight: 400;
+    margin-top: 3px;
     height: 16px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -42,9 +42,9 @@ const ImageWrapper = styled.div`
 `;
 
 const ChampionIcons = ({ selectedRole, searchQuery }) => {
-  const { championIcons } = useAppData();
-  const { championData} = useChampionSearchData();
-
+  const { championInfo } = useAppData();
+  const { championData } = useChampionSearchData();
+  console.log(championInfo);
   const getChampionRoles = useCallback((championName) => {
     // Filter the champion data based on the championName
     console.log(championName);
@@ -59,9 +59,11 @@ const ChampionIcons = ({ selectedRole, searchQuery }) => {
     return [...new Set(roles)];
   }, [championData]);
 
+  const filteredChampionIcons = Object.entries(championInfo).filter(
+    ([championId, championInfo]) => {
+      const championName = championInfo.name;
+      const iconUrl = championInfo.image;
 
-  const filteredChampionIcons = Object.entries(championIcons).filter(
-    ([championName]) => {
       if (selectedRole !== 'All') {
         const championRoles = getChampionRoles(championName);
         if (!championRoles.includes(selectedRole.toLowerCase())) return false;
@@ -75,22 +77,24 @@ const ChampionIcons = ({ selectedRole, searchQuery }) => {
     }
   );
 
-  
-
   return (
     <Wrapper>
       <ul>
-        {filteredChampionIcons.map(([championName, iconUrl]) => (
-        
-          <ChampionWrapper key={championName}>
-            <Link to={`/champion/${championName}`}>
+        {filteredChampionIcons.map(([championId, championInfo]) => {
+          const championName = championInfo.name;
+          const iconUrl = championInfo.image;
+
+          return (
+            <ChampionWrapper key={championId}>
+              <Link to={`/champion/${championName}`}>
                 <ImageWrapper>
-                <img src={iconUrl} alt={championName} width="52px" />
+                  <img src={iconUrl} alt={championName} width="52px" />
                 </ImageWrapper>
-            </Link>
-            <span>{championName}</span>
-          </ChampionWrapper>
-        ))}
+              </Link>
+              <span>{championName}</span>
+            </ChampionWrapper>
+          );
+        })}
       </ul>
     </Wrapper>
   );

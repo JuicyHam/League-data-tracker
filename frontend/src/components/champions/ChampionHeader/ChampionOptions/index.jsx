@@ -76,8 +76,6 @@ const ChampionOptions = () => {
                     <ChampionDropdown current={data.current} list={data.list} setState={data.setState} />
                 </DropdownWrapper>);
             })}
-            
-            
         </Wrapper>
     );
 }

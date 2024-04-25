@@ -1,7 +1,10 @@
 import styled from "styled-components";
+import { useSummonerData } from "../../../../../../../contexts/summonerData";
+import { useAppData } from "../../../../../../../contexts/AppDataContext";
+import SingleChampion from "../../../../../../ChampionImages/ChampionIcon";
 
 const ChampionInfoColumn = styled.div`
-    width: 350px;
+    width: 325px;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -67,10 +70,16 @@ const SummonerSpellsWrapper = styled.div`
         height: 22px;
         width: 22px;
         border-radius: 3px;
-        background-color: white;
+        background-color: ${props => props.win ? `#283774` : `#542a2e`};
 
         &:first-child {
             margin-bottom: 2px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 3px;
         }
     }
 `
@@ -88,8 +97,12 @@ const KDA = styled.div`
     font-weight: 700;
 
     .slash {
-        color: black;
+        color: ${props => props.win ? `#6f6ff5` : `#be4444`};
         opacity: 0.4;
+    }
+
+    span {
+        color: #f56f6f;
     }
 `
 
@@ -111,6 +124,10 @@ const OtherText = styled.div`
     opacity: 0.6;
 `
 
+const Items = styled.div`
+    display: flex;
+`
+
 const ItemWrapper = styled.div`
     display: flex;
     position: relative;
@@ -121,6 +138,12 @@ const ItemWrapper = styled.div`
         display: flex;
         justify-content: center;
         margin-left: 2px;
+        height: 100%;
+    }
+    img {
+        width: 22px;
+        height: 22px;
+        border-radius: 3px;
     }
 
     .Main {
@@ -129,72 +152,87 @@ const ItemWrapper = styled.div`
         grid-template-rows: repeat(2, 1fr);
         grid-gap: 2px;
         justify-content: space-between;
-
-        img {
-            width: 22px;
-            height: 22px;
-        }
     }
 `
 
 
-const ChampionInfo = () => {
+const ChampionInfo = ({index}) => {
+    const {summonerData} = useSummonerData();
+    const {itemIcons, summonerSpellsIcon, runesIcon} = useAppData();
+
+    const match = summonerData.matches && summonerData.matches[index];
+    const puuid = summonerData.accountInfo.puuid;
+    if (!match) {
+        return <div>No match found</div>;
+    }
+    const matchTime = Math.floor(match.gameDuration / 60);
+    const ourSummoner = match.participants.find(participant => participant.puuid === puuid);
+    if (!ourSummoner) {
+        return <div>Summoner not found in this match</div>;
+    }
+    const win = ourSummoner.win;
+    const totalCs = ourSummoner.totalMinionsKilled + ourSummoner.neutralMinionsKilled
+    const csPerMin = ((totalCs)/matchTime).toString().substring(0, 3);
+    const KDAnumber = ((ourSummoner.kills + ourSummoner.assists) / ourSummoner.deaths).toString().substring(0, 3);
     return(
         <ChampionInfoColumn>
             <ChampionInfoWrapper>
                 <ChampInfo>
                     <ChampionImageWrapper>
                         <div>
-                            <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/profileicon/6271.png" />
+                            <SingleChampion championId={ourSummoner.championId} />
                             <span>18</span>
                         </div>
                     </ChampionImageWrapper>
                     
                 </ChampInfo>
-                <SummonerSpellsWrapper>
+                <SummonerSpellsWrapper win={win}>
                     <div>
-
+                        <img src={summonerSpellsIcon[ourSummoner.summoner1Id]} />
                     </div>
                     <div>
-                        
+                        <img src={summonerSpellsIcon[ourSummoner.summoner2Id]} />
                     </div>
                 </SummonerSpellsWrapper>
-                <SummonerSpellsWrapper>
+                <SummonerSpellsWrapper win={win}>
                     <div>
-
+                        <img src={runesIcon[ourSummoner.perks.styles[0].selections[0].perk]}/>
                     </div>
                     <div>
-                        
+                        <img src={runesIcon[ourSummoner.perks.styles[1].style]}/>  
                     </div>
                 </SummonerSpellsWrapper>
             </ChampionInfoWrapper>
             <MatchStatsWrapper>
-                <KDA>
-                    13
+                <KDA win={ourSummoner.win}>
+                    {ourSummoner.kills}
                     <span className="slash"> / </span>
-                    7
+                    <span>{ourSummoner.deaths}</span>
                     <span className="slash"> / </span>
-                    5
+                    {ourSummoner.assists}
                 </KDA>
                 <KDARatio>
-                    2.86 
+                    {KDAnumber}
                     <span> KDA</span>
                 </KDARatio>
-                <OtherText>238 CS (8)</OtherText>
-                <OtherText>34 vision</OtherText>
+                <OtherText>{totalCs} ({csPerMin})</OtherText>
+                <OtherText>{ourSummoner.visionScore} vision</OtherText>
             </MatchStatsWrapper>
             <ItemWrapper>
+                <Items>
                     <div className="Main">
-                        <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/profileicon/6271.png" />
-                        <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/profileicon/6271.png" />
-                        <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/profileicon/6271.png" />
-                        <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/profileicon/6271.png" />
-                        <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/profileicon/6271.png" />
-                        <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/profileicon/6271.png" />
+                        <img src={itemIcons[ourSummoner.item0]} />
+                        <img src={itemIcons[ourSummoner.item1]}  />
+                        <img src={itemIcons[ourSummoner.item2]}  />
+                        <img src={itemIcons[ourSummoner.item3]}  />
+                        <img src={itemIcons[ourSummoner.item4]}  />
+                        <img src={itemIcons[ourSummoner.item5]}  />
                     </div>
                     <div className="Trinket">
-                        
+                        <img src={itemIcons[ourSummoner.item6]}  />
                     </div>
+                </Items>
+                    
             </ItemWrapper>
         </ChampionInfoColumn>
         

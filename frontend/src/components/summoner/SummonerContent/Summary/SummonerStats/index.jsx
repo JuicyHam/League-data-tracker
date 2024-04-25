@@ -1,11 +1,11 @@
 import styled from "styled-components";
+import RankContent from "./RankContent";
+import RankStats from "./RankStats";
 
 const Wrapper = styled.div`
     width: 300px;
-    height: 500px;
     margin-right: 10px;
-    background-color: #2e2e43;
-    border-radius: 6px;
+    
 `
 
 
@@ -13,7 +13,8 @@ const Wrapper = styled.div`
 const SummonerStats = () => {
     return (
         <Wrapper>
-            
+            <RankContent />
+            <RankStats />
         </Wrapper>
     ); 
 }

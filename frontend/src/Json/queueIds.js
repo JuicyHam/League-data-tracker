@@ -88,7 +88,7 @@ const queueData = [
         "queueId": 420,
         "map": "Summoner's Rift",
         "description": "5v5 Ranked Solo games",
-        "name": "Ranked Solo/Duo",
+        "name": "Ranked Solo",
         "notes": null
     },
     {

@@ -15,6 +15,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     width: 1100px;
     margin-top: 50px;
+    margin-bottom: 50px;
 `
 
 const ContentWrapper = styled.div`
