@@ -9,6 +9,7 @@ import SummonerChampion from "./SummonerChampion";
 import LiveGame from "./LiveGame";
 import Summary from "./Summary";
 import { useSummonerData } from "../../../contexts/summonerData";
+import Loading from "../../common/Loading";
 
 const Wrapper = styled.div`
     display: flex;
@@ -99,7 +100,7 @@ const SummonerContent = () => {
     }, [region,summonerName]);
     
     if (loading) {
-        return <Wrapper>Loading...</Wrapper>;
+        return <Loading/>;
     }
 
    

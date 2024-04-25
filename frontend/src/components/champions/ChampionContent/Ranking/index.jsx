@@ -6,6 +6,7 @@ import axios from "axios";
 import ChampionTableContent from "./ChampionTableHeader/RankingTableContent";
 import { useLocation } from "react-router-dom";
 import { useChampionSearchData } from "../../../../contexts/ChampionContext";
+import Loading from "../../../common/Loading";
 
 
 
@@ -31,6 +32,7 @@ const TBody = styled.tbody`
 const Ranking = () => {
     const {championData, setChampionData} = useChampionSearchData();
     const { search } = useLocation();
+    const [loading, setLoading] = useState(true);
     const queryParams = new URLSearchParams(search);
 
     const lane = queryParams.get('role') || 'all';
@@ -39,6 +41,15 @@ const Ranking = () => {
 
     const prevRegion = useRef(region);
     const prevRank = useRef(rank);
+
+    const tableData = useMemo(() => {
+        if (lane === "all") {
+            return championData;
+        } else {
+            console.log(championData);
+            return championData.filter(champion => champion.role.toLowerCase() === lane );
+        }
+    }, [championData, lane]);
 
     useEffect(() => {
         console.log(region);
@@ -59,8 +70,10 @@ const Ranking = () => {
                         }
                         console.log(response.data);
                         setChampionData(response.data);
+                        setLoading(false);
                     } catch (error) {
                         console.log("Error fetching champion data: ", error)
+                        setLoading(false);
                     }
                 };
                 fetchData();
@@ -68,14 +81,11 @@ const Ranking = () => {
         }
     }, [region, rank]);
 
-    const tableData = useMemo(() => {
-        if (lane === "all") {
-            return championData;
-        } else {
-            console.log(championData);
-            return championData.filter(champion => champion.role.toLowerCase() === lane );
-        }
-    }, [championData, lane]);
+    if (loading) {
+        return <Wrapper><Loading  height={"700px"} /></Wrapper>
+    }
+
+    
 
     return (
             

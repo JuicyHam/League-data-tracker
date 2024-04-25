@@ -6,6 +6,8 @@ const summonerController = require('../controllers/summonerController');
 
 // Define routes
 router.get('/:region/:regionTag/:summonerName', summonerController.getSummonerInfo);
+
+router.get('/getnames/:region/:regionTag/:summonerName', summonerController.getNames);
 // Add more routes as needed
 
 module.exports = router;

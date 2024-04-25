@@ -2,7 +2,7 @@ const axios = require('axios');
 const { RateLimit } = require(`async-sema`);
 const supabase = require('../db');
 
-const apiKey = 'RGAPI-817a9e45-1a1a-494b-a8a2-4a225b16fc07';
+const apiKey = 'RGAPI-01444b37-1ec1-4c12-89e6-adac93dbcdda';
 const SEARCH_LIMIT_PER_SECOND = 20;
 const SERACH_LIMIT_PER_2_MINUTES = 100;
 const RETY_DELAY_BASE = 1000;
@@ -341,8 +341,28 @@ const getChampionStats = async (puuid, matches) => {
     }
 };
 
+const getNames = async (region, regionTag, summonerName) => {
+    const [name, tagLine] = summonerName.split('-');
+    console.log(name);
+    console.log(tagLine);
+    const { data, error } = await supabase
+        .from('summoner_info')
+        .select('*')
+        .ilike('summoner_name', `%${name}%`) // Search for names containing the provided name
+        .ilike('tag_line', `%${tagLine}%`) // Search for tag lines containing the provided tagLine
+        .order('summoner_name') // Order the results by name
+        .limit(5); // Limit the results to 3 names
+
+    if (error) {
+        throw new Error(`Failed to fetch names from the database: ${error.message}`);
+    }
+    console.log(data);
+    return data;
+};
+
 module.exports = {
     getSummonerInfo,
     getAccountInfo,
-    getMatches
+    getMatches,
+    getNames
 };
