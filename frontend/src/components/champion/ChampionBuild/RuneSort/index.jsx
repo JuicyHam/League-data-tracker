@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import SingleChampion from "../../../ChampionImages/ChampionIcon";
+import { PickRateTab, Table, Tbody, WinRateTab } from "../../../../styles/ChampionStyled";
+import { HeadRow } from "../../Builds/PrimaryBuilds";
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin-right: 10px;
     background-color: #2e2e43;
-    width: 210px;
+    width: 240px;
     border-radius: 6px;
 `
 
@@ -16,41 +18,12 @@ const Title = styled.div`
     width: 100%;
     padding: 10px;
     height: auto;
+    font-weight: 600;
 `
 
-const Runes = styled.table`
-    width: 100%;
-`
-
-const HeadRow = styled.tr`
-    background-color: rgb(26, 26, 41);
-    font-size: 12px;
-   
-    th {
-
-         
-        
-        padding: 6px 0;
-
-    }
-    
-`
-
-const Tbody = styled.tbody`
-    
-    tr {
-        &:nth-child(2n) {
-            background-color: rgb(34, 34, 54);
-        }
-
-        td {
-            vertical-align: middle;
-        }
-    }
-`
 
 const RuneTab = styled.td`
-    padding-left: 12px;
+    padding-left: 20px;
 `
 
 const RuneImages = styled.div`
@@ -68,8 +41,8 @@ const RuneSort = () => {
             <Title>
                 <span>Rune Core List</span>
             </Title>
-            <Runes>
-                <colgroup><col/><col width="53px"/><col width="50px"/></colgroup>
+            <Table>
+                <colgroup><col/><col width="65px"/><col width="60px"/></colgroup>
                 <thead>
                     <HeadRow>
                         <th>Rune + Item</th>
@@ -84,12 +57,62 @@ const RuneSort = () => {
                                 <SingleChampion championId={221} width={"32px"} height={"32px"}/>
                                 <SingleChampion championId={221} width={"32px"} height={"32px"}/>
                             </RuneImages>
-                            
                         </RuneTab>
+                        <PickRateTab>
+                            <p>26.7%</p>
+                            <span>8,200</span>
+                        </PickRateTab>
+                        <WinRateTab>
+                            <p>51.9%</p>
+                        </WinRateTab>
                     </tr>
-                    
+                    <tr>
+                        <RuneTab>
+                            <RuneImages>
+                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
+                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
+                            </RuneImages>
+                        </RuneTab>
+                        <PickRateTab>
+                            <p>26.7%</p>
+                            <span>8,200</span>
+                        </PickRateTab>
+                        <WinRateTab>
+                            <p>51.9%</p>
+                        </WinRateTab>
+                    </tr>
+                    <tr>
+                        <RuneTab>
+                            <RuneImages>
+                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
+                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
+                            </RuneImages>
+                        </RuneTab>
+                        <PickRateTab>
+                            <p>26.7%</p>
+                            <span>8,200</span>
+                        </PickRateTab>
+                        <WinRateTab>
+                            <p>51.9%</p>
+                        </WinRateTab>
+                    </tr>
+                    <tr>
+                        <RuneTab>
+                            <RuneImages>
+                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
+                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
+                            </RuneImages>
+                        </RuneTab>
+                        <PickRateTab>
+                            <p>26.7%</p>
+                            <span>8,200</span>
+                        </PickRateTab>
+                        <WinRateTab>
+                            <p>51.9%</p>
+                        </WinRateTab>
+                    </tr>
                 </Tbody>
-            </Runes>
+            </Table>
         </Wrapper>
     );
 };

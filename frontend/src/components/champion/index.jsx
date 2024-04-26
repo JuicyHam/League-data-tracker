@@ -5,6 +5,8 @@ import Footer from "../common/Footer";
 import ChampionHeader from "./ChampionHeader";
 import ChampionBuild from "./ChampionBuild";
 import ChampionCounters from "./ChampionCounters";
+import Builds from "./Builds";
+import ChampionAbilities from "./ChampionAbilities";
 
 const Wrapper = styled.div`
     
@@ -69,6 +71,8 @@ const Champion = () => {
                         <ChampionOption selected={false}> OTPs </ChampionOption>
                     </OptionWrapper>
                     <ChampionBuild/>
+                    <ChampionAbilities/>
+                    <Builds/>
                     <ChampionCounters/>
                 </CenterContent>
             </CenterWrapper>    

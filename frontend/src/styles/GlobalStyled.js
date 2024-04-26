@@ -50,6 +50,17 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         outline: 0;
         caret-color: transparent;
+        &::-webkit-scrollbar {
+            width: 8px; /* width of the scrollbar */
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #353a5b; /* Color of the thumb */
+            border-radius: 5px; /* Border radius of the thumb */
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 5px;
+            background-color: #1a1a29; /* Color of the track */
+        }
     }
 
     html, body {
@@ -75,8 +86,7 @@ export const GlobalStyles = createGlobalStyle`
         font: inherit;
         line-height: normal;
         overflow: visible;
-        font-weight: 400;
-        color: rgb(234, 240, 236);
+        
     }
 `
 
