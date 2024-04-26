@@ -10,6 +10,11 @@ const RETY_DELAY_BASE = 1000;
 const rateLimitPerSecond = RateLimit(SEARCH_LIMIT_PER_SECOND, { timeUnit: 1000});
 const rateLimitPer2Minuets = RateLimit(SERACH_LIMIT_PER_2_MINUTES, { timeUnit: 120000});
 
+const regionMap = {
+    "na1": "americas",
+    "euw1": "europe",
+    // Add more mappings as needed
+};
 
 const performRequest = async (url) => {
     try {
@@ -39,7 +44,11 @@ const getAccountInfo = async (region, summonerName) => {
     try {
         const [name, tagLine] = summonerName.split('-');
         const finalTagLine = tagLine || region;
-        const url = `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${encodeURIComponent(name)}/${encodeURIComponent(finalTagLine)}?api_key=${apiKey}`;
+        const server = regionMap[region.toLowerCase()]
+        console.log(region);
+        console.log(server);
+        const url = `https://${server}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${encodeURIComponent(name)}/${encodeURIComponent(finalTagLine)}?api_key=${apiKey}`;
+        console.log(url);
         return await performRequest(url);
     } catch (error) {
         throw new Error(`Failed to fetch account information: ${error.message}`);
@@ -48,7 +57,7 @@ const getAccountInfo = async (region, summonerName) => {
 
 const getSummonerInfo = async (region, regionTag, summonerName) => {
     try {
-        const accountInfo = await getAccountInfo(region, summonerName);
+        const accountInfo = await getAccountInfo(regionTag, summonerName);
         if (!accountInfo || !accountInfo.puuid) {
             throw new Error(`Failed to fetch summoner name`);
         }
@@ -60,7 +69,7 @@ const getSummonerInfo = async (region, regionTag, summonerName) => {
         }
         const url = `https://${regionTag.toLowerCase()}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${apiKey}`;
         const summonerInfo = await performRequest(url);
-        const matches = await getMatches(puuid);
+        const matches = await getMatches(puuid, regionTag);
         const championStats = await getChampionStats(puuid, matches);
         const ranked = await getRanked(regionTag, summonerInfo.id);
         const playerData = {
@@ -136,17 +145,31 @@ const convertDBData = async (summonerData) => {
     }
 };
 
-const getMatches = async (puuid) => {
+const getMatches = async (puuid, region) => {
     try {
-        const url = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=10&api_key=${apiKey}`;
+        const server = regionMap[region.toLowerCase()];
+        const url = `https://${server}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${apiKey}`;
+        console.log(url);
         const matchIds = await performRequest(url);
-        //console.log(matchIds);
+
         const matchDetailsPromises = matchIds.map(async (matchId) => {
-            const matchDetailUrl = `https://europe.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${apiKey}`;
-            const matchDetails = await performRequest(matchDetailUrl);
-            return matchDetails.info;
+            const matchDetailUrl = `https://${server}.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${apiKey}`;
+            console.log(matchDetailUrl);
+            try {
+                const matchDetails = await performRequest(matchDetailUrl);
+                return matchDetails.info;
+            } catch (error) {
+                // Log the error or handle it as needed
+                console.error(`Failed to fetch match details for match ID ${matchId}: ${error.message}`);
+                return null; // Return null for failed requests
+            }
         });
-        return await Promise.all(matchDetailsPromises);
+
+        // Wait for all match detail promises to resolve
+        const matchDetails = await Promise.all(matchDetailsPromises);
+
+        // Filter out null values (failed requests) from the result
+        return matchDetails.filter(match => match !== null);
     } catch (error) {
         throw new Error(`Failed to fetch matches: ${error.message}`);
     }
@@ -343,20 +366,22 @@ const getChampionStats = async (puuid, matches) => {
 
 const getNames = async (region, regionTag, summonerName) => {
     const [name, tagLine] = summonerName.split('-');
-    console.log(name);
-    console.log(tagLine);
-    const { data, error } = await supabase
-        .from('summoner_info')
-        .select('*')
-        .ilike('summoner_name', `%${name}%`) // Search for names containing the provided name
-        .ilike('tag_line', `%${tagLine}%`) // Search for tag lines containing the provided tagLine
+
+    let query = supabase.from('summoner_info').select('*').ilike('summoner_name', `%${name}%`);
+
+    // Check if tagLine is provided and not empty
+    if (tagLine && tagLine.trim() !== '') {
+        // If tagLine is provided, add ilike condition for tag_line
+        query = query.ilike('tag_line', `%${tagLine}%`);
+    }
+
+    const { data, error } = await query
         .order('summoner_name') // Order the results by name
-        .limit(5); // Limit the results to 3 names
+        .limit(5); // Limit the results to 5 names
 
     if (error) {
         throw new Error(`Failed to fetch names from the database: ${error.message}`);
     }
-    console.log(data);
     return data;
 };
 

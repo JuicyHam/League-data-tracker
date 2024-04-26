@@ -15,7 +15,7 @@ const Wrapper = styled.th`
 const TextWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: ${props => props.left ? "none" : "center"};
+    justify-content: ${props => props.$left ? "none" : "center"};
     padding: 4px;
     align-items: center;
     
@@ -32,7 +32,7 @@ const HeaderText = styled.span`
 const RankingTableHeader = ({title, left, pos}) => {
     return (
         <Wrapper pos={pos}>
-            <TextWrapper left={left} >
+            <TextWrapper $left={left} >
                 <HeaderText >
                     {title}
                 </HeaderText>

@@ -6,6 +6,7 @@ import { useAppData } from "../../contexts/AppDataContext";
 import SingleChampion from "../ChampionImages/ChampionIcon";
 import axios from "axios";
 import regionList from "../../Json/regionList";
+import { Link, useNavigate} from "react-router-dom";
 
 
 const Wrapper = styled.div`
@@ -119,7 +120,7 @@ const ChampionContent = styled.div`
     
 `
 
-const Champion = styled.div`
+const Champion = styled(Link)`
     display: flex;
     align-items: center;
     font-size: 16px;
@@ -146,7 +147,7 @@ const Champion = styled.div`
 
 const Searchbar = () => {
     const { selectedRegion, championInfo } = useAppData();
-    
+    const navigate = useNavigate();
     const [summonerName, setSummonerName] = useState('');
     const [focus, setFocus] = useState(false);
     const [receivedNames, setReceivedNames] = useState([]);
@@ -167,6 +168,23 @@ const Searchbar = () => {
         }
     }, []);
 
+    const performSearch = useCallback(() => {
+        if (summonerName.length >= 3) {
+            const modifiedValue = summonerName.replace('#', '-'); // Replace '#' with '-'
+            navigate(`/summoner/${selectedRegion}/${modifiedValue}`);
+        }
+    }, [summonerName]);
+
+    const onKeyPress = useCallback((e) => {
+        if (e.key === 'Enter') {
+            // Trigger search when Enter key is pressed
+            performSearch();
+        }
+    }, [performSearch]);
+
+    
+
+
     const onChangeSummoner = useCallback((e) => {
         const value = e.target.value;
         setSummonerName(value)
@@ -176,7 +194,7 @@ const Searchbar = () => {
             clearTimeout(debounceTimeout.current);
         }
         
-        if (value.length > 3) {
+        if (value.length >= 3) {
             debounceTimeout.current = setTimeout(async () => {
                 try {
 
@@ -240,6 +258,7 @@ const Searchbar = () => {
                         <SearchInput
                             autoComplete={"off"}
                             onChange={onChangeSummoner}
+                            onKeyDown={onKeyPress}
                             ref={inputRef}
                             onFocus={onChangeFocusOn}
                             id={"search-input"}
@@ -270,7 +289,7 @@ const Searchbar = () => {
                                 <ChampionContent>
                                 <div className="SearchBox">
                                     {receivedNames.map((championData, index) => (
-                                    <Champion key={index}>
+                                    <Champion key={index} to={`/summoner/${selectedRegion}/${championData.summoner_name}-${championData.tag_line}`}>
                                         <img className="profile" src={playerIcons[championData.profile_icon]} />
                                         <span>{championData.summoner_name}#{championData.tag_line}</span>
                                     </Champion>

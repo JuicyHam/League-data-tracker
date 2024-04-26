@@ -10,6 +10,8 @@ import LiveGame from "./LiveGame";
 import Summary from "./Summary";
 import { useSummonerData } from "../../../contexts/summonerData";
 import Loading from "../../common/Loading";
+import ErrorMessage from "../../common/Error";
+import { useAppData } from "../../../contexts/AppDataContext";
 
 const Wrapper = styled.div`
     display: flex;
@@ -64,6 +66,7 @@ const SummonerLink = styled(Link)`
 
 const SummonerContent = () => {
     const { region, summonerName } = useParams();
+    const { selectedRegion, setSelectedRegion } = useAppData();
     const { summonerData, setSummonerData} = useSummonerData();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -74,13 +77,19 @@ const SummonerContent = () => {
             try {
                 setLoading(true);
 
-                const regionObject = regionList.find((item) => item.title.toLowerCase() === region);
+                const regionObject = regionList.find((item) => item.title.toLowerCase() === region.toLowerCase());
                 console.log(region);
                 console.log("test");
                 console.log(summonerData);
-                if (!regionObject && summonerData) {
+                if (!regionObject) {
                     console.log("not getting data rn");
                     throw new Error("Region not found in regionList");
+                }
+
+                // Update selected region if different
+                if (regionObject && regionObject.title.toLowerCase() !== selectedRegion.toLowerCase()) {
+                    setSelectedRegion(regionObject.title);
+                    console.log("Set");
                 }
 
                 const tagName = regionObject.serverName;
@@ -91,6 +100,7 @@ const SummonerContent = () => {
                 setLoading(false);  
             } catch (error) {
                 console.log(error);
+                setLoading(false);
                 setError(error);
             }
         };
@@ -103,6 +113,9 @@ const SummonerContent = () => {
         return <Loading/>;
     }
 
+    if (error) {
+        return <ErrorMessage errorMessage={"Summoner page not found"}/>;
+    }
    
     return (
         <Wrapper>

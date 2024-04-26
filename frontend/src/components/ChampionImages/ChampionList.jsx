@@ -44,18 +44,14 @@ const ImageWrapper = styled.div`
 const ChampionIcons = ({ selectedRole, searchQuery }) => {
   const { championInfo } = useAppData();
   const { championData } = useChampionSearchData();
-  console.log(championInfo);
+
   const getChampionRoles = useCallback((championName) => {
-    // Filter the champion data based on the championName
-    console.log(championName);
-    console.log(championData);
+
+
     const filteredChampionData = championData.filter(champion => champion.championName === championName);
-    console.log(filteredChampionData);
-  
-    // Extract the roles from the filtered champion data
+
     const roles = filteredChampionData.map(champion => champion.role.toLowerCase());
-  
-    // Return the unique roles (remove duplicates)
+
     return [...new Set(roles)];
   }, [championData]);
 
