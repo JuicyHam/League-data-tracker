@@ -70,7 +70,7 @@ const SummonerSpellsWrapper = styled.div`
         height: 22px;
         width: 22px;
         border-radius: 3px;
-        background-color: ${props => props.win ? `#283774` : `#542a2e`};
+        background-color: ${props => props.$win ? `#283774` : `#542a2e`};
 
         &:first-child {
             margin-bottom: 2px;
@@ -97,7 +97,7 @@ const KDA = styled.div`
     font-weight: 700;
 
     .slash {
-        color: ${props => props.win ? `#6f6ff5` : `#be4444`};
+        color: ${props => props.$win ? `#6f6ff5` : `#be4444`};
         opacity: 0.4;
     }
 
@@ -146,6 +146,14 @@ const ItemWrapper = styled.div`
         border-radius: 3px;
     }
 
+    .Empty {
+        width: 22px;
+        height: 22px;
+        border-radius: 3px;
+        background-color: ${props => props.$win ? `#283774` : `#542a2e`};
+    }
+
+
     .Main {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -186,7 +194,7 @@ const ChampionInfo = ({index}) => {
                     </ChampionImageWrapper>
                     
                 </ChampInfo>
-                <SummonerSpellsWrapper win={win}>
+                <SummonerSpellsWrapper $win={win}>
                     <div>
                         <img src={summonerSpellsIcon[ourSummoner.summoner1Id]} />
                     </div>
@@ -194,7 +202,7 @@ const ChampionInfo = ({index}) => {
                         <img src={summonerSpellsIcon[ourSummoner.summoner2Id]} />
                     </div>
                 </SummonerSpellsWrapper>
-                <SummonerSpellsWrapper win={win}>
+                <SummonerSpellsWrapper $win={win}>
                     <div>
                         <img src={runesIcon[ourSummoner.perks.styles[0].selections[0].perk]}/>
                     </div>
@@ -204,7 +212,7 @@ const ChampionInfo = ({index}) => {
                 </SummonerSpellsWrapper>
             </ChampionInfoWrapper>
             <MatchStatsWrapper>
-                <KDA win={ourSummoner.win}>
+                <KDA $win={ourSummoner.win}>
                     {ourSummoner.kills}
                     <span className="slash"> / </span>
                     <span>{ourSummoner.deaths}</span>
@@ -218,15 +226,16 @@ const ChampionInfo = ({index}) => {
                 <OtherText>{totalCs} ({csPerMin})</OtherText>
                 <OtherText>{ourSummoner.visionScore} vision</OtherText>
             </MatchStatsWrapper>
-            <ItemWrapper>
-                <Items>
-                    <div className="Main">
-                        <img src={itemIcons[ourSummoner.item0]} />
-                        <img src={itemIcons[ourSummoner.item1]}  />
-                        <img src={itemIcons[ourSummoner.item2]}  />
-                        <img src={itemIcons[ourSummoner.item3]}  />
-                        <img src={itemIcons[ourSummoner.item4]}  />
-                        <img src={itemIcons[ourSummoner.item5]}  />
+            <ItemWrapper $win={win}>
+                <Items >
+                    <div className="Main" >
+                        {[0, 1, 2, 3, 4, 5].map(slot => (
+                            ourSummoner[`item${slot}`] !== 0 ? (
+                                <img key={slot} src={itemIcons[ourSummoner[`item${slot}`]]} alt={`Item ${ourSummoner[`item${slot}`]}`} />
+                            ) : (
+                                <div key={slot} className="Empty" ></div>
+                            )
+                        ))}
                     </div>
                     <div className="Trinket">
                         <img src={itemIcons[ourSummoner.item6]}  />

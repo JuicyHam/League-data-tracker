@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import SingleChampion from "../../../../../../ChampionImages/ChampionIcon";
+import { useSummonerData } from "../../../../../../../contexts/summonerData";
+import { useAppData } from "../../../../../../../contexts/AppDataContext";
 
 const Wrapper = styled.div`
     width: 100%;
@@ -74,13 +76,18 @@ const WinLossWrapper = styled.div`
 
 const WinLoss = styled.div`
     padding: 4px 5px;
-    color: rgb(241, 51, 83);
-    background-color: rgb(63, 28, 31);
+    color: ${props => props.$win ? `#778de4` : `rgb(241, 51, 83)`}; 
+    background-color: ${props => props.$win ? `#283774` : `#542a2e`};
+    font-weight: 600;
     border-radius: 6px;
 `
 
 const PlayerRow = styled.tr`
-    background-color: ${props => props.$win ? `#1e2b5e` : `rgb(68, 33, 36)`};
+    background-color: ${props =>
+        (props.$win && props.selected) ? `#2b3b7a` :
+        (props.$win && !props.selected) ? `#1e2b5e` :
+        (!props.$win && props.selected) ? `#5e2d31` :
+        `#442124`};
     border-top: 1px solid rgb(26, 26, 41);
 `
 
@@ -106,7 +113,7 @@ const SummonerSpellsWrapper = styled.div`
         height: 17px;
         width: 17px;
         border-radius: 3px;
-        background-color: ${props => props.win ? `#283774` : `#542a2e`};
+        background-color: ${props => props.$win ? `#283774` : `#542a2e`};
 
         &:first-child {
             
@@ -221,11 +228,40 @@ const ItemWrapper = styled.div`
         width: 20px;
         height: 20px;
         margin-right: 2px;
+        border-radius: 3px;
     }
+
+    div {
+        width: 20px;
+        height: 20px;
+        margin-right: 2px;
+        border-radius: 3px;
+        background-color: ${props => props.$win ? `#283774` : `#542a2e`};
+    }
+
+   
 `
 
 
-const Results = () => {
+const Results = ({index}) => {
+    const {summonerData} = useSummonerData();
+    const {itemIcons, summonerSpellsIcon, runesIcon} = useAppData();
+
+    const match = summonerData.matches && summonerData.matches[index];
+    const puuid = summonerData.accountInfo.puuid;
+    if (!match) {
+        return <div>No match found</div>;
+    }
+    const ourSummoner = match.participants.find(participant => participant.puuid === puuid);
+    const team1Participants = match.participants.filter(participant => participant.teamId === 100);
+    const team2Participants = match.participants.filter(participant => participant.teamId === 200);
+    let highestDamage = 0;
+    match.participants.forEach(participant => {
+        if (participant.totalDamageDealtToChampions > highestDamage) {
+            highestDamage = participant.totalDamageDealtToChampions;
+        }
+    });
+    const matchTime = Math.floor(match.gameDuration / 60);
     return(
         <Wrapper>
             <Options>
@@ -239,8 +275,8 @@ const Results = () => {
                         <tr>
                             <FirstHeader>
                                 <WinLossWrapper>
-                                    <WinLoss>Loss</WinLoss>
-                                    <span>(Blue Team)</span>
+                                    <WinLoss $win={team1Participants[0].win}>{team1Participants[0].win ? `Win` : `Loss`}</WinLoss>
+                                    <span>{team1Participants[0].teamId === 100 ? `(blue team)` : `(red team)`}</span>
                                 </WinLossWrapper>
                                 
                             </FirstHeader>
@@ -265,83 +301,206 @@ const Results = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <PlayerRow>
-                            <TableData>
-                                <ChampionInfo>
-                                    <SingleChampion championId={221} width={"36px"} height={"36px"}/>
-                                    <SummonerSpellsWrapper win={false}>
-                                        <div>
-                                            <img src={""}/>
-                                        </div>
-                                        <div>
-                                            <img src={""}/>  
-                                        </div>
-                                    </SummonerSpellsWrapper>
-                                    <SummonerSpellsWrapper win={false}>
-                                        <div>
-                                            <img src={""}/>
-                                        </div>
-                                        <div>
-                                            <img src={""}/>  
-                                        </div>
-                                    </SummonerSpellsWrapper>
-                                    <PlayerInfo>
-                                        <PlayerName>
-                                            <p>JuicyHam</p>
-                                            <span>#EUW</span>
-                                        </PlayerName>
-                                        
-                                        <div>
-                                            <span>Unranked</span>
-                                        </div>
-                                        
-                                    </PlayerInfo>
-                                </ChampionInfo>
-                            </TableData>
-                            <TableData>
-                                <EvalScoreWrapper>
-                                    <EvalScore>50</EvalScore>
-                                    <span>10th</span>
-                                </EvalScoreWrapper>
-                            </TableData>
-                            <TableData>
-                                <KdaWrapper>
-                                    <span>13 / 0 /5</span>
-                                    <p>0.17</p>
-                                </KdaWrapper>
-                            </TableData>
-                            <TableData>
-                                <DamageWrapper>
-                                    <span>16,700</span>
-                                    <DamageLine width={"50%"}>
-                                        <div/>
-                                    </DamageLine>
-                                </DamageWrapper>
-                            </TableData>
-                            <TableData>
-                                <KdaWrapper>
-                                    <span>158</span>
-                                    <p>4.8/m</p>
-                                </KdaWrapper>
-                            </TableData>
-                            <TableData>
-                                <KdaWrapper>
-                                    <span>0</span>
-                                    <span>7 / 1</span>
-                                </KdaWrapper>
-                            </TableData>
-                            <TableData>
-                                <ItemWrapper>
-                                    <img src={""}></img>
-                                    <img src={""}></img>
-                                    <img src={""}></img>
-                                    <img src={""}></img>
-                                    <img src={""}></img>
-                                    <img src={""}></img>
-                                    <img src={""}></img>
-                                </ItemWrapper>
-                            </TableData>
-                        </PlayerRow>
+                        {team1Participants.map((participant, i) => (
+                            <PlayerRow key = {participant.puuid}  $win={participant.win} selected={participant.puuid===puuid}>
+                                <TableData>
+                                    <ChampionInfo>
+                                        <SingleChampion championId={participant.championId} width={"36px"} height={"36px"}/>
+                                        <SummonerSpellsWrapper $win={participant.win}>
+                                            <div>
+                                                <img src={summonerSpellsIcon[participant.summoner1Id]}/>
+                                            </div>
+                                            <div>
+                                                <img src={summonerSpellsIcon[participant.summoner2Id]}/>  
+                                            </div>
+                                        </SummonerSpellsWrapper>
+                                        <SummonerSpellsWrapper $win={participant.win}>
+                                            <div>
+                                                <img src={runesIcon[participant.perks.styles[0].selections[0].perk]}/>
+                                            </div>
+                                            <div>
+                                                <img src={runesIcon[participant.perks.styles[1].style]}/>  
+                                            </div>
+                                        </SummonerSpellsWrapper>
+                                        <PlayerInfo>
+                                            <PlayerName>
+                                                <p>{participant.riotIdGameName}</p>
+                                                <span>#{participant.riotIdTagline}</span>
+                                            </PlayerName>
+                                            
+                                            <div>
+                                                <span>Unranked</span>
+                                            </div>
+                                            
+                                        </PlayerInfo>
+                                    </ChampionInfo>
+                                </TableData>
+                                <TableData>
+                                    <EvalScoreWrapper>
+                                        <EvalScore>50</EvalScore>
+                                        <span>10th</span>
+                                    </EvalScoreWrapper>
+                                </TableData>
+                                <TableData>
+                                    <KdaWrapper>
+                                        <span>{participant.kills} / {participant.deaths} /{participant.assists}</span>
+                                        <p>
+                                            {participant.deaths === 0 || !isFinite((participant.kills + participant.assists) / participant.deaths)
+                                            ? `${participant.kills + participant.assists}`
+                                            : ((participant.kills + participant.assists) / participant.deaths).toFixed(2)} 
+                                        </p>
+                                    </KdaWrapper>
+                                </TableData>
+                                <TableData>
+                                    <DamageWrapper>
+                                        <span>{participant.totalDamageDealtToChampions}</span>
+                                        <DamageLine  width={`${Math.ceil((participant.totalDamageDealtToChampions / highestDamage) * 100)}%`}>
+                                            <div/>
+                                        </DamageLine>
+                                    </DamageWrapper>
+                                </TableData>
+                                <TableData>
+                                    <KdaWrapper>
+                                        <span>{participant.totalMinionsKilled + participant.neutralMinionsKilled}</span>
+                                        <p>{((participant.totalMinionsKilled + participant.neutralMinionsKilled)/matchTime).toString().substring(0, 3)}/m</p>
+                                    </KdaWrapper>
+                                </TableData>
+                                <TableData>
+                                    <KdaWrapper>
+                                        <span>{participant.visionWardsBoughtInGame}</span>
+                                        <span>{participant.wardsPlaced} / {participant.wardsKilled}</span>
+                                    </KdaWrapper>
+                                </TableData>
+                                <TableData>
+                                    <ItemWrapper $win={participant.win}>
+                                    {[0, 1, 2, 3, 4, 5, 6].map(slot => (
+                                        participant[`item${slot}`] !== 0 ? (
+                                            <img key={slot} src={itemIcons[participant[`item${slot}`]]} alt={`Item ${participant[`item${slot}`]}`} />
+                                        ) : (
+                                            <div key={slot} ></div>
+                                        )
+                                    ))}
+                                    </ItemWrapper>
+                                </TableData>
+                            </PlayerRow>
+                        ))}
+                    </tbody>
+                </Table>
+                <Table>
+                    <colgroup><col width="27%"/><col width="10%"/><col width="9%"/><col width="8%"/><col width="7%"/><col width="7%"/><col width="21%"/></colgroup>
+                    <thead>
+                        <tr>
+                            <FirstHeader>
+                                <WinLossWrapper>
+                                    <WinLoss $win={team2Participants[0].win}>{team2Participants[0].win ? `Win` : `Loss`}</WinLoss>
+                                    <span>{team2Participants[0].teamId === 100 ? `(blue team)` : `(red team)`}</span>
+                                </WinLossWrapper>
+                                
+                            </FirstHeader>
+                            <OtherHeader>
+                                <span>Eval Score</span>
+                            </OtherHeader>
+                            <OtherHeader>
+                                <span>KDA</span>
+                            </OtherHeader>
+                            <OtherHeader>
+                                <span>Damage</span>
+                            </OtherHeader>
+                            <OtherHeader>
+                                <span>CS</span>
+                            </OtherHeader>
+                            <OtherHeader>
+                                <span>Wards</span>
+                            </OtherHeader>
+                            <OtherHeader>
+                                <span>Items</span>
+                            </OtherHeader>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {team2Participants.map((participant, i) => (
+                            <PlayerRow key = {participant.puuid}  $win={participant.win} selected={participant.puuid===puuid}>
+                                <TableData>
+                                    <ChampionInfo>
+                                        <SingleChampion championId={participant.championId} width={"36px"} height={"36px"}/>
+                                        <SummonerSpellsWrapper $win={participant.win}>
+                                            <div>
+                                                <img src={summonerSpellsIcon[participant.summoner1Id]}/>
+                                            </div>
+                                            <div>
+                                                <img src={summonerSpellsIcon[participant.summoner2Id]}/>  
+                                            </div>
+                                        </SummonerSpellsWrapper>
+                                        <SummonerSpellsWrapper $win={participant.win}>
+                                            <div>
+                                                <img src={runesIcon[participant.perks.styles[0].selections[0].perk]}/>
+                                            </div>
+                                            <div>
+                                                <img src={runesIcon[participant.perks.styles[1].style]}/>  
+                                            </div>
+                                        </SummonerSpellsWrapper>
+                                        <PlayerInfo>
+                                            <PlayerName>
+                                                <p>{participant.riotIdGameName}</p>
+                                                <span>#{participant.riotIdTagline}</span>
+                                            </PlayerName>
+                                            
+                                            <div>
+                                                <span>Unranked</span>
+                                            </div>
+                                            
+                                        </PlayerInfo>
+                                    </ChampionInfo>
+                                </TableData>
+                                <TableData>
+                                    <EvalScoreWrapper>
+                                        <EvalScore>50</EvalScore>
+                                        <span>10th</span>
+                                    </EvalScoreWrapper>
+                                </TableData>
+                                <TableData>
+                                    <KdaWrapper>
+                                        <span>{participant.kills} / {participant.deaths} /{participant.assists}</span>
+                                        <p>
+                                            {participant.deaths === 0 || !isFinite((participant.kills + participant.assists) / participant.deaths)
+                                            ? `${participant.kills + participant.assists}`
+                                            : ((participant.kills + participant.assists) / participant.deaths).toFixed(2)} 
+                                        </p>
+                                    </KdaWrapper>
+                                </TableData>
+                                <TableData>
+                                    <DamageWrapper>
+                                        <span>{participant.totalDamageDealtToChampions}</span>
+                                        <DamageLine  width={`${Math.ceil((participant.totalDamageDealtToChampions / highestDamage) * 100)}%`}>
+                                            <div/>
+                                        </DamageLine>
+                                    </DamageWrapper>
+                                </TableData>
+                                <TableData>
+                                    <KdaWrapper>
+                                        <span>{participant.totalMinionsKilled + participant.neutralMinionsKilled}</span>
+                                        <p>{((participant.totalMinionsKilled + participant.neutralMinionsKilled)/matchTime).toString().substring(0, 3)}/m</p>
+                                    </KdaWrapper>
+                                </TableData>
+                                <TableData>
+                                    <KdaWrapper>
+                                        <span>{participant.visionWardsBoughtInGame}</span>
+                                        <span>{participant.wardsPlaced} / {participant.wardsKilled}</span>
+                                    </KdaWrapper>
+                                </TableData>
+                                <TableData>
+                                    <ItemWrapper $win={participant.win}>
+                                    {[0, 1, 2, 3, 4, 5, 6].map(slot => (
+                                        participant[`item${slot}`] !== 0 ? (
+                                            <img key={slot} src={itemIcons[participant[`item${slot}`]]} alt={`Item ${participant[`item${slot}`]}`} />
+                                        ) : (
+                                            <div key={slot} ></div>
+                                        )
+                                    ))}
+                                    </ItemWrapper>
+                                </TableData>
+                            </PlayerRow>
+                        ))}
                     </tbody>
                 </Table>
             </StatWrapper>

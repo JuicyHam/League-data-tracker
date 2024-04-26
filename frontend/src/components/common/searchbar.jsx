@@ -25,7 +25,7 @@ const SearchWrapper = styled.div`
     background-color: ${props => props.theme.input_background};
 `
 
-const InputWrapper = styled.div`
+export const InputWrapper = styled.div`
     position: relative;
     display: flex;
     align-items: center;
@@ -33,12 +33,12 @@ const InputWrapper = styled.div`
     margin-left: 20px;
 `
 
-const InputBox = styled.div`
+export const InputBox = styled.div`
     position: relative;
     width: 100%;   
 `
 
-const SearchInput = styled.input`
+export const SearchInput = styled.input`
     width: 100%;
     border: 0;
     background-color: transparent;
@@ -46,7 +46,7 @@ const SearchInput = styled.input`
     color: white;
 `
 
-const SearchPlaceholder = styled.label`
+export const SearchPlaceholder = styled.label`
     position: absolute;
     cursor: inherit;
     display: flex;
@@ -57,7 +57,7 @@ const SearchPlaceholder = styled.label`
     color: #AAAAAA;
 `
 
-const SearchIcon = styled.div`
+export const SearchIcon = styled.div`
     display: flex;
     cursor: pointer;
     align-items: center;    
@@ -67,7 +67,7 @@ const SearchIcon = styled.div`
     }
 `
 
-const AbsoluteWrapper = styled.div`
+export const AbsoluteWrapper = styled.div`
     position: absolute;
     width: 500px;
     
@@ -75,14 +75,14 @@ const AbsoluteWrapper = styled.div`
     border-radius: 6px;
 `
 
-const ChampionWrapper = styled.div`
+export const ChampionWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-bottom: 10px;
 `
 
-const AbsoluteTitle = styled.div`
+export const AbsoluteTitle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,7 +97,7 @@ const AbsoluteTitle = styled.div`
     border-top-left-radius: 6px;
 `
 
-const ChampionContent = styled.div`
+export const ChampionContent = styled.div`
     background-color: ${props => props.theme.input_background};
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
@@ -105,22 +105,12 @@ const ChampionContent = styled.div`
     .SearchBox {
         max-height: 200px;
         overflow-y: auto;
-        &::-webkit-scrollbar {
-            width: 10px; /* width of the scrollbar */
-        }
-        &::-webkit-scrollbar-thumb {
-            background-color: #353a5b; /* Color of the thumb */
-            border-radius: 5px; /* Border radius of the thumb */
-        }
-        &::-webkit-scrollbar-track {
-            border-radius: 5px;
-            background-color: #1a1a29; /* Color of the track */
-        }
+        
     }
     
 `
 
-const Champion = styled(Link)`
+export const Champion = styled(Link)`
     display: flex;
     align-items: center;
     font-size: 16px;

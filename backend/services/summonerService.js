@@ -2,7 +2,7 @@ const axios = require('axios');
 const { RateLimit } = require(`async-sema`);
 const supabase = require('../db');
 
-const apiKey = 'RGAPI-01444b37-1ec1-4c12-89e6-adac93dbcdda';
+const apiKey = 'RGAPI-f280c50d-a8f4-4543-b92c-c5e5ae36da88';
 const SEARCH_LIMIT_PER_SECOND = 20;
 const SERACH_LIMIT_PER_2_MINUTES = 100;
 const RETY_DELAY_BASE = 1000;
@@ -366,7 +366,7 @@ const getChampionStats = async (puuid, matches) => {
 
 const getNames = async (region, regionTag, summonerName) => {
     const [name, tagLine] = summonerName.split('-');
-
+    console.log("Test");
     let query = supabase.from('summoner_info').select('*').ilike('summoner_name', `%${name}%`);
 
     // Check if tagLine is provided and not empty

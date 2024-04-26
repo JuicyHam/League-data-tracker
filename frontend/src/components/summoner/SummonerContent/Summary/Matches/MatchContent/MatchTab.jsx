@@ -56,6 +56,7 @@ const MatchTab = ({index}) => {
     if (!match) {
         return <div>No match found</div>;
     }
+    
     const ourSummoner = match.participants.find(participant => participant.puuid === puuid);
     const win = ourSummoner.win;
     return(
@@ -72,7 +73,7 @@ const MatchTab = ({index}) => {
                     
                 </DropDownColumn>
             </RowWrapper>
-            {showDropDown && <Results/>}
+            {showDropDown && <Results puuid={puuid} index={index}/>}
         </Wrapper>
         
     );
