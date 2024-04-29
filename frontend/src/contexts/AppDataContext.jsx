@@ -17,15 +17,34 @@ export const AppDataProvider = ({ children }) => {
       try {
         const versionResponse = await axios.get('https://ddragon.leagueoflegends.com/api/versions.json');
         const latestVersion = versionResponse.data[0];
-        const championResponse = await axios.get(`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/champion.json`);
+        const championResponse = await axios.get(`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/championFull.json`);
         const championData = championResponse.data.data;
+
         const championInfoById = Object.values(championData).reduce((acc, champion) => {
           acc[champion.key] = {
-            name: champion.name,
-            image: `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/champion/${champion.image.full}`
+              name: champion.name,
+              image: `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/champion/${champion.image.full}`,
+              abilities: [
+                  {
+                      name: champion.passive.name,
+                      description: champion.passive.description,
+                      image: `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/passive/${champion.passive.image.full}`,
+                      isPassive: true
+                  },
+                  ...champion.spells.map(spell => ({
+                      name: spell.name,
+                      description: spell.description,
+                      image: `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/spell/${spell.image.full}`,
+                      isPassive: false
+                  }))
+              ],
+              // You can include other information like lore, stats, etc. as needed
+              lore: champion.lore,
+              stats: champion.stats
           };
           return acc;
         }, {});
+
         setChampionInfo(championInfoById);
         // Fetch player icons
         const playerIconsResponse = await axios.get(`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/profileicon.json`);

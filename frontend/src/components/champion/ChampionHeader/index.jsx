@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import SingleChampion from "../../ChampionImages/ChampionIcon";
+import { useAppData } from "../../../contexts/AppDataContext";
+import Loading from "../../common/Loading";
 
 const Wrapper = styled.div`
     display: flex;
@@ -40,10 +42,21 @@ const Abilities = styled.div`
     margin-top: 25px;
 
     div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
         &:not(:last-of-type) {
             margin-right: 5px;
         }
         border-radius: 6px;
+
+        img {
+            width: 32px;
+            height: 32px;
+        }
     }
 `
 
@@ -55,25 +68,40 @@ const Desription = styled.div`
     opacity: 0.7;
     max-width: 450px;
 `
+const BigChampion = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
 
-const ChampionHeader = () => {
+    img {
+        transform: scale(1.1);
+    }
+`
+
+const ChampionHeader = ({championData}) => {
+    const championAbilities = championData.abilities
     return(
         <Wrapper>
-            <SingleChampion className="BigChampion" championId={221} width={"100px"} height={"100px"}/>
+            <BigChampion>
+                <img src={championData.image} />
+            </BigChampion>
             <TextWrapper>
                 <Title>
-                    <h1>Zeri</h1>
+                    <h1>{championData.name}</h1>
                     <span>Top Build, Emerald, Patch 14.8</span>
                 </Title>
                 <Abilities>
-                    <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                    <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                    <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                    <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                    <SingleChampion championId={221} width={"32px"} height={"32px"}/>
+                    {championAbilities.map((ability, index) => (
+                        <div key={index}>
+                            <img src={ability.image} alt={`Ability ${index}`} />
+                        </div>
+                    ))}
                 </Abilities>
                 <Desription>
-                    <span>Build Guids for Bottom Zeri with LOLDATA AI.</span>
+                    <span>Build Guids for Bottom {championData.name} with LOLDATA AI.</span>
                     <span>The highest win rate Skarner runes, items, skill order, counter and patch history in patch 14.8.</span>
                 </Desription>
             </TextWrapper>

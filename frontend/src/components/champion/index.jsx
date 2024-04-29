@@ -7,6 +7,10 @@ import ChampionBuild from "./ChampionBuild";
 import ChampionCounters from "./ChampionCounters";
 import Builds from "./Builds";
 import ChampionAbilities from "./ChampionAbilities";
+import { useAppData } from "../../contexts/AppDataContext";
+import { useEffect, useState } from "react";
+import Loading from "../common/Loading";
+import { useParams } from "react-router-dom";
 
 const Wrapper = styled.div`
     
@@ -60,12 +64,31 @@ const ChampionOption = styled.button`
 `
 
 const Champion = () => {
+    const { championInfo } = useAppData();
+    const [isLoading, setIsLoading] = useState(true);
+    const [championData, setChampionData] = useState(null);
+    const { championName } = useParams();
+    console.log(championName);
+    useEffect(() => {
+        const championInfoEntry = Object.entries(championInfo).find(([_, championData]) => championData.name.toLowerCase() === championName.toLowerCase());
+        if (championInfoEntry) {
+            setChampionData(championInfoEntry[1]);
+            setIsLoading(false);
+        } else {
+            console.log(championInfo);
+        }
+    }, [championInfo]);
+
+    if (isLoading) {
+        return <Loading />;
+    }
+
     return (
         <Wrapper>
             <Navbar ishome={false} region={"EUW"}/>
             <CenterWrapper>
                 <CenterContent>
-                    <ChampionHeader/>
+                    <ChampionHeader championData={championData}/>
                     <OptionWrapper>
                         <ChampionOption selected={true}> Build </ChampionOption>
                         <ChampionOption selected={false}> OTPs </ChampionOption>
