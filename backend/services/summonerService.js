@@ -2,7 +2,7 @@ const axios = require('axios');
 const { RateLimit } = require(`async-sema`);
 const supabase = require('../db');
 
-const apiKey = 'RGAPI-f280c50d-a8f4-4543-b92c-c5e5ae36da88';
+const apiKey = 'RGAPI-3d63d9b4-de1e-4e24-bfc6-52675a319b11';
 const SEARCH_LIMIT_PER_SECOND = 20;
 const SERACH_LIMIT_PER_2_MINUTES = 100;
 const RETY_DELAY_BASE = 1000;
@@ -154,10 +154,23 @@ const getMatches = async (puuid, region) => {
 
         const matchDetailsPromises = matchIds.map(async (matchId) => {
             const matchDetailUrl = `https://${server}.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${apiKey}`;
-            console.log(matchDetailUrl);
+            const matchTimelineUrl = `https://${server}.api.riotgames.com/lol/match/v5/matches/${matchId}/timeline?api_key=${apiKey}`;
+
             try {
-                const matchDetails = await performRequest(matchDetailUrl);
-                return matchDetails.info;
+                // Fetch match details and timeline concurrently
+                const [matchDetailsResponse, matchTimeline] = await Promise.all([
+                    performRequest(matchDetailUrl),
+                    performRequest(matchTimelineUrl)
+                ]);
+                
+                // Extract only the desired data from match details
+                const matchDetails = matchDetailsResponse.info;
+                // Find build orders (including selling) for each participant
+                const buildOrders = findBuildOrders(matchTimeline.info);
+                matchDetails.buildOrders = buildOrders;
+                
+                // Return the desired data along with the timeline
+                return matchDetails;
             } catch (error) {
                 // Log the error or handle it as needed
                 console.error(`Failed to fetch match details for match ID ${matchId}: ${error.message}`);
@@ -173,6 +186,32 @@ const getMatches = async (puuid, region) => {
     } catch (error) {
         throw new Error(`Failed to fetch matches: ${error.message}`);
     }
+};
+
+// Function to find the build order (including selling) for each participant in a match
+const findBuildOrders = (timeline) => {
+    console.log("inside build orders");
+    const buildOrders = {};
+    timeline.frames.forEach(frame => {
+        console.log("inside build orderss");
+        frame.events.forEach(event => {
+            const participantId = event.participantId;
+            const itemId = event.itemId;
+            const eventType = event.type;
+            
+            if (!buildOrders[participantId]) {
+                buildOrders[participantId] = [];
+            }
+
+            if (eventType === "ITEM_PURCHASED") {
+                buildOrders[participantId].push({ type: "BUY", itemId, timestamp: event.timestamp });
+            } else if (eventType === "ITEM_SOLD") {
+                buildOrders[participantId].push({ type: "SELL", itemId, timestamp: event.timestamp });
+            }
+        });
+    });
+    console.log(buildOrders);
+    return buildOrders;
 };
 
 const getRanked = async (regionTag, summonerId) => {
