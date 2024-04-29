@@ -193,8 +193,8 @@ const findBuildOrders = (timeline) => {
     console.log("inside build orders");
     const buildOrders = {};
     timeline.frames.forEach(frame => {
-        console.log("inside build orderss");
         frame.events.forEach(event => {
+            console.log(event);
             const participantId = event.participantId;
             const itemId = event.itemId;
             const eventType = event.type;

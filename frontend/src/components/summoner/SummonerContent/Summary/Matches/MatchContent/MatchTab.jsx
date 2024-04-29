@@ -73,7 +73,7 @@ const MatchTab = ({index}) => {
                     
                 </DropDownColumn>
             </RowWrapper>
-            {showDropDown && <Results puuid={puuid} index={index}/>}
+            {showDropDown && <Results index={index}/>}
         </Wrapper>
         
     );

@@ -7,6 +7,7 @@ import ChampionTableContent from "./ChampionTableHeader/RankingTableContent";
 import { useLocation } from "react-router-dom";
 import { useChampionSearchData } from "../../../../contexts/ChampionContext";
 import Loading from "../../../common/Loading";
+import regionList from "../../../../Json/regionList";
 
 
 
@@ -43,11 +44,15 @@ const Ranking = () => {
     const prevRank = useRef(rank);
 
     const tableData = useMemo(() => {
+        console.log("inside tabledata");
         if (lane === "all") {
+            console.log("all");
+            console.log(championData);
             return championData;
         } else {
+            console.log("role");
             console.log(championData);
-            return championData.filter(champion => champion.role.toLowerCase() === lane );
+            return championData[lane]
         }
     }, [championData, lane]);
 
@@ -56,12 +61,14 @@ const Ranking = () => {
         if (region !== prevRegion.current || rank !== prevRank.current || championData.length === 0) { 
             prevRegion.current = region; 
             prevRank.current = rank
-            if (region) { 
+            const regionObject = regionList.find(region => region.title === region) || "global";
+            console.log(regionObject);
+            if (regionObject) { 
                 const fetchData = async () => {
                     try {
                         const response = await axios.get(`/api/champions`, {
                             params : {
-                                region: region,
+                                region: regionObject.serverName,
                                 rank: rank
                             }
                         });
@@ -107,18 +114,20 @@ const Ranking = () => {
                     <ChampionTableHeader/>
                 </thead>
                 <TBody>
-                    {tableData.map((champion, index) => (
-                        <ChampionTableContent
-                            key={index}
-                            lane={champion.role}
-                            championName={champion["championName"]}
-                            winRate={champion["winRate"]}
-                            pickRate={champion["pickRate"]}
-                            banRate={champion["banRate"]}
-                            counter={champion.counters}
-                            tier={champion.tier}
-                            rank={index+1}
-                        />
+                    {Object.keys(tableData).map((lane, laneIndex) => (
+                        Object.entries(tableData[lane]).map(([championName, championData], championIndex) => (
+                            <ChampionTableContent
+                                key={`${lane}_${championName}`}
+                                lane={lane}
+                                championName={championName}
+                                winRate={(championData["wins"]/(championData["wins"] + championData["losses"]))*100}
+                                pickRate={championData["pickRate"]}
+                                banRate={championData["banRate"]}
+                                counter={championData.counters}
+                                tier={championData.tier}
+                                rank={championIndex + 1}
+                            />
+                        ))
                     ))}
                 </TBody>
             </RanksTable>
