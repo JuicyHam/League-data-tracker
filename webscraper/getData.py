@@ -86,7 +86,7 @@ async def main():
     print(len(match_data))
     boots_ids = ['3009', '3117', '3158', '3006', '3047', '3020', '3111']
     if match_data:
-        # Dictionary to store data as rank[champion{wins. losses}]
+        # Dictionary to store data
         rank = defaultdict(
             lambda: defaultdict(
                 lambda: defaultdict(
@@ -96,16 +96,16 @@ async def main():
                                 'starter': defaultdict(lambda: {'wins': 0, 'losses': 0}),
                                 'runes': defaultdict(lambda: {'wins': 0, 'losses': 0}),
                                 'boots': defaultdict(lambda: {'wins': 0, 'losses': 0}),
-                                'opponents': defaultdict(lambda: {'wins': 0, 'losses': 0})
+                                'opponents': defaultdict(lambda: {'wins': 0, 'losses': 0}),
+                                'banned' : 0,
+                                'abilities': defaultdict(lambda: {'wins': 0, 'losses': 0})
                                 }
                     )
                 )
             )
         )
         total_games = {}
-        banned_champions = defaultdict(
-            lambda: defaultdict(lambda: defaultdict(int))
-        )
+
         total_games = defaultdict(lambda: defaultdict(int))
         for match in match_data:
             match_id = match['match_id']
@@ -113,6 +113,7 @@ async def main():
             queueId = match_data_json['queueId']
             gameVersion = match_data_json['gameVersion']
             region = match_data_json['platformId']
+            teams = match_data_json['teams']
             if not(queueId == 420 and gameVersion and gameVersion.startswith(currentGameVersion)):
                 continue
             # Extract PUUIDs of participants
@@ -146,16 +147,21 @@ async def main():
                 for other_participant in participants:
                     if other_participant['individualPosition'] == role and other_participant['teamId'] != participant['teamId']:
                         # Found the player on the other team with the same role
+                        
+                        
                         other_champion_played = other_participant['championId']
                         rank[region][tier][role][champion_played]['opponents'][other_champion_played]['wins'] += int(win)
                         rank[region][tier][role][champion_played]['opponents'][other_champion_played]['losses'] += int(not win)
+                        
 
                         rank["global"][tier][role][champion_played]['opponents'][other_champion_played]['wins'] += int(win)
                         rank["global"][tier][role][champion_played]['opponents'][other_champion_played]['losses'] += int(not win)
+                        
+                
 
                 if tier:
                     # Update data for the participant's champion
-                    
+                    abilities = match_data_json['abilities']
                     build_orders = match_data_json['buildOrders']
                     full_items = set()
                     participant_id = str(participant['participantId'])
@@ -171,44 +177,60 @@ async def main():
                             if total_gold_spent + full_item_list[item_id]['gold']['total'] <= 500 and item_id != "3340" and item_id != "3363" and item_id != "3364":
                                 starter.append(order['itemId'])
                                 total_gold_spent += full_item_list[item_id]['gold']['total']
-                            if item_id in complete_items:
-                                full_items.add(order['itemId'])
+                            if len(full_items) < 3:
+                                if item_id in complete_items:
+                                    full_items.add(order['itemId'])
                         elif order['type'] == 'SELL':
-                            full_items.discard(order['itemId'])
-                        if len(full_items) >= 3:
-                            break
+                            if len(full_items) < 3:  
+                                full_items.discard(order['itemId'])
+
+                    skill_order = []  # Initialize list to store skill order
+                    for level_up_event in abilities[participant_id]:
+                        skillSlot = level_up_event['skillSlot']
+                        skill_order.append(skillSlot)  # Add skillSlot to skill order list
+                        
+                    teamId = 0 if participant['teamId'] == 100 else 1
+                    banned_champion = teams[teamId]['bans'][( participant['participantId']- 1) % 5 ]['championId']
+                    if banned_champion != -1:
+                        print(f"Champion Banned: {banned_champion}, Region: {region}, Tier: {tier}, role: {role}")
+                        rank[region][tier][role][banned_champion]['banned'] += 1
+                        rank["global"][tier][role][banned_champion]['banned'] += 1
+                    
                     # Store the first three full items for the participant's champion
                     rank[region][tier][role][champion_played]['wins'] += int(win)
                     rank[region][tier][role][champion_played]['losses'] += int(not win)
                     rank[region][tier][role][champion_played]['starter'][tuple(starter)]['wins'] += int(win)
                     rank[region][tier][role][champion_played]['starter'][tuple(starter)]['losses'] += int(not win)
-                    rank[region][tier][role][champion_played]['items'][tuple(full_items)]['wins'] += int(win)
-                    rank[region][tier][role][champion_played]['items'][tuple(full_items)]['losses'] += int(not win)
+                    
                     rank[region][tier][role][champion_played]['runes'][tuple(combined_perks)]['wins'] += int(win)
                     rank[region][tier][role][champion_played]['runes'][tuple(combined_perks)]['losses'] += int(not win)
-                    rank[region][tier][role][champion_played]['boots'][boots]['wins'] += int(win)
-                    rank[region][tier][role][champion_played]['boots'][boots]['losses'] += int(not win)
+                    if full_items:
+                        rank[region][tier][role][champion_played]['items'][tuple(full_items)]['wins'] += int(win)
+                        rank[region][tier][role][champion_played]['items'][tuple(full_items)]['losses'] += int(not win)
+                        rank["global"][tier][role][champion_played]['items'][tuple(full_items)]['wins'] += int(win)
+                        rank["global"][tier][role][champion_played]['items'][tuple(full_items)]['losses'] += int(not win)
+                    if boots:
+                        rank[region][tier][role][champion_played]['boots'][boots]['wins'] += int(win)
+                        rank[region][tier][role][champion_played]['boots'][boots]['losses'] += int(not win)
+                        rank["global"][tier][role][champion_played]['boots'][boots]['wins'] += int(win)
+                        rank["global"][tier][role][champion_played]['boots'][boots]['losses'] += int(not win)
+
+                    rank[region][tier][role][champion_played]['abilities'][tuple(skill_order)]['wins'] += int(win)
+                    rank[region][tier][role][champion_played]['abilities'][tuple(skill_order)]['losses'] += int(not win)
+                    rank["global"][tier][role][champion_played]['abilities'][tuple(skill_order)]['wins'] += int(win)
+                    rank["global"][tier][role][champion_played]['abilities'][tuple(skill_order)]['losses'] += int(not win)
                     
                     rank["global"][tier][role][champion_played]['wins'] += int(win)
                     rank["global"][tier][role][champion_played]['losses'] += int(not win)
                     rank["global"][tier][role][champion_played]['starter'][tuple(starter)]['wins'] += int(win)
                     rank["global"][tier][role][champion_played]['starter'][tuple(starter)]['losses'] += int(not win)
-                    rank["global"][tier][role][champion_played]['items'][tuple(full_items)]['wins'] += int(win)
-                    rank["global"][tier][role][champion_played]['items'][tuple(full_items)]['losses'] += int(not win)
+                    
                     rank["global"][tier][role][champion_played]['runes'][tuple(combined_perks)]['wins'] += int(win)
                     rank["global"][tier][role][champion_played]['runes'][tuple(combined_perks)]['losses'] += int(not win)
-                    rank["global"][tier][role][champion_played]['boots'][boots]['wins'] += int(win)
-                    rank["global"][tier][role][champion_played]['boots'][boots]['losses'] += int(not win)
+                    
             total_games["global"][tier] += 1
             total_games[region][tier] += 1
-            local_banned = []
-            for team in match_data_json['teams']:
-                for ban in team['bans']:
-                    champion_banned = ban['championId']
-                    if champion_banned not in local_banned:
-                        banned_champions[region][tier][champion_banned] += 1
-                        banned_champions["global"][tier][champion_banned] += 1
-                        local_banned.append(champion_banned)
+            
 
 
         # Print the data
@@ -231,7 +253,6 @@ async def main():
 
         combined_data = {
             "rank": rank,
-            "banned_champions": banned_champions,
             "total_games": total_games
         }
 

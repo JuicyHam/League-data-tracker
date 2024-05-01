@@ -25,7 +25,6 @@ const Home = () => {
                     <Searchbar />
                 </div>
             </HomeContainer>
-            <Footer />
         </Wrapper>
     );
 }

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import SingleChampion from "../../ChampionImages/ChampionIcon";
 import { Arrow } from "../../../styles/ChampionStyled";
+import { useAppData } from "../../../contexts/AppDataContext";
 
 const Wrapper = styled.div`
     display: flex;
@@ -42,6 +43,11 @@ const PriorityImages = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 15px;
+
+    img {
+        width: 32px;
+        height: 32px;
+    }
 `
 
 const PriorityText = styled.div`
@@ -87,6 +93,12 @@ const SkillLabel = styled.div`
         font-weight: 600;
         margin-left: 10px;
     }
+
+    img {
+        width: 24px;
+        height: 24px;
+        border-radius: 3px;
+    }
 `
 
 const AbilityWrapper = styled.div`
@@ -104,15 +116,134 @@ const AbilityBox = styled.div`
     width: 24px;
     height: 24px;
     border-radius: 3px;
-    background-color: ${props => props.selected ? "White" : "Black"};
+    background-color: ${props => props.selected ? "#11112a" : "rgb(34, 34, 54)"};
 
 `
 
 
-const ChampionAbilities = () => {
-    const abilities = Array.from({ length: 17 }, (_, index) => (
-        <AbilityBox key={index} selected={false} />
-      ));
+const ChampionAbilities = ({ championData, championDataInfo }) => {
+    
+
+    let highestWinRate = -1;
+    let highestWinRateAll = -1;
+    let highestTotalGames = 0;
+    let highestWinRateAbilities = null;
+    let highestWinRateFull = null
+
+    // Object to store abilities grouped by the first three indexes
+    const abilitiesGroups = {};
+
+    // Loop through the championData.abilities object
+    Object.entries(championData.abilities).forEach(([abilitiesKey, abilitiesData]) => {
+
+
+        const winRateFull = abilitiesData.wins / (abilitiesData.wins + abilitiesData.losses);
+        // If this win rate is higher than the current highest, update highestWinRate and highestWinRateAbilities
+        if (winRateFull > highestWinRateAll) {
+            highestWinRateAll = winRateFull;
+            highestWinRateFull = {
+                key: abilitiesKey,
+                wins: abilitiesData.wins,
+                losses: abilitiesData.losses
+            };
+        }
+        // Split the key into an array of numbers
+        const cleanedKey = abilitiesKey.replace(/[()]/g, '');
+        // Split the cleaned key into an array of numbers
+        const numbers = cleanedKey.split(',').map(Number);
+        
+        // Take the first three numbers
+        const firstThreeIndexes = numbers.slice(0, 3);
+
+        // Convert the first three indexes array to a string for grouping
+        const key = firstThreeIndexes.join(',');
+        
+        // If the abilities group doesn't exist, create it
+        if (!abilitiesGroups[key]) {
+            abilitiesGroups[key] = {
+                wins: 0,
+                losses: 0
+            };
+        }
+
+        
+        
+        // Add wins and losses to the abilities group
+        abilitiesGroups[key].wins += abilitiesData.wins;
+        abilitiesGroups[key].losses += abilitiesData.losses;
+
+        
+        // Calculate win rate
+        const winRate = abilitiesGroups[key].wins / (abilitiesGroups[key].wins + abilitiesGroups[key].losses);
+        const totalGames = abilitiesData.wins + abilitiesData.losses;
+        console.log(winRate);
+        console.log(abilitiesGroups);
+
+        // If this win rate is higher than the current highest, update highestWinRate and highestWinRateAbilities
+        if (winRate > highestWinRate || (highestWinRateAbilities && key === highestWinRateAbilities.key)) {
+            highestWinRate = winRate;
+            highestTotalGames = totalGames;
+            highestWinRateAbilities = {
+                key,
+                wins: abilitiesGroups[key].wins,
+                losses: abilitiesGroups[key].losses
+            };
+        } else if (winRate === highestWinRate) {
+            
+            if (totalGames > highestTotalGames) {
+                highestWinRate = winRate;
+                highestTotalGames = totalGames;
+                highestWinRateAbilities = {
+                    key,
+                    wins: abilitiesGroups[key].wins,
+                    losses: abilitiesGroups[key].losses
+                };
+            }
+        }
+        
+        // If this total is higher than the current highest, update highestTotalGames and highestTotalGamesAbilities
+        
+    });
+
+    
+    
+
+    // highestWinRateAbilities now contains the abilities with the highest win rate
+    const numbers = highestWinRateFull.key.match(/\d+/g);
+    const numbersInt = numbers.map(Number);
+        // Define the target number of occurrences for each number
+    const targetOccurrences = [5, 5, 5];
+
+    // Count occurrences of each number
+    const occurrences = {};
+    numbersInt.forEach(number => {
+        occurrences[number] = occurrences[number] ? occurrences[number] + 1 : 1;
+    });
+
+    // Add additional numbers to meet the target occurrences
+    targetOccurrences.forEach((target, index) => {
+        const numberToAdd = index + 1; // Numbers start from 1, index starts from 0
+        while (occurrences[numberToAdd] < target) {
+            numbersInt.push(numberToAdd);
+            occurrences[numberToAdd]++;
+        }
+    });
+
+    if (numbersInt[5] !== 4) {
+        console.log(numbersInt[5]);
+        numbersInt.splice(5, 0, 4); // Insert 4 at the 6th index
+    }
+    if (numbersInt[10] !== 4) {
+        numbersInt.splice(10, 0, 4); // Insert 4 at the 11th index
+    }
+    if (numbersInt[15] !== 4) {
+        numbersInt.splice(15, 0, 4); // Insert 4 at the 16th index
+    }
+    
+    const [first, second, third] = highestWinRateAbilities.key.split(',').map(Number).slice(0, 3);
+    // Create an array of objects representing each row
+    console.log(highestWinRateAbilities);
+    const numRows = Math.min(numbersInt.length, 4);
     return(
         <Wrapper>
             <PriorityWrapper>
@@ -123,15 +254,16 @@ const ChampionAbilities = () => {
 
                 </PriorityPreview>
                     <PriorityImages>
-                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                        <Arrow height={"16px"}/>
-                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                        <Arrow height={"16px"}/>
-                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
+                         
+                        <img src={championDataInfo.abilities[first].image} />
+                        <Arrow height={"16px"} />
+                        <img src={championDataInfo.abilities[second].image} />
+                        <Arrow height={"16px"} />
+                        <img src={championDataInfo.abilities[third].image} />
                     </PriorityImages>
                     <PriorityText>
-                        <p>51% WR</p>
-                        <span>25000 Games</span>
+                        <p>{Number((highestWinRateAbilities.wins / (highestWinRateAbilities.wins + highestWinRateAbilities.losses))*100).toFixed(1)}%</p>
+                        <span>{highestWinRateAbilities.wins + highestWinRateAbilities.losses} Games</span>
                     </PriorityText>
             </PriorityWrapper>
             <PathWrapper>
@@ -140,50 +272,24 @@ const ChampionAbilities = () => {
                     <span> Most popular ability order</span>
                 </Title>
                 <div>
-                    <AbilityRow>
-                        <SkillLabel>
-                            <SingleChampion championId={221} width={"24px"} height={"24px"}/>
-                            <p>Zeri Move</p>
-                        </SkillLabel>
-
-                        <AbilityWrapper>
-                            <AbilityBox selected={true} />
-                            {abilities}
-                        </AbilityWrapper>
-                    </AbilityRow>
-                    <AbilityRow>
-                        <SkillLabel>
-                            <SingleChampion championId={221} width={"24px"} height={"24px"}/>
-                            <p>Zeri Move</p>
-                        </SkillLabel>
-
-                        <AbilityWrapper>
-                            {abilities}
-                            <AbilityBox selected={true} />
-                        </AbilityWrapper>
-                    </AbilityRow>
-                    <AbilityRow>
-                        <SkillLabel>
-                            <SingleChampion championId={221} width={"24px"} height={"24px"}/>
-                            <p>Zeri Move</p>
-                        </SkillLabel>
-
-                        <AbilityWrapper>
-                            <AbilityBox selected={true} />
-                            {abilities}
-                        </AbilityWrapper>
-                    </AbilityRow>
-                    <AbilityRow>
-                        <SkillLabel>
-                            <SingleChampion championId={221} width={"24px"} height={"24px"}/>
-                            <p>Zeri Move</p>
-                        </SkillLabel>
-
-                        <AbilityWrapper>
-                            {abilities}
-                            <AbilityBox selected={true} />
-                        </AbilityWrapper>
-                    </AbilityRow>
+                    {[...Array(numRows)].map((_, rowIndex) => (
+                        <AbilityRow key={rowIndex}>
+                            <SkillLabel>
+                                <img src={championDataInfo.abilities[rowIndex+1].image} />
+                                <p>{championDataInfo.abilities[rowIndex+1].name}</p>
+                            </SkillLabel>
+                            <AbilityWrapper>
+                                {/* Render AbilityBox for each number */}
+                                {numbersInt.map((number, numberIndex) => (
+                                    <AbilityBox key={numberIndex} selected={number === rowIndex+1}>
+                                        {number == rowIndex+1 && <p>{numberIndex+1}</p>}
+                                    </AbilityBox>
+                                ))}
+                                
+                                
+                            </AbilityWrapper>
+                        </AbilityRow>
+                    ))}
                 </div>
             </PathWrapper>
         </Wrapper>

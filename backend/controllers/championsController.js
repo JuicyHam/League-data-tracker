@@ -5,7 +5,7 @@ const getChampions = async (req, res) => {
     try {
         console.log("trying");
         const region = req.query.region || "global";
-        const rank = "platinum";
+        const rank = req.query.rank || "platinum";
         const champions = await championsService.getAllChampions(region, rank);
         res.json(champions);
     } catch (error) {

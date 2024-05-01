@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import SingleChampion from "../../../ChampionImages/ChampionIcon";
 import { Arrow, ItemImages, ItemTab, PickRateTab, Table, Tbody, WinRateTab } from "../../../../styles/ChampionStyled";
+import { useAppData } from "../../../../contexts/AppDataContext";
 
 const Wrapper = styled.div`
     display: flex;
@@ -30,14 +31,35 @@ export const HeadRow = styled.tr`
     }
 `;
 
+const ImageHolder = styled.div`
+    display: flex;
+    flex-direction: row;
+
+    img {
+        border-radius: 6px;
+        width: 32px;
+        height: 32px;
+    }
+`
 
 
 
-const PrimaryBuilds = () => {
-    return(
+const PrimaryBuilds = ({ championData }) => {
+    const { itemIcons } = useAppData();
+    // Initialize variables to store the total wins and losses
+    let totalGames = 0
+   
+    // Iterate over the items object
+    Object.values(championData.items).forEach(stats => {
+        totalGames += stats.wins;
+        totalGames += stats.losses;
+
+    });
+    console.log(championData);
+    return (
         <Wrapper>
             <Table>
-                <colgroup><col/><col width="125px"/><col width="125px"/></colgroup>
+                <colgroup><col /><col width="125px" /><col width="125px" /></colgroup>
                 <thead>
                     <HeadRow>
                         <th>Items</th>
@@ -45,98 +67,66 @@ const PrimaryBuilds = () => {
                         <th>Win Rate</th>
                     </HeadRow>
                 </thead>
-                <Tbody>
-                    <tr>
-                        <ItemTab>
-                            <ItemImages>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                <Arrow/>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                <Arrow/>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                            </ItemImages>
-                        </ItemTab>
-                        <PickRateTab>
-                            <p>25%</p>
-                            <span>2500 Gmeas</span>
-                        </PickRateTab>
-                        <WinRateTab>
-                            <p>55%</p>
-                        </WinRateTab>
-                    </tr>
-                    <tr>
-                        <ItemTab>
-                            <ItemImages>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                <Arrow/>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                <Arrow/>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                            </ItemImages>
-                        </ItemTab>
-                        <PickRateTab>
-                            <p>25%</p>
-                            <span>2500 Gmeas</span>
-                        </PickRateTab>
-                        <WinRateTab>
-                            <p>55%</p>
-                        </WinRateTab>
-                    </tr>
-                    <tr>
-                        <ItemTab>
-                            <ItemImages>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                <Arrow/>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                <Arrow/>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                            </ItemImages>
-                        </ItemTab>
-                        <PickRateTab>
-                            <p>25%</p>
-                            <span>2500 Gmeas</span>
-                        </PickRateTab>
-                        <WinRateTab>
-                            <p>55%</p>
-                        </WinRateTab>
-                    </tr>
-                    <tr>
-                        <ItemTab>
-                            <ItemImages>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                <Arrow/>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                <Arrow/>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                            </ItemImages>
-                        </ItemTab>
-                        <PickRateTab>
-                            <p>25%</p>
-                            <span>2500 Gmeas</span>
-                        </PickRateTab>
-                        <WinRateTab>
-                            <p>55%</p>
-                        </WinRateTab>
-                    </tr>
-                    <tr>
-                        <ItemTab>
-                            <ItemImages>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                <Arrow/>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                <Arrow/>
-                                <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                            </ItemImages>
-                        </ItemTab>
-                        <PickRateTab>
-                            <p>25%</p>
-                            <span>2500 Gmeas</span>
-                        </PickRateTab>
-                        <WinRateTab>
-                            <p>55%</p>
-                        </WinRateTab>
-                    </tr>
-                </Tbody>
+                {/* Check if itemIcons is loaded */}
+                {itemIcons && (
+                    <Tbody>
+                        {Object.entries(championData.items)
+                            // Calculate win rate for each item and sort them by win rate in descending order
+                            .map(([itemIds, stats]) => ({
+                                itemIds,
+                                stats,
+                                winRate: (stats.wins / (stats.wins + stats.losses)) * 100
+                            }))
+                            .sort((a, b) => {
+                                // Sort by win rate first
+                                if (b.winRate !== a.winRate) {
+                                    return b.winRate - a.winRate; // Sort by win rate in descending order
+                                } else {
+                                    // If win rates are equal, sort by total number of games
+                                    return (b.stats.wins + b.stats.losses) - (a.stats.wins + a.stats.losses);
+                                }
+                            })
+                            .slice(0, 5) // Take only the first 5 items
+                            .map(({ itemIds, stats, winRate }) => {
+                                // Split the itemIds string and get an array of itemIds
+                                const itemIdsArray = itemIds.replace(/[()\s]/g, '').split(',').filter(id => id !== '');
+
+                                const pickRate = ((stats.wins + stats.losses) / totalGames) * 100;
+                                const pickRateFirstThreeDigits = Number(pickRate.toFixed(1));
+
+                                const winRateFirstThreeDigits = Number(winRate.toFixed(1));
+                                return (
+                                    <tr key={itemIds}>
+                                        <ItemTab>
+                                            <ItemImages>
+                                                {/* Render item icons for each itemId */}
+                                                {itemIdsArray.map((itemId, index) => (
+                                                    <div key={itemId}>
+                                                        {/* Check if item icon exists */}
+                                                        {itemIcons[itemId] && (
+                                                            <img src={itemIcons[itemId].image} alt={itemIcons[itemId].name} />
+                                                        )}
+                                                        {index !== itemIdsArray.length - 1 && <Arrow />}
+                                                    </div>
+                                                ))}
+                                            </ItemImages>
+                                        </ItemTab>
+                                        <PickRateTab>
+                                            {/* Calculate and render pick rate */}
+                                            <p>{pickRateFirstThreeDigits}%</p>
+                                            <span>{stats.wins + stats.losses} Games</span>
+                                        </PickRateTab>
+                                        <WinRateTab>
+                                            {/* Render win rate */}
+                                            <p>{winRateFirstThreeDigits}%</p>
+                                        </WinRateTab>
+                                    </tr>
+                                );
+                            })}
+                    </Tbody>
+                )}
+
+
             </Table>
         </Wrapper>
     );

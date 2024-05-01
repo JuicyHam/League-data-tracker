@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import SearchTitle from "../../common/SummonerAramHeader";
 import ChampionHeader from "../ChampionHeader";
-import { ChampionProvider } from "../../../contexts/ChampionContext";
 import Ranking from "./Ranking";
 import Champion from "./Champion";
 
@@ -20,14 +19,14 @@ const TablesWrapper = styled.div`
 const ContentWrapper = ({children}) => {
     return (
         <Wrapper>
-            <ChampionProvider>
-                <SearchTitle/>
-                <ChampionHeader/>
-                <TablesWrapper>
-                    <Champion/>
-                    <Ranking/>
-                </TablesWrapper>
-            </ChampionProvider>
+            
+            <SearchTitle/>
+            <ChampionHeader/>
+            <TablesWrapper>
+                <Champion/>
+                <Ranking/>
+            </TablesWrapper>
+            
         </Wrapper>
     );
     

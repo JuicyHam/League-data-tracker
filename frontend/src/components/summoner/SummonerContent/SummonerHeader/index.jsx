@@ -121,12 +121,14 @@ const formatTimeDifference = (time) => {
     return `Last Updated: ${months} month${months !== 1 ? 's' : ''} ago`;
 }
 
-const SummonerHeader = () => {
+const SummonerHeader = ({onUpdate}) => {
     const { summonerData} = useSummonerData();
     const {accountInfo, summonerInfo, updated} = summonerData;
     const {playerIcons} = useAppData();
     const [updatedTime, setUpdatedTime] = useState(formatTimeDifference(updated || (new Date()).setHours((new Date()).getHours() - 1)));
-
+    const handleUpdate = () => {
+        onUpdate(); // Call the onUpdate function when update button is clicked
+    };
     useEffect(() => {
         const interval = setInterval(() => {
             setUpdatedTime(formatTimeDifference(updated));
@@ -149,7 +151,7 @@ const SummonerHeader = () => {
                     </span>
                 </Title>
                 <UpdateWrapper>
-                    <UpdateButton>
+                    <UpdateButton onClick={handleUpdate}>
                         <span>Update</span>
                     </UpdateButton>
                     <UpdateText>

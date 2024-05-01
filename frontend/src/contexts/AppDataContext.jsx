@@ -10,8 +10,7 @@ export const AppDataProvider = ({ children }) => {
   const [itemIcons, setItemIcons] = useState([]);
   const [summonerSpellsIcon, setSummonerSpellsIcon] = useState([]);
   const [runesIcon, setRunesIcon] = useState([]);
-
-  
+  const [championData, setChampionData] = useState([]);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -38,7 +37,6 @@ export const AppDataProvider = ({ children }) => {
                       isPassive: false
                   }))
               ],
-              // You can include other information like lore, stats, etc. as needed
               lore: champion.lore,
               stats: champion.stats
           };
@@ -63,7 +61,10 @@ export const AppDataProvider = ({ children }) => {
           const item = itemData[itemId];
           const { image } = item;
           if (image && image.full) {
-            acc[itemId] = `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/item/${image.full}`;
+            acc[itemId] = {
+              name: item.name,
+              image: `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/item/${image.full}`
+            };
           }
           return acc;
         }, {});
@@ -83,17 +84,27 @@ export const AppDataProvider = ({ children }) => {
 
         const runeResponse = await axios.get(`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/runesReforged.json`);
         const runeData = runeResponse.data;
-        const runesIconById = {};
-        runeData.forEach(tree => {
-          tree.slots.forEach(slot => {
-            slot.runes.forEach(rune => {
-              runesIconById[rune.id] = `https://ddragon.leagueoflegends.com/cdn/img/${rune.icon}`;
-            });
+        const runesIconById = { trees: {} }; // Initialize the trees object
+        runeData.forEach((tree, treeIndex) => {
+          tree.slots.forEach((slot, slotIndex) => {
+              slot.runes.forEach(rune => {
+                  // Save the rune ID along with its slot information as the key
+                  runesIconById[rune.id] = {
+                      icon: `https://ddragon.leagueoflegends.com/cdn/img/${rune.icon}`,
+                      tree: tree.name,
+                      slot: slotIndex,
+                  };
+              });
           });
-          runesIconById[tree.id] = `https://ddragon.leagueoflegends.com/cdn/img/${tree.icon}`;
+          // Save the tree icon separately
+          runesIconById.trees[tree.id] = {
+              icon: `https://ddragon.leagueoflegends.com/cdn/img/${tree.icon}`,
+              name: tree.name
+          };
         });
+        
+        console.log(runesIconById);
         setRunesIcon(runesIconById);
-
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -109,7 +120,9 @@ export const AppDataProvider = ({ children }) => {
     playerIcons,
     itemIcons,
     summonerSpellsIcon,
-    runesIcon
+    runesIcon,
+    championData,
+    setChampionData
   };
 
   return (

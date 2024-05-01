@@ -4,7 +4,7 @@ import { useAppData } from "../../../../../../../contexts/AppDataContext";
 import SingleChampion from "../../../../../../ChampionImages/ChampionIcon";
 
 const ChampionInfoColumn = styled.div`
-    width: 325px;
+    width: 375px;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -89,13 +89,13 @@ const MatchStatsWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80px;
+    width: 100px;
 `
 
 const KDA = styled.div`
     font-size: 17px;
     font-weight: 700;
-
+    
     .slash {
         color: ${props => props.$win ? `#6f6ff5` : `#be4444`};
         opacity: 0.4;
@@ -182,68 +182,75 @@ const ChampionInfo = ({index}) => {
     const totalCs = ourSummoner.totalMinionsKilled + ourSummoner.neutralMinionsKilled
     const csPerMin = ((totalCs)/matchTime).toString().substring(0, 3);
     const KDAnumber = ((ourSummoner.kills + ourSummoner.assists) / ourSummoner.deaths).toString().substring(0, 3);
+    console.log(ourSummoner.item6);
     return(
-        <ChampionInfoColumn>
-            <ChampionInfoWrapper>
-                <ChampInfo>
-                    <ChampionImageWrapper>
+        runesIcon.trees && itemIcons && (
+            <ChampionInfoColumn>
+                <ChampionInfoWrapper>
+                    <ChampInfo>
+                        <ChampionImageWrapper>
+                            <div>
+                                <SingleChampion championId={ourSummoner.championId} />
+                                <span>18</span>
+                            </div>
+                        </ChampionImageWrapper>
+                    </ChampInfo>
+                    <SummonerSpellsWrapper $win={win}>
                         <div>
-                            <SingleChampion championId={ourSummoner.championId} />
-                            <span>18</span>
+                            <img src={summonerSpellsIcon[ourSummoner.summoner1Id]} />
                         </div>
-                    </ChampionImageWrapper>
-                    
-                </ChampInfo>
-                <SummonerSpellsWrapper $win={win}>
-                    <div>
-                        <img src={summonerSpellsIcon[ourSummoner.summoner1Id]} />
-                    </div>
-                    <div>
-                        <img src={summonerSpellsIcon[ourSummoner.summoner2Id]} />
-                    </div>
-                </SummonerSpellsWrapper>
-                <SummonerSpellsWrapper $win={win}>
-                    <div>
-                        <img src={runesIcon[ourSummoner.perks.styles[0].selections[0].perk]}/>
-                    </div>
-                    <div>
-                        <img src={runesIcon[ourSummoner.perks.styles[1].style]}/>  
-                    </div>
-                </SummonerSpellsWrapper>
-            </ChampionInfoWrapper>
-            <MatchStatsWrapper>
-                <KDA $win={ourSummoner.win}>
-                    {ourSummoner.kills}
-                    <span className="slash"> / </span>
-                    <span>{ourSummoner.deaths}</span>
-                    <span className="slash"> / </span>
-                    {ourSummoner.assists}
-                </KDA>
-                <KDARatio>
-                    {KDAnumber}
-                    <span> KDA</span>
-                </KDARatio>
-                <OtherText>{totalCs} ({csPerMin})</OtherText>
-                <OtherText>{ourSummoner.visionScore} vision</OtherText>
-            </MatchStatsWrapper>
-            <ItemWrapper $win={win}>
-                <Items >
-                    <div className="Main" >
-                        {[0, 1, 2, 3, 4, 5].map(slot => (
-                            ourSummoner[`item${slot}`] !== 0 ? (
-                                <img key={slot} src={itemIcons[ourSummoner[`item${slot}`]]} alt={`Item ${ourSummoner[`item${slot}`]}`} />
-                            ) : (
-                                <div key={slot} className="Empty" ></div>
-                            )
-                        ))}
-                    </div>
-                    <div className="Trinket">
-                        <img src={itemIcons[ourSummoner.item6]}  />
-                    </div>
-                </Items>
-                    
-            </ItemWrapper>
-        </ChampionInfoColumn>
+                        <div>
+                            <img src={summonerSpellsIcon[ourSummoner.summoner2Id]} />
+                        </div>
+                    </SummonerSpellsWrapper>
+                    <SummonerSpellsWrapper $win={win}>
+                        <div>
+                            <img src={runesIcon[ourSummoner.perks.styles[0].selections[0].perk].icon}/>
+                        </div>
+                        <div>
+                            {ourSummoner.perks.styles[1].style && runesIcon.trees[ourSummoner.perks.styles[1].style] && (
+                                <img src={runesIcon.trees[ourSummoner.perks.styles[1].style].icon}/>  
+                            )}
+                            
+                        </div>
+                    </SummonerSpellsWrapper>
+                </ChampionInfoWrapper>
+                <MatchStatsWrapper>
+                    <KDA $win={ourSummoner.win}>
+                        {ourSummoner.kills}
+                        <span className="slash"> / </span>
+                        <span>{ourSummoner.deaths}</span>
+                        <span className="slash"> / </span>
+                        {ourSummoner.assists}
+                    </KDA>
+                    <KDARatio>
+                        {KDAnumber}
+                        <span> KDA</span>
+                    </KDARatio>
+                    <OtherText>{totalCs} ({csPerMin})</OtherText>
+                    <OtherText>{ourSummoner.visionScore} vision</OtherText>
+                </MatchStatsWrapper>
+                <ItemWrapper $win={win}>
+                    <Items >
+                        <div className="Main" >
+                            {[0, 1, 2, 3, 4, 5].map(slot => (
+                                ourSummoner[`item${slot}`] !== 0 ? (
+                                    <img key={slot} src={itemIcons[ourSummoner[`item${slot}`]].image} alt={`Item ${ourSummoner[`item${slot}`]}`} />
+                                ) : (
+                                    <div key={slot} className="Empty" ></div>
+                                )
+                            ))}
+                        </div>
+                        <div className="Trinket">
+                            {ourSummoner.item6 && itemIcons[ourSummoner.item6] && (
+                                <img src={itemIcons[ourSummoner.item6].image}  />
+                            )}
+                        </div>
+                    </Items>
+                </ItemWrapper>
+            </ChampionInfoColumn>
+        )
+        
         
     );
 };

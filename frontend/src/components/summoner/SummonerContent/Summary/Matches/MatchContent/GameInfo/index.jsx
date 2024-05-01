@@ -6,7 +6,7 @@ import { useAppData } from "../../../../../../../contexts/AppDataContext";
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
-    width: 205px;
+    width: 150px;
     flex-direction: row;
     
 `
@@ -146,15 +146,11 @@ const GameInfo = ({index}) => {
                         <p>{summonerTeam.win ? `Win` : `Loss`}</p>
                         <span>{convertTime(match.gameDuration)}</span>
                     </WinTime>
-                    <p>Gold 1</p>
+                    
                 </div>
             </GameInfoWrapper>
             <EvalWrapper>
-                <h5>Eval Score</h5>
-                <EvalBox>
-                    <span>50</span>
-                </EvalBox>
-                <Score>2nd</Score>
+                
             </EvalWrapper>
                 
         </Wrapper>

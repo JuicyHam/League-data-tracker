@@ -82,321 +82,57 @@ const TableWrapper = styled.div`
 `
 
 
-const ChampionCounters = () => {
-    return(
+const ChampionCounters = ({ championData }) => {
+    // Sort opponents based on win rate (highest to lowest)
+    if (!championData) {
+        return (<></>)
+    }
+    const sortedOpponents = Object.entries(championData.opponents).sort(([, a], [, b]) => b.winRate - a.winRate);
+    console.log(sortedOpponents);
+    return (
         <Wrapper>
-
-            <SectionWrapper>
-                <Banner color={"rgb(241, 51, 83)"}/>
-                <Header>Weak Against</Header>
-                <TableWrapper>
-                    <Table>
-                        <colgroup><col/><col width="65px"/><col width="60px"/></colgroup>
-                        <thead>
-                            <HeadRow>
-                                <th>Champion</th>
-                                <th>Pick Rate</th>
-                                <th>Win Rate</th>
-                            </HeadRow>
-                        </thead>
-                        <Tbody>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                        </Tbody>
-                    </Table>
-                </TableWrapper>
-                
+        {/* Loop through opponents and render a row for each */}
+        {sortedOpponents.map(([championId, opponentData]) => (
+            <SectionWrapper key={championId}>
+            <Banner color="rgb(241, 51, 83)" />
+            <Header>Weak Against</Header>
+            <TableWrapper>
+                <Table>
+                <colgroup>
+                    <col />
+                    <col width="65px" />
+                    <col width="60px" />
+                </colgroup>
+                <thead>
+                    <HeadRow>
+                    <th>Champion</th>
+                    <th>Pick Rate</th>
+                    <th>Win Rate</th>
+                    </HeadRow>
+                </thead>
+                <tbody>
+                    <tr key={championId}>
+                    <ChampionTab>
+                        <ChampionImages>
+                        {/* Render your champion image component here */}
+                        </ChampionImages>
+                        <span>{opponentData.name}</span>
+                    </ChampionTab>
+                    <PickRateTab>
+                        <p>{opponentData.pickRate}</p>
+                    </PickRateTab>
+                    <WinRateTab>
+                        <p>{opponentData.winRate}</p>
+                    </WinRateTab>
+                    </tr>
+                </tbody>
+                </Table>
+            </TableWrapper>
             </SectionWrapper>
-            <SectionWrapper>
-                <Banner color={"rgb(51, 119, 255)"}/>
-                <Header>Weak Against</Header>
-                <TableWrapper>
-                    <Table>
-                        <colgroup><col/><col width="65px"/><col width="60px"/></colgroup>
-                        <thead>
-                            <HeadRow>
-                                <th>Champion</th>
-                                <th>Pick Rate</th>
-                                <th>Win Rate</th>
-                            </HeadRow>
-                        </thead>
-                        <Tbody>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                        </Tbody>
-                    </Table>
-                </TableWrapper>
-                
-            </SectionWrapper>
-            <SectionWrapper>
-                <Banner color={"rgb(243, 166, 52)"}/>
-                <Header>Weak Against</Header>
-                <TableWrapper>
-                    <Table>
-                        <colgroup><col/><col width="65px"/><col width="60px"/></colgroup>
-                        <thead>
-                            <HeadRow>
-                                <th>Champion</th>
-                                <th>Pick Rate</th>
-                                <th>Win Rate</th>
-                            </HeadRow>
-                        </thead>
-                        <Tbody>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                            <tr>
-                                <ChampionTab>
-                                    <ChampionImages>
-                                        <SingleChampion championId={221} width={"32px"} height={"32px"}/>
-                                    </ChampionImages>
-                                    <span>Zeri</span>
-                                </ChampionTab>
-                                <PickRateTab>
-                                    <p>25%</p>
-                                </PickRateTab>
-                                <WinRateTab>
-                                    <p>55%</p>
-                                </WinRateTab>
-                            </tr>
-                        </Tbody>
-                    </Table>
-                </TableWrapper>
-                
-            </SectionWrapper>
+        ))}
         </Wrapper>
     );
 };
 
 export default ChampionCounters;
+

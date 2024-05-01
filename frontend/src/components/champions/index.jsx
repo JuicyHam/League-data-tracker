@@ -23,8 +23,7 @@ const Champions = () => {
             <Navbar ishome={false} region={"EUW"}/>
             <CenterWrapper>
                 <ContentWrapper/>
-            </CenterWrapper>    
-            <Footer/>    
+            </CenterWrapper>      
         </Wrapper>
     );
 }

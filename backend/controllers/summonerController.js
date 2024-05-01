@@ -4,14 +4,24 @@ const getSummonerInfo = async (req, res) => {
     console.log("Test1");
     try {
         const { region, regionTag, summonerName } = req.params;
-        const summonerInfo = await summonerService.getSummonerInfo(region, regionTag, summonerName);
-        res.json(summonerInfo);
+        
+        // Check if the update tag is present in the query parameters
+        const update = req.query.update === 'true';
+        console.log(req.query.update);
+        // If update tag is present, fetch fresh data
+        if (update) {
+            const freshSummonerInfo = await summonerService.fetchFreshSummonerInfo(region, regionTag, summonerName);
+            res.json(freshSummonerInfo);
+        } else {
+            // Otherwise, fetch cached data
+            const summonerInfo = await summonerService.getSummonerInfo(region, regionTag, summonerName);
+            res.json(summonerInfo);
+        }
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: 'Internal server error' });
     }
 };
-
 const getNames = async (req, res) => {
     console.log("Test2");
     try {

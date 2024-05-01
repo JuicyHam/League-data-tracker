@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Route, Link, useLocation, useParams, Routes, Router} from "react-router-dom";
+import { Route, Link, useParams, Routes} from "react-router-dom";
 import styled from "styled-components";
 import regionList from "../../../Json/regionList";
 import SummonerHeader from "./SummonerHeader";
 
-import SummonerChampion from "./SummonerChampion";
-import LiveGame from "./LiveGame";
+
 import Summary from "./Summary";
 import { useSummonerData } from "../../../contexts/summonerData";
 import Loading from "../../common/Loading";
@@ -72,42 +71,48 @@ const SummonerContent = () => {
     const [error, setError] = useState(null);
     const path = location.pathname;
     const currentPath = location.pathname.split('/')?.[4];
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
+    const fetchData = async (update) => {
+        try {
+            setLoading(true);
 
-                const regionObject = regionList.find((item) => item.title.toLowerCase() === region.toLowerCase());
-                console.log(region);
-                console.log("test");
-                console.log(summonerData);
-                if (!regionObject) {
-                    console.log("not getting data rn");
-                    throw new Error("Region not found in regionList");
-                }
-
-                // Update selected region if different
-                if (regionObject && regionObject.title.toLowerCase() !== selectedRegion.toLowerCase()) {
-                    setSelectedRegion(regionObject.title);
-                    console.log("Set");
-                }
-
-                const tagName = regionObject.serverName;
-
-                const response = await axios.get(`/api/summoner/${region}/${tagName}/${summonerName}`);
-                setSummonerData(response.data);
-                console.log(response.data);  
-                setLoading(false);  
-            } catch (error) {
-                console.log(error);
-                setLoading(false);
-                setError(error);
+            const regionObject = regionList.find((item) => item.title.toLowerCase() === region.toLowerCase());
+            console.log(region);
+            console.log("test");
+            console.log(summonerData);
+            if (!regionObject) {
+                console.log("not getting data rn");
+                throw new Error("Region not found in regionList");
             }
-        };
+
+            // Update selected region if different
+            if (regionObject && regionObject.title.toLowerCase() !== selectedRegion.toLowerCase()) {
+                setSelectedRegion(regionObject.title);
+                console.log("Set");
+            }
+
+            const tagName = regionObject.serverName;
+            console.log(`update ${update} `);
+            const response = await axios.get(`/api/summoner/${region}/${tagName}/${summonerName}?update=${update}`);
+            setSummonerData(response.data);
+            console.log(response.data);  
+            setLoading(false);  
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+            setError(error);
+        }
+    };
+    useEffect(() => {
         
-        fetchData();
+        
+        fetchData(false);
 
     }, [region,summonerName]);
+
+    const handleUpdate = () => {
+        // Call fetchData to refetch summonerData
+        fetchData(true);
+    };
     
     if (loading) {
         return <Loading/>;
@@ -120,12 +125,10 @@ const SummonerContent = () => {
     return (
         <Wrapper>
             
-            <SummonerHeader/>
+            <SummonerHeader onUpdate={handleUpdate}/>
             <NavigationWrapper>
                 <Navigation>
                     <SummonerLink to={`/summoner/${region}/${summonerName}/`} selected={!currentPath}>Summary</SummonerLink>
-                    <SummonerLink to={`/summoner/${region}/${summonerName}/champions`} selected={currentPath === `champions`}>Champion</SummonerLink>
-                    <SummonerLink to={`/summoner/${region}/${summonerName}/livegame`} selected={currentPath===`livegame`}>Live Game</SummonerLink>
                 </Navigation>
                 
             </NavigationWrapper>
@@ -133,8 +136,6 @@ const SummonerContent = () => {
                 
                 <Routes>
                     <Route path={`/`} element={<Summary/>} />
-                    <Route exact path={`/champions`} element={<SummonerChampion/>}/>
-                    <Route exact path={`/liveGame`} element={<LiveGame/>}/>
                 </Routes>
                 
                 

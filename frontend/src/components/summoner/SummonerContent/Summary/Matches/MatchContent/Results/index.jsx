@@ -2,6 +2,7 @@ import styled from "styled-components";
 import SingleChampion from "../../../../../../ChampionImages/ChampionIcon";
 import { useSummonerData } from "../../../../../../../contexts/summonerData";
 import { useAppData } from "../../../../../../../contexts/AppDataContext";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
     width: 100%;
@@ -146,7 +147,7 @@ const PlayerInfo = styled.div`
 `
 
 
-const PlayerName = styled.div`
+const PlayerName = styled(Link)`
     max-width: 120px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -245,7 +246,7 @@ const ItemWrapper = styled.div`
 
 const Results = ({index}) => {
     const {summonerData} = useSummonerData();
-    const {itemIcons, summonerSpellsIcon, runesIcon} = useAppData();
+    const {itemIcons, summonerSpellsIcon, runesIcon, selectedRegion} = useAppData();
 
     const match = summonerData.matches && summonerData.matches[index];
     const puuid = summonerData.accountInfo.puuid;
@@ -266,7 +267,6 @@ const Results = ({index}) => {
         <Wrapper>
             <Options>
                 <QueueOption selected={true}>Stats</QueueOption>
-                <QueueOption>Build</QueueOption>
             </Options>
             <StatWrapper>
                 <Table>
@@ -281,7 +281,7 @@ const Results = ({index}) => {
                                 
                             </FirstHeader>
                             <OtherHeader>
-                                <span>Eval Score</span>
+                                
                             </OtherHeader>
                             <OtherHeader>
                                 <span>KDA</span>
@@ -316,14 +316,16 @@ const Results = ({index}) => {
                                         </SummonerSpellsWrapper>
                                         <SummonerSpellsWrapper $win={participant.win}>
                                             <div>
-                                                <img src={runesIcon[participant.perks.styles[0].selections[0].perk]}/>
+                                                <img src={runesIcon[ourSummoner.perks.styles[0].selections[0].perk].icon}/>
                                             </div>
                                             <div>
-                                                <img src={runesIcon[participant.perks.styles[1].style]}/>  
+                                                {ourSummoner.perks.styles[1].style && runesIcon.trees[ourSummoner.perks.styles[1].style] && (
+                                                    <img src={runesIcon.trees[ourSummoner.perks.styles[1].style].icon}/>  
+                                                )}
                                             </div>
                                         </SummonerSpellsWrapper>
                                         <PlayerInfo>
-                                            <PlayerName>
+                                            <PlayerName to={`/summoner/${selectedRegion}/${participant.riotIdGameName}-${participant.riotIdTagline}`}>
                                                 <p>{participant.riotIdGameName}</p>
                                                 <span>#{participant.riotIdTagline}</span>
                                             </PlayerName>
@@ -337,8 +339,7 @@ const Results = ({index}) => {
                                 </TableData>
                                 <TableData>
                                     <EvalScoreWrapper>
-                                        <EvalScore>50</EvalScore>
-                                        <span>10th</span>
+                                        
                                     </EvalScoreWrapper>
                                 </TableData>
                                 <TableData>
@@ -375,7 +376,7 @@ const Results = ({index}) => {
                                     <ItemWrapper $win={participant.win}>
                                     {[0, 1, 2, 3, 4, 5, 6].map(slot => (
                                         participant[`item${slot}`] !== 0 ? (
-                                            <img key={slot} src={itemIcons[participant[`item${slot}`]]} alt={`Item ${participant[`item${slot}`]}`} />
+                                            <img key={slot} src={itemIcons[participant[`item${slot}`]].image} alt={`Item ${participant[`item${slot}`]}`} />
                                         ) : (
                                             <div key={slot} ></div>
                                         )
@@ -433,14 +434,16 @@ const Results = ({index}) => {
                                         </SummonerSpellsWrapper>
                                         <SummonerSpellsWrapper $win={participant.win}>
                                             <div>
-                                                <img src={runesIcon[participant.perks.styles[0].selections[0].perk]}/>
+                                                <img src={runesIcon[ourSummoner.perks.styles[0].selections[0].perk].icon}/>
                                             </div>
                                             <div>
-                                                <img src={runesIcon[participant.perks.styles[1].style]}/>  
+                                                {ourSummoner.perks.styles[1].style && runesIcon.trees[ourSummoner.perks.styles[1].style] && (
+                                                    <img src={runesIcon.trees[ourSummoner.perks.styles[1].style].icon}/>  
+                                                )}
                                             </div>
                                         </SummonerSpellsWrapper>
                                         <PlayerInfo>
-                                            <PlayerName>
+                                            <PlayerName to={`/summoner/${selectedRegion}/${participant.riotIdGameName}-${participant.riotIdTagline}`}>
                                                 <p>{participant.riotIdGameName}</p>
                                                 <span>#{participant.riotIdTagline}</span>
                                             </PlayerName>
@@ -454,8 +457,7 @@ const Results = ({index}) => {
                                 </TableData>
                                 <TableData>
                                     <EvalScoreWrapper>
-                                        <EvalScore>50</EvalScore>
-                                        <span>10th</span>
+                                        
                                     </EvalScoreWrapper>
                                 </TableData>
                                 <TableData>
@@ -492,7 +494,7 @@ const Results = ({index}) => {
                                     <ItemWrapper $win={participant.win}>
                                     {[0, 1, 2, 3, 4, 5, 6].map(slot => (
                                         participant[`item${slot}`] !== 0 ? (
-                                            <img key={slot} src={itemIcons[participant[`item${slot}`]]} alt={`Item ${participant[`item${slot}`]}`} />
+                                            <img key={slot} src={itemIcons[participant[`item${slot}`]].image} alt={`Item ${participant[`item${slot}`]}`} />
                                         ) : (
                                             <div key={slot} ></div>
                                         )

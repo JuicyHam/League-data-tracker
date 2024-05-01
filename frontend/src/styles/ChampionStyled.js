@@ -43,7 +43,15 @@ export const ItemImages = styled.div`
     padding: 12px 0;
     align-items: center;
     div {
-        
+        display: flex;
+        align-items: center;
+        div {
+            height: 50%;
+        }
+    }
+    img {
+        width: 32px;
+        height: 32px;
     }
 `
 export const Arrow = styled.div`

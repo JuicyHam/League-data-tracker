@@ -7,6 +7,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     padding-top: 200px;
     align-items: center;
+    width: 100%;
     h1 {
         font-size: 48px;
         font-weight: 900;

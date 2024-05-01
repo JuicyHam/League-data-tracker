@@ -8,9 +8,12 @@ import ChampionCounters from "./ChampionCounters";
 import Builds from "./Builds";
 import ChampionAbilities from "./ChampionAbilities";
 import { useAppData } from "../../contexts/AppDataContext";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Loading from "../common/Loading";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import regionList from "../../Json/regionList";
+import axios from "axios";
+import ChampionIcons from "../ChampionImages/ChampionList";
 
 const Wrapper = styled.div`
     
@@ -63,43 +66,184 @@ const ChampionOption = styled.button`
     }
 `
 
+
+
 const Champion = () => {
-    const { championInfo } = useAppData();
+    const { search } = useLocation();
+    const [loading, setLoading] = useState(true);
+    const queryParams = new URLSearchParams(search);
+
+    const { championData, setChampionData, championInfo } = useAppData();
     const [isLoading, setIsLoading] = useState(true);
-    const [championData, setChampionData] = useState(null);
+    const [championDataInfo, setchampionDataInfo] = useState(null);
+    const [championId, setChampionId] = useState(null);
+
     const { championName } = useParams();
-    console.log(championName);
-    useEffect(() => {
-        const championInfoEntry = Object.entries(championInfo).find(([_, championData]) => championData.name.toLowerCase() === championName.toLowerCase());
-        if (championInfoEntry) {
-            setChampionData(championInfoEntry[1]);
-            setIsLoading(false);
+    
+    const lane = queryParams.get('role') || 'all';
+    const rank = queryParams.get('rank') || 'all';
+    const regionParamValue = queryParams.get('region') || 'global';
+    const regionItem = regionList.find(regionItem => regionItem.title === regionParamValue);
+    const region = regionItem?.serverName || "global";
+
+    const prevRegion = useRef(region);
+    const prevRank = useRef(rank);
+
+    function combineArrayData(target, newData) {
+        // Create a new object to store the combined data
+        const combinedData = { ...target };
+    
+        Object.keys(newData).forEach(item => {
+            const key = item.trim(); // Remove leading and trailing whitespace
+            
+            if (!combinedData[key]) {
+                combinedData[key] = { wins: 0, losses: 0 };
+            }
+            
+            if (key === "(1, 3, 2, 1, 1, 4, 1, 2, 1, 2, 4, 2, 2, 3, 3, 4, 3)") {
+                console.log(`before ${combinedData[key].wins} and ${newData[item].wins} `)
+            }
+    
+            // Combine wins and losses
+            combinedData[key].wins += newData[item].wins;
+            combinedData[key].losses += newData[item].losses;
+            
+            if (key === "(1, 3, 2, 1, 1, 4, 1, 2, 1, 2, 4, 2, 2, 3, 3, 4, 3)") {
+                console.log(`before ${combinedData[key].wins} and ${newData[item].wins} `)
+            }
+        });
+    
+        return combinedData;
+    }
+    
+
+    const tableData = useMemo(() => {
+        if (lane === "all") {
+            const combinedData = {};
+            Object.keys(championData).forEach(laneKey => {
+                if (laneKey !== "total_games") {
+                    const laneData = championData[laneKey];
+    
+                    Object.keys(laneData).forEach(championKey => {
+                        if (!combinedData[championKey]) {
+                            combinedData[championKey] = { 
+                                banned: 0,
+                                boots: {},  
+                                items: {},
+                                losses: 0,
+                                opponents: {},
+                                runes: {},
+                                starter: {},
+                                abilities: {},
+                                wins: 0 
+                            };
+                        }
+                        const championStats = laneData[championKey];
+    
+                        // Combine data for each property
+                        combinedData[championKey].banned += championStats.banned;
+                        // Create new objects before combining array data
+                        const combinedBoots = { ...combinedData[championKey].boots };
+                        const combinedOpponents = { ...combinedData[championKey].opponents };
+                        const combinedRunes = { ...combinedData[championKey].runes };
+                        const combinedStarter = { ...combinedData[championKey].starter };
+                        const combinedItems = { ...combinedData[championKey].items };
+                        const combinedAbilities = { ...combinedData[championKey].abilities };
+    
+                        // Combine array data
+                        const newCombinedBoots = combineArrayData(combinedBoots, championStats.boots);
+                        const newCombinedOpponents = combineArrayData(combinedOpponents, championStats.opponents);
+                        const newCombinedRunes = combineArrayData(combinedRunes, championStats.runes);
+                        const newCombinedStarter = combineArrayData(combinedStarter, championStats.starter);
+                        const newCombinedItems = combineArrayData(combinedItems, championStats.items);
+                        const newCombinedAbilities = combineArrayData(combinedAbilities, championStats.abilities);
+                        
+                        // Update combinedData with new objects
+                        combinedData[championKey] = {
+                            ...combinedData[championKey],
+                            boots: newCombinedBoots,
+                            opponents: newCombinedOpponents,
+                            runes: newCombinedRunes,
+                            starter: newCombinedStarter,
+                            items: newCombinedItems,
+                            abilities: newCombinedAbilities
+                        };
+    
+                        // Combine other properties similarly...
+                        combinedData[championKey].wins += championStats.wins;
+                        combinedData[championKey].losses += championStats.losses;
+                    });
+                    
+                }
+            });
+            combinedData['total_games'] = championData['total_games'];
+            return combinedData;
         } else {
-            console.log(championInfo);
+            return championData[lane];
         }
-    }, [championInfo]);
+    }, [lane, championData, combineArrayData]);
+    useEffect(() => {
+        const championInfoEntry = Object.entries(championInfo).find(([_, championDataInfo]) => championDataInfo.name.toLowerCase() === championName.toLowerCase());
+        if (championInfoEntry) {
+            setChampionId(championInfoEntry[0])
+            setchampionDataInfo(championInfoEntry[1]);
+        } else {
+        }
+        if (region !== prevRegion.current || rank !== prevRank.current || championData.length === 0) { 
+            prevRegion.current = region; 
+            prevRank.current = rank
+            
+            if (region) { 
+                const fetchData = async () => {
+                    try {
+                        const response = await axios.get(`/api/champions`, {
+                            params : {
+                                region: region,
+                                rank: rank
+                            }
+                        });
+                        if (response.status !== 200) {
+                            throw new Error('Failed to fetch champion data');
+                        }
+                        setChampionData(response.data);
+                        setLoading(false);
+                    } catch (error) {
+                        console.log("Error fetching champion data: ", error)
+                        setLoading(false);
+                    }
+                };
+                fetchData();
+            }
+        } else if (championData.length != 0) {
+            setIsLoading(false);
+        }
+    }, [region, rank, championInfo]);
 
     if (isLoading) {
         return <Loading />;
     }
-
     return (
         <Wrapper>
             <Navbar ishome={false} region={"EUW"}/>
             <CenterWrapper>
                 <CenterContent>
-                    <ChampionHeader championData={championData}/>
+                    <ChampionHeader championDataInfo={championDataInfo}/>
                     <OptionWrapper>
                         <ChampionOption selected={true}> Build </ChampionOption>
                         <ChampionOption selected={false}> OTPs </ChampionOption>
                     </OptionWrapper>
-                    <ChampionBuild/>
-                    <ChampionAbilities/>
-                    <Builds/>
-                    <ChampionCounters/>
+                    {tableData && tableData[championId] && 
+                    <div>
+                        <ChampionBuild championData={tableData[championId]}/>
+                        <ChampionAbilities championData={tableData[championId]} championDataInfo={championDataInfo}/>
+                        <Builds championData={tableData[championId]}/>
+                        <ChampionCounters/>
+                    </div>
+                    
+                    }
+                    
                 </CenterContent>
-            </CenterWrapper>    
-            <Footer/>    
+            </CenterWrapper>       
         </Wrapper>
     );
 }

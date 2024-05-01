@@ -1,9 +1,5 @@
 import styled from "styled-components";
 import Dropdown from "../../../Dropdown"
-
-import { useCallback, useContext} from "react"
-import { ChampionContext } from "../../../../contexts/ChampionContext";
-import RegionBox from "../../../common/SearchRegion/Region";
 import ChampionBox from "./ChampionBox";
 
 const ButtonWrapper = styled.div`

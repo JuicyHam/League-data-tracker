@@ -81,16 +81,16 @@ const BigChampion = styled.div`
     }
 `
 
-const ChampionHeader = ({championData}) => {
-    const championAbilities = championData.abilities
+const ChampionHeader = ({championDataInfo}) => {
+    const championAbilities = championDataInfo.abilities
     return(
         <Wrapper>
             <BigChampion>
-                <img src={championData.image} />
+                <img src={championDataInfo.image} />
             </BigChampion>
             <TextWrapper>
                 <Title>
-                    <h1>{championData.name}</h1>
+                    <h1>{championDataInfo.name}</h1>
                     <span>Top Build, Emerald, Patch 14.8</span>
                 </Title>
                 <Abilities>
@@ -101,7 +101,7 @@ const ChampionHeader = ({championData}) => {
                     ))}
                 </Abilities>
                 <Desription>
-                    <span>Build Guids for Bottom {championData.name} with LOLDATA AI.</span>
+                    <span>Build Guids for Bottom {championDataInfo.name} with LOLDATA AI.</span>
                     <span>The highest win rate Skarner runes, items, skill order, counter and patch history in patch 14.8.</span>
                 </Desription>
             </TextWrapper>

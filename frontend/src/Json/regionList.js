@@ -40,22 +40,18 @@ const regionList = [{
     tagName : 'TR1'
 }, {
     title: "RU",
-    disabled : true,
     serverName : 'RU1',
     tagName : 'RU1'
 }, {
     title: "PH",
-    disabled : true,
     serverName : 'PH2',
     tagName : 'PH2'
 }, {
     title: "SG",
-    disabled : true,
     serverName : 'SG2',
     tagName : 'SG2'
 }, {
     title: "TH",
-    disabled : true,
     serverName : 'TH2',
     tagName : 'TH2'
 }, {

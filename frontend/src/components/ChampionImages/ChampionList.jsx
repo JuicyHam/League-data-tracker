@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { useAppData } from '../../contexts/AppDataContext';
 import styled from 'styled-components';
-import { useChampionSearchData } from '../../contexts/ChampionContext';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
@@ -42,18 +41,19 @@ const ImageWrapper = styled.div`
 `;
 
 const ChampionIcons = ({ selectedRole, searchQuery }) => {
-  const { championInfo } = useAppData();
-  const { championData } = useChampionSearchData();
+  const { championData,  championInfo } = useAppData();
 
-  const getChampionRoles = useCallback((championName) => {
+  const getChampionRoles = useCallback((championId) => {
+    const roles = [];
 
-
-    const filteredChampionData = championData.filter(champion => champion.championName === championName);
-
-    const roles = filteredChampionData.map(champion => champion.role.toLowerCase());
+    Object.keys(championData).forEach(role => {
+        if (championData[role][championId]) {
+            roles.push(role.toLowerCase());
+        }
+    });
 
     return [...new Set(roles)];
-  }, [championData]);
+}, [championData]);
 
   const filteredChampionIcons = Object.entries(championInfo).filter(
     ([championId, championInfo]) => {
@@ -61,8 +61,13 @@ const ChampionIcons = ({ selectedRole, searchQuery }) => {
       const iconUrl = championInfo.image;
 
       if (selectedRole !== 'All') {
-        const championRoles = getChampionRoles(championName);
-        if (!championRoles.includes(selectedRole.toLowerCase())) return false;
+        const championRoles = getChampionRoles(championId);
+        if (selectedRole.toLowerCase() === "support") {
+          if (!championRoles.includes("utility")) return false;
+        } else {
+          if (!championRoles.includes(selectedRole.toLowerCase())) return false;
+        }
+        
       }
 
       if (searchQuery && !championName.toLowerCase().includes(searchQuery.toLowerCase())) {

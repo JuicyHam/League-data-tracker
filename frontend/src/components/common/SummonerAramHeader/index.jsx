@@ -56,14 +56,14 @@ const SearchTitle = () => {
             <TitleMain>Summoners Rift Tier List</TitleMain>
             <DescriptionWrapper>
                 <TitleDescription>
-                    Tier information for LoL patch 14.07 is updated in real-time. Summoner’s Rift champion analysis provides you with builds, 
-                    runes, items, and skill tips to help you improve your win rate!
+                    Tier information for LoL patch 14.08 is updated in real-time. Summoner’s Rift champion analysis provides you with builds, 
+                    runes and items to help you win!
                 </TitleDescription>
                 <UpdateWrapper>
                     <StrongText>Ranked Solo</StrongText>
                     <LightText>&nbsp; / &nbsp;</LightText>
                     <span>Last Updated:&nbsp;</span>
-                    <StrongText>24 Hours Ago</StrongText>
+                    <StrongText>1 Hours Ago</StrongText>
                 </UpdateWrapper>
             </DescriptionWrapper>
             

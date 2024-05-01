@@ -29,9 +29,13 @@ const HeaderText = styled.span`
     min-height: 32px;
 `
 
-const RankingTableHeader = ({title, left, pos}) => {
+const RankingTableHeader = ({title, left, pos, onSort}) => {
+    const handleClick = () => {
+      // Trigger sort callback when header is clicked
+      onSort();
+    };
     return (
-        <Wrapper pos={pos}>
+        <Wrapper pos={pos} onClick={handleClick}>
             <TextWrapper $left={left} >
                 <HeaderText >
                     {title}

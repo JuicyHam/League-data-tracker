@@ -3,19 +3,24 @@ import RankingTableHeader from "./RankingTableHeader";
 
 
 
-const ChampionTableHeader = () => {
+const ChampionTableHeader = ({onSort}) => {
+    const handleSort = (key) => {
+        // Trigger sorting callback with the selected key
+        onSort(key);
+    };
     return (
         <tr>
             <RankingTableHeader
             title={"Rank"}
             pos={"first"}
+            onSort={() => handleSort('rank')}
             />
             <RankingTableHeader
             title={"Champion"}
             left={true}
             />
             <RankingTableHeader
-            title={"Tier"}
+            
 
             />
             <RankingTableHeader
@@ -24,15 +29,15 @@ const ChampionTableHeader = () => {
             />
             <RankingTableHeader
             title={"Win"}
-
+            onSort={() => handleSort('rank')}
             />
             <RankingTableHeader
             title={"Pick"}
-
+            onSort={() => handleSort('rank')}
             />
             <RankingTableHeader
             title={"Ban"}
-
+            onSort={() => handleSort('rank')}
             />
             <RankingTableHeader
             title={"Counter"}

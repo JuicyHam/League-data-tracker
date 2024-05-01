@@ -100,18 +100,15 @@ const Navbar = ({ishome, region}) => {
                         <NavWrapper>
                             <NavText to="/">Home</NavText>
                             <NavText to="/champions">Champions</NavText>
-                            <NavText to="/leaderboard">Leaderboards</NavText>
-                            <NavText to="/aram">Aram</NavText>
-                            <NavText to="/multi">Multi-Search</NavText>
                         </NavWrapper>
-                        <ContactWrapper></ContactWrapper>
+                        
                     </LowerWrapper>
                     
                 </CenterWrapper> 
             </Header>
             
             <PatchWrapper>
-                <PatchLink href="https://www.leagueoflegends.com/en-us/news/game-updates/patch-14-7-notes/" target="_blank" rel="noopener noreferrer">🔔 Check Out The Latest Patch (14.7)</PatchLink>
+                <PatchLink href="https://www.leagueoflegends.com/en-us/news/tags/patch-notes/" target="_blank" rel="noopener noreferrer">🔔 Check Out The Latest Patch (14.8)</PatchLink>
             </PatchWrapper>
             
       </HeaderWrapper>

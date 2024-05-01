@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useSummonerData } from "../../../../../../../contexts/summonerData";
 import SingleChampion from "../../../../../../ChampionImages/ChampionIcon";
+import { useAppData } from "../../../../../../../contexts/AppDataContext";
 
 const Wrapper = styled.div`
     width: 235px;
@@ -57,6 +58,7 @@ const SummonerLink = styled(Link)`
 
 const PlayerList = ({index}) => {
     const {summonerData} = useSummonerData();
+    const {selectedRegion} = useAppData();
     const match = summonerData.matches && summonerData.matches[index];
     const puuid = summonerData.accountInfo.puuid;
     if (!match) {
@@ -80,7 +82,7 @@ const PlayerList = ({index}) => {
                             <SingleChampion championId={participant.championId} width={'15px'} height={'15px'}/>
                         </ChampionWrapper>
                         <SummonerName>
-                            <SummonerLink to={`/summoner/euw/${participant.summonerName}`} selected={participant === ourSummoner}>{participant.summonerName}</SummonerLink>
+                            <SummonerLink to={`/summoner/${selectedRegion}/${participant.riotIdGameName}-${participant.riotIdTagline}`} selected={participant === ourSummoner}>{participant.riotIdGameName}</SummonerLink>
                         </SummonerName>
                     </SummonerWrapper>
                 ))}
@@ -92,7 +94,7 @@ const PlayerList = ({index}) => {
                             <SingleChampion championId={participant.championId}  width={'15px'} height={'15px'}/>
                         </ChampionWrapper>
                         <SummonerName>
-                            <SummonerLink to={`/summoner/euw/${participant.summonerName}`} selected={participant === ourSummoner}>{participant.summonerName}</SummonerLink>
+                            <SummonerLink to={`/summoner/${selectedRegion}/${participant.riotIdGameName}-${participant.riotIdTagline}`} selected={participant === ourSummoner}>{participant.riotIdGameName}</SummonerLink>
                         </SummonerName>
                     </SummonerWrapper>
                 ))}

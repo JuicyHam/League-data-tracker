@@ -9,11 +9,14 @@ const Wrapper = styled.div`
 
 `
 
-const Builds = () => {
+const Builds = ({championData}) => {
+
+    
+
     return(
         <Wrapper>
-            <PrimaryBuilds/>
-            <SecondaryBuilds/>
+            <PrimaryBuilds championData={championData}/>
+            <SecondaryBuilds championData={championData}/>
         </Wrapper>
     );
 };

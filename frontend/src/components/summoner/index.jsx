@@ -29,8 +29,7 @@ const Summoner = () => {
                 <SummonerDataProvider>
                     <SummonerContent/>
                 </SummonerDataProvider>
-            </CenterWrapper>    
-            <Footer/>    
+            </CenterWrapper>      
         </Wrapper>
     );
 }

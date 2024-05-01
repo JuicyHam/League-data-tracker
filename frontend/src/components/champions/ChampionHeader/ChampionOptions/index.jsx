@@ -1,6 +1,6 @@
 import { useContext, useMemo } from "react";
 import styled from "styled-components";
-import { ChampionContext } from "../../../../contexts/ChampionContext";
+
 import ChampionDropdown from "../ChampionDropdowns";
 import rankList from "../../../../Json/rankList";
 import versionList from "../../../../Json/versionList";
@@ -25,7 +25,7 @@ const DropdownWrapper = styled.div`
 const ChampionOptions = () => {
     const { search } = useLocation();
     const queryParams = new URLSearchParams(search);
-    const rank = queryParams.get('rank') || 'Emerald';
+    const rank = queryParams.get('rank') || 'all';
     const region = queryParams.get('region') || 'Global';
     const patch = queryParams.get('patch') || '14.8';
     const navigate = useNavigate();
